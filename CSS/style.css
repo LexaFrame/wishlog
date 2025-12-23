@@ -2,46 +2,64 @@
 *{
     /* border: 1px dashed blue; */
     box-sizing: border-box;
+    /* border: 1px dashed white;
+    background-color: rgba(0,0,0,0.1); */
 }
 
 /* CSS appliqué au body */
 body {
     font-family: Inter, Roboto, Arial, Helvetica, sans-serif;
-    background-color: #F8FAFC;
+    /* background-color: #F8FAFC; */
     margin: 0;
     /* TODO - Fait : mettre margin: 0 */
 }
 
+/* img {
+    max-width:100%;
+} */
+
 /* CSS appliqué au header */
 header {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-content: center;
     background-color: #334155;
     color: #F8FAFC;
     max-width: 1200px;
     margin: auto;
 }
 
+header a {
+    color: white ;
+}
+
 .headerBox {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     align-content: center;
+    /* justify-content: space-between; */
 }
 
 .logo {
     align-self: center;
-    order:-3 ;
+    order:1 ;
     height: 150px;
     margin-left: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.headerCentralUnit {
+    order:2 ;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .languageBox {
-    align-items: flex-start;
-    order: -2;
+    display: flex;
+    align-items: center;
+    order: 2;
+    height: 60px;
     color: #F8FAFC;
+    padding: 20px;
 }
 
 .buttonLanguage {
@@ -71,43 +89,117 @@ header {
 }
 
 .searchBlock {
-
+    display: flex;
+    order: 3;
+    height: 60px;
+    width: 40%;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
 }
 
 .searchForm {
     flex-grow: 2;
+    width: 60%;
 }
 
 .searchBar {
     border-radius : 40px;
-    order:-1
+    padding-left: 8px;
+    width: 100%;
 }
 
 .searchButton {
+    display: inline;
     width: 25px;
     height: 25px;
+    border: none;
+    background: none;
 }
 
 .searchIcon {
-    width: 25px;
+    width: 20px;
+    height: 20px;
+}
+
+.createAccount {
+    height: 60px;
+    width: 120px;
+    align-content: center;
+    order: 4;
+    font-size: 18px;
+    color: #F8FAFC;
+    background-color: #334155;
+    border: 1px solid white;
+    /* padding: 20px; */
+
+}
+.createAccount:hover {
+    height: 60px;
+    width: 120px;
+    align-content: center;
+    order: 4;
+    font-size: 18px;
+    background-color: #F8FAFC;
+    color: #334155;
+    /* padding: 20px; */
+}
+
+.menu {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    order: 5;
+    border-color: #F8FAFC;
+    height: 60px;
+    padding: 20px;
+    border: 1px solid white;
+}
+
+.menu ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 10px;
+}
+
+.menu li {
+  margin-right: 1.5rem;
+}
+
+.menuLink {
+  text-decoration: none;
+  padding: 15px;
+}
+
+.menuLink:hover {
+    background-color: #F8FAFC;
+    color: #334155;
 }
 
 .CTA1 {
     align-self: center;
+    text-align: center;
+    align-content: center;
     order:3;
     height: 150px;
     width: 150px;
     background-color: #D1FAE5;
     color: #334155;
-    border-radius: 10%;
+    text-decoration: none;
+    border-radius: 5%;
     border-color: #000000;
     font-weight:600;
     margin-right: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-left: 20px;
 }
 
 main {
     max-width: 1200px;
     margin: auto;
+    min-height: 80vh;
 }
 
 

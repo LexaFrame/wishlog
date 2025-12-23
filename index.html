@@ -25,52 +25,72 @@
         <!--Logo du site-->
         <img src="images/logo.png" title="WishLog" alt="Logo de Wishlog" class="logo"/>
 
-        <!-- Choix de la langue // aria-haspopup : cet élément ouvre quelque chose ? // aria-expanded : l'élément est ouvert ? // aria-hidden : ignore l'élément pour l'accessibilité -->
-        <div class="languageBox">
-        <button
-          class="buttonLanguage"
-        aria-haspopup="true" 
-        aria-expanded="false"
-        >
-        <span class="tagLanguage">FR</span>
-        <span class="triangle" aria-hidden="true"></span>
-        </button>
-        <ul class="language-menu" hidden>
-          <li><a href="/en/" lang="en">EN</a></li>
-        </ul>
-        </div>
+        <div class="headerCentralUnit">
 
-        <!-- Bloc recherche -->
-        <div class="searchBlock">
-          <!--Insertion de la barre de recherche-->
-          <form action="#" class="searchForm" role="search">
-            <label for="search-input" class="visually-hidden">Rechercher</label>
+          <!-- Choix de la langue // aria-haspopup : cet élément ouvre quelque chose ? // aria-expanded : l'élément est ouvert ? // aria-hidden : ignore l'élément pour l'accessibilité -->
+          <div class="languageBox">
+            <button class="buttonLanguage" aria-haspopup="true" aria-expanded="false">
+              <span class="tagLanguage">FR</span>
+              <span class="triangle" aria-hidden="true"></span>
+            </button>
 
-          <input type="search" name="q" class="searchBar" placeholder="Rechercher" />
+            <ul class="language-menu" hidden>
+            <li><a href="/en/" lang="en">EN</a></li>
+            </ul>
+          </div>
+
+          <!-- Bloc recherche -->
+          <div class="searchBlock">
+            <!--Insertion de la barre de recherche-->
+            <!-- <div class="searchBarBlock"> -->
+              <form action="#" class="searchForm" role="search">
+                <label for="search-input" class="visually-hidden"></label>
+
+              <input type="search" name="q" class="searchBar" placeholder="Rechercher" />
+              </form>
+          </div>
+            
+          <div class=" searchButtonBlock">
               <button type="submit" class="searchButton" aria-label="Lancer la recherche">
-              <img
-              src="images/glass.png"
-              class="searchIcon"
-              alt=""
-              aria-hidden= "true";
-              />
+                <img src="images/magnifying-glass.png" class="searchIcon" alt="" aria-hidden= "true"/>
               </button>
-          </form>
-        </div>
+            </div>
 
-    <!-- Faire une navbar avec des puces -->
+
+
+        <!-- Bouton de connexion / création de compte TODO : vérifier contenu syntaxe -->
+        <button type="" class="createAccount">Connexion</button> 
+
+      <!-- Menu de navigation avec des puces non ordonnées -->
+    <nav class="menu">
+      <ul>
+        <li> <a href="#" class="menuLink">Créer</a></li>
+        <li> <a href="#" class="menuLink">Modifier</a></li>
+        <li> <a href="#" class="menuLink">Partager</a></li>
+        <li> <a href="#" class="menuLink">Contact</a></li>        
+      </ul>
+    </nav>
+
+      </div>
       <!-- BoutonCTA1 -->
-    <button class="CTA1">Créer ma liste</button>
+      <a href="#" class="CTA1">Créer ma liste</a>
     </div>
     </header>
 
 
-
-
     <main>
+      <h1>
+        Wishlog
+      </h1>
+
+    </main>
+
+    <footer>
+      <p>Lorem ipsum dolor sit amet.</p>
+    </footer>
+
 <script src="js/index.js">
 
 </script>
-    </main>
   </body>
   </html>
