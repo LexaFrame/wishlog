@@ -48,13 +48,14 @@
 
               <input type="search" name="q" class="searchBar" placeholder="Rechercher" />
               </form>
-          </div>
+
             
           <div class=" searchButtonBlock">
               <button type="submit" class="searchButton" aria-label="Lancer la recherche">
                 <img src="images/magnifying-glass.png" class="searchIcon" alt="" aria-hidden= "true"/>
               </button>
             </div>
+          </div>
 
 
 
@@ -64,9 +65,9 @@
       <!-- Menu de navigation avec des puces non ordonnées -->
     <nav class="menu">
       <ul>
-        <li> <a href="#" class="menuLink">Créer</a></li>
-        <li> <a href="#" class="menuLink">Modifier</a></li>
-        <li> <a href="#" class="menuLink">Partager</a></li>
+        <li> <a href="#" class="menuLink">Créer</a><span class="separation">|</span></li>
+        <li> <a href="#" class="menuLink">Modifier</a><span class="separation">|</span></li>
+        <li> <a href="#" class="menuLink">Partager</a><span class="separation">|</span></li>
         <li> <a href="#" class="menuLink">Contact</a></li>        
       </ul>
     </nav>
@@ -86,7 +87,42 @@
     </main>
 
     <footer>
-      <p>Lorem ipsum dolor sit amet.</p>
+      <!-- Conteneur du footer -->
+      <div class="footerBox">
+
+        <!-- Conteneur de la section "À propos" -->
+        <div class="aboutBox">
+          <span>À propos</span>
+            <ul>
+              <li> <a href="#" class="aboutLink">Qui sommes-nous ?</a></li>
+              <li> <a href="#" class="aboutLink">F.A.Q.</a></li>
+              <li> <a href="#" class="aboutLink">Contact</a></li>
+              <li> <a href="#" class="aboutLink">Plan du site</a></li>      
+            </ul>
+        </div>
+
+        <!-- Logo du site -->
+        <div class="footerLogoBox">
+          <img src="images/logo.png" title="WishLog" alt="Logo de Wishlog" class="logoFooter"/>
+          <!-- Réseaux sociaux -->
+            <span class="RS">Réseaux sociaux</span>
+            <!-- Insérer boutons icônes liens RS ci-dessous -->
+        </div>
+
+        <!-- Conteneur de la section "Informations" -->
+        <div class="infoBox">
+            <span>Informations</span>
+            <ul>
+              <li> <a href="#" class="infoBoxLink">Partenaires</a></li>
+              <li> <a href="#" class="infoBoxLink">Presse</a></li>
+              <li> <a href="#" class="infoBoxLink">Politique de confidentialité</a></li>
+              <li> <a href="#" class="infoBoxLink">Mentions légales</a></li>
+            </ul>
+        </div>
+      </div>
+      <div class="copyrightBox">
+        <span>© 2025 - www.wishlog.com - Tous droits réservés.</span>
+      </div>
     </footer>
 
 <script src="js/index.js">

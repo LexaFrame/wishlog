@@ -35,7 +35,8 @@ header a {
     flex-wrap: wrap;
     flex-direction: row;
     align-content: center;
-    /* justify-content: space-between; */
+    /* align-items: baseline; */
+    justify-content: space-between;
 }
 
 .logo {
@@ -51,6 +52,9 @@ header a {
     order:2 ;
     display: flex;
     flex-wrap: wrap;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-content: center;
 }
 
 .languageBox {
@@ -60,12 +64,13 @@ header a {
     height: 60px;
     color: #F8FAFC;
     padding: 20px;
+    margin-top: 5px;
 }
 
 .buttonLanguage {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 10px;
   background: none;
   border: none;
   cursor: pointer;
@@ -73,39 +78,44 @@ header a {
 }
 
 .tagLanguage {
-    width: 15px;
-    height: 15px;
+    width: 18px;
+    height: 18px;
     color: #F8FAFC;
+    font-size: 18px;
+    font-weight: 100;
 }
 
 .triangle {
-  width: 0;
-  height: 0;
+  width: 10px;
+  height: 10px;
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
   border-top: 6px solid currentColor;
   color: #F8FAFC;
-  margin-left: 5px;
+
 }
 
 .searchBlock {
     display: flex;
+    flex-grow: 2;
     order: 3;
     height: 60px;
     width: 40%;
     align-items: center;
     justify-content: center;
     padding: 20px;
+    margin-top: 5px;
 }
 
 .searchForm {
     flex-grow: 2;
-    width: 60%;
+    /* max-width: 100%; */
 }
 
 .searchBar {
     border-radius : 40px;
     padding-left: 8px;
+    height: 30px;
     width: 100%;
 }
 
@@ -118,8 +128,8 @@ header a {
 }
 
 .searchIcon {
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
 }
 
 .createAccount {
@@ -128,10 +138,13 @@ header a {
     align-content: center;
     order: 4;
     font-size: 18px;
+    font-weight: 100;
     color: #F8FAFC;
     background-color: #334155;
-    border: 1px solid white;
+    border: none;
+    /* border: 1px solid white; */
     /* padding: 20px; */
+    margin-top: 5px;
 
 }
 .createAccount:hover {
@@ -153,7 +166,7 @@ header a {
     border-color: #F8FAFC;
     height: 60px;
     padding: 20px;
-    border: 1px solid white;
+    /* border: 1px solid white; */
 }
 
 .menu ul {
@@ -164,18 +177,22 @@ header a {
 }
 
 .menu li {
-  margin-right: 1.5rem;
+  /* margin-right: 1.5rem; */
 }
 
 .menuLink {
   text-decoration: none;
   padding: 15px;
+  font-size: 18px;
+  font-weight: 100;
 }
 
 .menuLink:hover {
     background-color: #F8FAFC;
     color: #334155;
 }
+
+
 
 .CTA1 {
     align-self: center;
@@ -189,17 +206,96 @@ header a {
     text-decoration: none;
     border-radius: 5%;
     border-color: #000000;
-    font-weight:600;
+    font-weight: 600;
     margin-right: 5px;
     margin-top: 5px;
     margin-bottom: 5px;
-    padding-left: 20px;
 }
 
 main {
     max-width: 1200px;
     margin: auto;
     min-height: 80vh;
+}
+
+footer {
+    background-color: #334155;
+    color: #F8FAFC;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.footerBox {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.aboutBox {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    border-color: #F8FAFC;
+    /* order: 1; */
+    /* height: 60px;
+    padding: 20px; */
+    /* border: 1px solid white; */
+}
+
+/* .aboutBox ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 10px;
+} */
+
+.aboutLink {
+  text-decoration: none;
+  color: #F8FAFC;
+  /* padding: 15px; */
+  font-size: 18px;
+  font-weight: 100;
+}
+
+.aboutLink:hover {
+    text-decoration: underline;
+    color: #F8FAFC;
+}
+
+.footerLogoBox {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.logoFooter {
+    align-self: center;
+    height: 100px;
+}
+
+.infoBoxLink {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    text-decoration: none;
+    color: #F8FAFC;
+    font-size: 18px;
+    font-weight: 100;
+}
+
+.infoBoxLink:hover {
+    text-decoration: underline;
+    color: #F8FAFC;
+}
+
+.copyrightBox {
+    text-align: center;
+    border-top: 1px solid white;
+    padding: 10px;
+    margin: 10px;
 }
 
 
