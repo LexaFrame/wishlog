@@ -114,6 +114,7 @@ header a {
 
 .searchBar {
     border-radius : 40px;
+    border-style: none;
     padding-left: 8px;
     height: 30px;
     width: 100%;
@@ -232,6 +233,7 @@ footer {
     align-content: center;
     align-items: center;
     justify-content: space-evenly;
+    padding-top: 20px;
 }
 
 .aboutBox {
@@ -245,6 +247,10 @@ footer {
     /* border: 1px solid white; */
 }
 
+.aboutBox span {
+    text-decoration: underline;
+    font-size: 18px;
+}
 /* .aboutBox ul {
   display: flex;
   list-style: none;
@@ -255,8 +261,7 @@ footer {
 .aboutLink {
   text-decoration: none;
   color: #F8FAFC;
-  /* padding: 15px; */
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 100;
 }
 
@@ -274,6 +279,21 @@ footer {
 .logoFooter {
     align-self: center;
     height: 100px;
+    padding-top: 10px;
+}
+
+.socialMedia {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.buttonSocialMedia {
+    flex-direction: row;
+    height: 24px;
 }
 
 .infoBoxLink {
@@ -282,13 +302,18 @@ footer {
     flex-direction: column;
     text-decoration: none;
     color: #F8FAFC;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 100;
 }
 
 .infoBoxLink:hover {
     text-decoration: underline;
     color: #F8FAFC;
+}
+
+.infoBox span {
+    text-decoration: underline;
+    font-size: 18px;
 }
 
 .copyrightBox {
