@@ -222,6 +222,11 @@ main {
     background-color: #FFFFFF;
 }
 
+.hookSection {
+    display:flex;
+    flex-direction: column;
+}
+
 h1 {
     color: #1E293B;
     text-align: center;
@@ -230,6 +235,7 @@ h1 {
 }
 
 hr {
+    width: 90%;
     color:#334155;    
 }
 
@@ -241,7 +247,22 @@ hr {
 }
 
 .CTA2 {
-    /* Styliser le bouton */
+    align-self: center;
+    text-align: center;
+    align-content: center;
+    height: 80px;
+    width: 300px;
+    background-color: #D1FAE5;
+    color: #334155;
+    text-decoration: none;
+    border-radius: 5%;
+    border-color: #334155;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.CTA2:hover {
+    text-decoration: underline;
 }
 
 .descriptionSection {
@@ -254,12 +275,15 @@ hr {
 
 .descriptionParagraph1 {
     text-align: center;
+    color: #334155;
     font-size: 24px;
 }
 
 .descriptionParagraph2 {
     text-align: center;
+    color: #334155;
     font-size: 26px;
+    font-weight: 800;
 }
 
 .optionsList {
@@ -283,13 +307,15 @@ hr {
     justify-content: center;
     text-align: center;
     background-color:   #FFFFFF;
+    color: #334155;
+    font-weight: 600;
+    border-color: #334155;
     border-radius: 5px;
     box-shadow: #E2E8F0;
     box-sizing: border-box;
     width: 200px;
     height: 200px;
     padding: 20px;
-   
     overflow: hidden;
     outline-offset: -6px; 
 }
