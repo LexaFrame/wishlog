@@ -9,7 +9,7 @@
 /* CSS appliqué au body */
 body {
     font-family: Inter, Roboto, Arial, Helvetica, sans-serif;
-    background-color: #F8FAFC;
+    /* background-color: #F8FAFC; */
     margin: 0;
     /* TODO - Fait : mettre margin: 0 */
 }
@@ -43,9 +43,9 @@ header a {
     align-self: center;
     order:1 ;
     height: 150px;
-    margin-left: 10px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-left: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .headerCentralUnit {
@@ -208,100 +208,15 @@ header a {
     border-radius: 5%;
     border-color: #000000;
     font-weight: 600;
-    margin-right: 10px;
+    margin-right: 5px;
     margin-top: 5px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
-
-/* TODO créer un hover pour le CTA1 */
 
 main {
     max-width: 1200px;
     margin: auto;
     min-height: 80vh;
-    background-color: #FFFFFF;
-}
-
-h1 {
-    color: #1E293B;
-    text-align: center;
-    font-size: 24px;
-    padding-top: 20px;
-}
-
-hr {
-    color:#334155;    
-}
-
-.slogan {
-    color: #475569; 
-    font-size: 30px;
-    text-align: center;
-    font-weight: 800;   
-}
-
-.CTA2 {
-    /* Styliser le bouton */
-}
-
-.descriptionSection {
-    background-color: #F1F5F9;
-    color: #1E293B;
-    margin-top: 20px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
-
-.descriptionParagraph1 {
-    text-align: center;
-    font-size: 24px;
-}
-
-.descriptionParagraph2 {
-    text-align: center;
-    font-size: 26px;
-}
-
-.optionsList {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    align-content: center;
-    gap: 24px;
-    padding-top: 20px;
-    padding-left: 200px;
-    padding-right: 200px;
-}
-
-.cardsOptions {
-    /* flex: 0 0 auto; */
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    background-color:   #FFFFFF;
-    border-radius: 5px;
-    box-shadow: #E2E8F0;
-    box-sizing: border-box;
-    width: 200px;
-    height: 200px;
-    padding: 20px;
-   
-    overflow: hidden;
-    outline-offset: -6px; 
-}
-
-/* Détacher la bordure de la card */
-.cardsOptions::before {
-    content: "";
-    position: absolute;
-    inset: 12px;
-    border-radius: 3px;
-    border: 1px solid #334155;
-    pointer-events: none;
 }
 
 footer {
@@ -381,12 +296,6 @@ footer {
     height: 24px;
 }
 
-.infoBox {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-}
-
 .infoBoxLink {
     display: flex;
     flex-wrap: wrap;
@@ -416,81 +325,17 @@ footer {
 
 /* Responsive pour mobile */
 @media screen and (max-width: 600px) {
-.headerBox {
-    flex-direction: column;
-}
-
-.headerCentralUnit {
-    flex-direction: column;
-    align-items: center;
-}
-
-.languageBox {
-    height: 15px;
-}
-
-.searchBlock {
-    width: 70%;
-}
-
-.optionsList {
-    padding-left: 80px;
-    padding-right: 80px;
-}
-.footerBox {
-    flex-direction: column;
-    text-align: center;
-}
-
-/* .footerBox ul {
-    padding-left: 0;
-    margin-left: 0;
-    list-style-position: inside;
-} */
-
-/* .footerBox li {
-    padding-left: 1.2em;
-    margin: 6px 0;
-} */
-
-/* .aboutBox {
-
-} */
-
-.aboutBox span {
-    text-align: center;
-    /* display: block;
-    text-align: center;
-    margin-bottom: 10px; */
-}
-
-ul {
-    text-align: left;
-}
-
-.infoBox {
-
-}
-
-.infoBox span {
-    text-align: center;
-    /* display: block;
-    text-align: center;
-    margin-bottom: 10px; */
-}
 
 }
 
 /* Proposition palette 2
 
 Fond principal        #F8FAFC   (gris très clair)
-Fond section secondaire #F1F5F9
 Fond cartes           #FFFFFF
 Bordures              #E2E8F0
 
 Texte principal       #1E293B
 Texte secondaire      #475569
-Texte section 2ndaire   #1E293B
 
 Fond header           #334155   (gris bleuté foncé)
 Texte header          #F8FAFC
