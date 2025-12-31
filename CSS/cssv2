@@ -30,6 +30,7 @@ header a {
     flex-wrap: wrap;
     flex-direction: row;
     align-content: center;
+    /* align-items: baseline; */
     justify-content: space-between;
 }
 
@@ -46,6 +47,7 @@ header a {
     order:2 ;
     display: flex;
     flex-wrap: wrap;
+    /* flex-direction: column; */
     justify-content: center;
     align-content: center;
 }
@@ -130,14 +132,14 @@ header a {
     height: 60px;
     width: 120px;
     align-content: center;
-    text-align: center;
     order: 4;
     font-size: 18px;
     font-weight: 100;
     color: #F8FAFC;
     background-color: #334155;
-    text-decoration: none;
     border: none;
+    /* border: 1px solid white; */
+    /* padding: 20px; */
     margin-top: 5px;
 
 }
@@ -149,7 +151,7 @@ header a {
     font-size: 18px;
     background-color: #F8FAFC;
     color: #334155;
-    /* text-decoration: underline; */
+    /* padding: 20px; */
 }
 
 .menu {
@@ -160,6 +162,7 @@ header a {
     border-color: #F8FAFC;
     height: 60px;
     padding: 20px;
+    /* border: 1px solid white; */
 }
 
 .menu ul {
@@ -170,7 +173,7 @@ header a {
 }
 
 .menu li {
-
+  /* margin-right: 1.5rem; */
 }
 
 .menuLink {
@@ -210,8 +213,6 @@ header a {
     background-color: #059364;
     color: #F8FAFC;
 }
-
-/* Main */
 
 main {
     max-width: 1200px;
@@ -300,6 +301,7 @@ hr {
 }
 
 .cardsOptions {
+    /* flex: 0 0 auto; */
     position: relative;
     display: flex;
     flex-direction: column;
@@ -319,7 +321,7 @@ hr {
     outline-offset: -6px; 
 }
 
-    /* Détacher la bordure de la card */
+/* Détacher la bordure de la card */
 .cardsOptions::before {
     content: "";
     position: absolute;
@@ -328,8 +330,6 @@ hr {
     border: 1px solid #334155;
     pointer-events: none;
 }
-
-/* Footer */
 
 footer {
     background-color: #334155;
@@ -349,17 +349,27 @@ footer {
 }
 
 .aboutBox {
-    display:flex;
-    justify-content: flex-start;
+    display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     border-color: #F8FAFC;
     width: 200px;
+    /* order: 1; */
+    /* height: 60px;
+    padding: 20px; */
+    /* border: 1px solid white; */
 }
 
 .aboutBox span {
     text-decoration: underline;
     font-size: 18px;
 }
+/* .aboutBox ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 10px;
+} */
 
 .aboutLink {
   text-decoration: none;
@@ -374,10 +384,13 @@ footer {
 }
 
 .footerLogoBox {
-
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
 }
 
 .logoFooter {
+    align-self: center;
     height: 100px;
     padding-top: 10px;
 }
@@ -392,16 +405,20 @@ footer {
 }
 
 .buttonSocialMedia {
+    flex-direction: row;
     height: 24px;
 }
 
 .infoBox {
-    display:flex;
-    justify-content: flex-start;
+    display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
 }
 
 .infoBoxLink {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
     text-decoration: none;
     color: #F8FAFC;
     font-size: 16px;
@@ -427,9 +444,6 @@ footer {
 
 /* Responsive pour mobile */
 @media screen and (max-width: 600px) {
-
-    /* Header mobile */
-
 .headerBox {
     flex-direction: column;
 }
@@ -447,51 +461,60 @@ footer {
     width: 70%;
 }
 
-    /* Main mobile */
-
 .optionsList {
     padding-left: 80px;
     padding-right: 80px;
 }
-
-    /* Footer mobile */
-
 .footerBox {
     flex-direction: column;
-    align-items: center;
+    text-align: center;
 }
 
 .footerBox ul{
+    /* list-style-position: inside; */
     width: 100%;
     max-width: 300px;
     margin: 0 auto;
     padding-left: 20px;
     text-align: left;
 }
+/* .footerBox ul {
+    padding-left: 0;
+    margin-left: 0;
+    list-style-position: inside;
+} */
+
+/* .footerBox li {
+    padding-left: 1.2em;
+    margin: 6px 0;
+} */
+
+/* .aboutBox {
+
+} */
 
 .aboutBox span {
     text-align: center;
+    /* display: block;
+    text-align: center;
+    margin-bottom: 10px; */
+}
+
+ul {
+    text-align: left;
+}
+
+.infoBox {
+
 }
 
 .infoBox span {
     text-align: center;
+    /* display: block;
+    text-align: center;
+    margin-bottom: 10px; */
 }
 
-.aboutBox,
-.infoBox {
-    width: 260px;
-    text-align: left;
-}
-
-.aboutBoxList {
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
-
-.infoBoxList {
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
 }
 
 /* Responsive layout intermédiaire */

@@ -3,7 +3,7 @@
   <head>
     <!-- Encodage du site -->
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width-device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Mots-clés pour aider le référencement -->
     <meta name="author" content="Sarah Segui Bilger" />
@@ -41,7 +41,10 @@
 
           <!-- Bloc recherche -->
           <div class="searchBlock">
+
             <!--Insertion de la barre de recherche-->
+
+          <!-- TODO : le bouton submit doit être dans la balise form. Il faut régler le souci avec l'image de loupe pour que tout cela fonctionne correctement -->
             <!-- <div class="searchBarBlock"> -->
               <form action="#" class="searchForm" role="search">
                 <label for="search-input" class="visually-hidden"></label>
@@ -57,9 +60,8 @@
             </div>
           </div>
 
-
-        <!-- TODO Bouton de connexion / création de compte TODO : vérifier contenu syntaxe -->
-        <button type="" class="createAccount">Connexion</button> 
+        <!-- Bouton de connexion -->
+         <a href="#" class="createAccount">Connexion</a>
 
       <!-- Menu de navigation avec des puces non ordonnées -->
     <nav class="menu">
@@ -83,18 +85,18 @@
       <!-- Section d'accroche-->
       <section class="hookSection">
 
-      <!-- H1 descriptif concis du contenu du site -->
-      <h1>
-        La liste de cadeaux universelle & gratuite !
-      </h1>
-      <!-- Barre de séparation -->
-      <hr/>
+        <!-- H1 descriptif concis du contenu du site -->
+        <h1>
+          La liste de cadeaux universelle & gratuite !
+        </h1>
+        <!-- Barre de séparation -->
+        <hr/>
       
-      <!-- Accroche et CTA incitant à créer un compte et une liste -->
-      <p class="slogan"> Créez, choisissez, partagez !</p>
+        <!-- Accroche et CTA incitant à créer un compte et une liste -->
+        <p class="slogan"> Créez, choisissez, partagez !</p>
 
-      <!-- TODO CTA2 - TODO : vérifier contenu syntaxe -->
-      <a href="#" class="CTA2">Commencez maintenant</a>
+        <!-- CTA2 -->
+        <a href="#" class="CTA2">Commencez maintenant</a>
       </section>
 
       <!-- Section descriptive  détaillée de ce que propose le site  -->
@@ -134,19 +136,20 @@
         <!-- Conteneur de la section "À propos" -->
         <div class="aboutBox">
           <span>À propos</span>
+          <div class="aboutBoxList">
             <ul>
-              <li> <a href="#" class="aboutLink">Qui sommes-nous ?</a></li>
-              <li> <a href="#" class="aboutLink">F.A.Q.</a></li>
-              <li> <a href="#" class="aboutLink">Contact</a></li>
-              <li> <a href="#" class="aboutLink">Plan du site</a></li>      
+              <li><a href="#" class="aboutLink">Qui sommes-nous ?</a></li>
+              <li><a href="#" class="aboutLink">F.A.Q.</a></li>
+              <li><a href="#" class="aboutLink">Contact</a></li>
+              <li><a href="#" class="aboutLink">Plan du site</a></li>      
             </ul>
+          </div>
         </div>
 
         <!-- Logo du site -->
         <div class="footerLogoBox">
           <img src="images/logo.png" title="WishLog" alt="Logo de Wishlog" class="logoFooter"/>
           <!-- Réseaux sociaux -->
-            <!-- <span class="RS">Réseaux sociaux</span> -->
             <!-- Insérer boutons icônes liens RS ci-dessous -->
             <div class="socialMedia">
               <a href="https://www.facebook.com/">
@@ -161,12 +164,14 @@
         <!-- Conteneur de la section "Informations" -->
         <div class="infoBox">
             <span>Informations</span>
+            <div class="infoBoxList">
             <ul>
-              <li> <a href="#" class="infoBoxLink">Partenaires</a></li>
-              <li> <a href="#" class="infoBoxLink">Presse</a></li>
-              <li> <a href="#" class="infoBoxLink">Politique de confidentialité</a></li>
-              <li> <a href="#" class="infoBoxLink">Mentions légales</a></li>
+              <li><a href="#" class="infoBoxLink">Partenaires</a></li>
+              <li><a href="#" class="infoBoxLink">Presse</a></li>
+              <li><a href="#" class="infoBoxLink">Politique de confidentialité</a></li>
+              <li><a href="#" class="infoBoxLink">Mentions légales</a></li>
             </ul>
+            </div>
         </div>
       </div>
       <div class="copyrightBox">
