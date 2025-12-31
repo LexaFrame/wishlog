@@ -43,21 +43,14 @@
           <div class="searchBlock">
 
             <!--Insertion de la barre de recherche-->
-
-          <!-- TODO : le bouton submit doit être dans la balise form. Il faut régler le souci avec l'image de loupe pour que tout cela fonctionne correctement -->
-            <!-- <div class="searchBarBlock"> -->
-              <form action="#" class="searchForm" role="search">
-                <label for="search-input" class="visually-hidden"></label>
-
-              <input type="search" name="q" class="searchBar" placeholder="Rechercher" />
-              </form>
-
-            
-          <div class=" searchButtonBlock">
-              <button type="submit" class="searchButton" aria-label="Lancer la recherche">
-                <img src="images/magnifying-glass.png" class="searchIcon" alt="" aria-hidden= "true"/>
-              </button>
-            </div>
+            <form action="#" class="searchForm" role="search">
+              <label for="search-input" class="visually-hidden"></label>
+              <input type="search" name="q" id="searchInput" class="searchBar" placeholder="Rechercher" />
+            <!-- Bouton recherche -->
+            <button type="submit" class="searchButton" aria-label="Lancer la recherche">
+              <img src="images/magnifying-glass.png" class="searchIcon" alt="" aria-hidden= "true"/>
+            </button>
+            </form>
           </div>
 
         <!-- Bouton de connexion -->
