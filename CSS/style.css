@@ -421,6 +421,149 @@ footer {
     margin: 10px;
 }
 
+/* CSS Page Contact */
+
+.contactSection {
+    background-color: #FFFFFF;
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    /* padding-left: 200px;
+    padding-right: 200px; */
+
+
+    /* margin-top: 30px;
+    padding-bottom: 60px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 2px 2px 12px #b6b6b6; */
+    /* min-height: 80vh; */
+
+}
+
+/* .contactPageIntro {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+} */
+
+/* .pageTitleBox {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+} */
+
+.h1Contact {
+    display: block;
+    color: #475569; 
+    font-size: 30px;
+    text-align: center;
+    font-weight: 800; 
+}
+
+.pageParagraphBox {
+    padding-bottom: 20px;
+}
+.contactP {
+    display: block;
+    font-size: 18px;
+}
+
+.contactFormSection {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* TODO Le code ci-dessous est nécessaire pour aligner le bouton envoyer mais il dérange le reste du formulaire (peut aussi être appliqué à contactFormSection)
+.form {
+    text-align: center;
+} */
+
+label {
+    font-size: 18px;
+}
+
+.inputFields {
+    font-size: 17px;
+}
+
+.idBlock {
+    padding-bottom: 10px;
+}
+
+.rowId {
+    display: inline;
+}
+
+.messageLabel {
+    display: block;
+    padding-bottom: 10px;
+}
+
+.required {
+    color: crimson;
+}
+
+.cityAndCodeBlock {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#firstName, #name, #email, #phone, #address, #city, #postalCode, #message {
+    width: 300px;
+}
+
+.addressBlock {
+    display: inline;
+    gap: 20px;
+}
+
+#subject {
+    font-size: 17px;
+}
+
+#message {
+    width: 770px;
+}
+
+.emailBlock, .phoneBlock, .rowAddress, .subjectBlock, .messageBlock, .submitFormButton {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.submitFormButton {
+    display: flex;
+    justify-content: center;
+}
+.submitButton {
+    font-size: 20px;
+    padding: 10px 20px 10px 20px;
+    margin-bottom: 30px;
+    background-color: #475569;
+    color:  #F8FAFC;
+    border-radius: 5px;
+    border-color: #475569;
+}
+
+.submitButton:hover {
+    background-color: #059364;
+    color: #F8FAFC;
+    border-color: #475569;
+    /* Couleur alternative : 
+    background-color: #F1F5F9;
+    color: #1E293B; */    
+}
+
 /* Responsive pour mobile */
 @media screen and (max-width: 600px) {
 
@@ -488,6 +631,40 @@ footer {
     padding-top: 20px;
     padding-bottom: 20px;
 }
+
+    /* CSS page contact Mobile */
+.rowId {
+    display: block;
+}
+
+label {
+    display: block;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 18px;
+}
+
+.inputFields {
+    padding-bottom: 10px;
+}
+
+.cityAndCodeBlock {
+    padding: 0px;
+}
+
+#message {
+    width: 300px;
+}
+
+.emailBlock, .phoneBlock, .rowAddress, .subjectBlock, .messageBlock, .submitFormButton {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.submitButton {
+    margin-top: 10px;
+}
+
 }
 
 /* Responsive layout intermédiaire */
@@ -501,6 +678,41 @@ footer {
 .headerCentralUnit {
     justify-content: center;
 }
+
+/* CSS Page Contact layout intermédiaire */
+
+.rowId {
+    display: block;
+}
+
+label {
+    display: block;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 18px;
+}
+
+.inputFields {
+    padding-bottom: 10px;
+}
+
+.cityAndCodeBlock {
+    padding: 0px;
+}
+
+#message {
+    width: 300px;
+}
+
+.emailBlock, .phoneBlock, .rowAddress, .subjectBlock, .messageBlock, .submitFormButton {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.submitButton {
+    margin-top: 10px;
+}
+
 }
 
 /* Proposition palette 2

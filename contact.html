@@ -62,7 +62,7 @@
         <li> <a href="#" class="menuLink">Créer</a><span class="separation">|</span></li>
         <li> <a href="#" class="menuLink">Modifier</a><span class="separation">|</span></li>
         <li> <a href="#" class="menuLink">Partager</a><span class="separation">|</span></li>
-        <li> <a href="contact.html" class="menuLink">Contact</a></li>        
+        <li> <a href="#" class="menuLink">Contact</a></li>        
       </ul>
     </nav>
 
@@ -74,52 +74,101 @@
 
 
     <main>
+        <!-- Introduction à la page Contact -->
+        <section class="contactSection">
 
-      <!-- Section d'accroche-->
-      <section class="hookSection">
+            <!-- Div à rétablir si nécessaire <div class="contactPageIntro"> -->
+                
+                <!-- Titre de la page -->
+                <div class="pageTitleBox">
+                    <h1 class="h1Contact">Contact</h1>
+                </div>
 
-        <!-- H1 descriptif concis du contenu du site -->
-        <h1>
-          La liste de cadeaux universelle & gratuite !
-        </h1>
-        <!-- Barre de séparation -->
-        <hr/>
-      
-        <!-- Accroche et CTA incitant à créer un compte et une liste -->
-        <p class="slogan"> Créez, choisissez, partagez !</p>
+                <!-- Paragraphe contact -->
+                <div class="pageParagraphBox">
+                    <p class="contactP">Créer et partager ses envies doit rester simple et agréable. Pour toute question, souci technique ou idée d'amélioration, écrivez-nous.</p>
+                </div>
 
-        <!-- CTA2 -->
-        <a href="#" class="CTA2">Commencez maintenant</a>
-      </section>
+            <!-- </div> -->
+        </section>
+        <!-- Formulaire de contact -->
+        <section class="contactFormSection">
 
-      <!-- Section descriptive  détaillée de ce que propose le site  -->
-      <section class="descriptionSection">
-        <p class="descriptionParagraph1">Anniversaires, fêtes, naissances, mariages...</p>
-        <p class="descriptionParagraph2">WishLog est LE partenaire de tous vos évènements !</p>
+            <!-- Début formulaire -->
+            
+            <div class="formCard">
+            <form class="form">
 
-        <!-- Cards présentant les options d'utilisation disponibles -->
-        <div class="optionsList">
-          <div class="cardsOptions">
-            <p>Tous les magasins</p>
-          </div>
-          <div class="cardsOptions">
-            <p>Personnalisé</p>            
-          </div>
-          <div class="cardsOptions">
-            <p>Nomade</p>           
-          </div>
-          <div class="cardsOptions"> 
-            <p>Fonction : ne pas gâcher la surprise</p>                     
-          </div>
-          <div class="cardsOptions">
-            <p>Gratuit</p>                      
-          </div>        
-          <div class="cardsOptions">
-            <p>Sans publicité</p>                       
-          </div>          
-        </div>
+              <!-- Champs d'identification -->
+              <div class="idBlock">
+                <div class="rowId">
+                    <label for="firstName">Prénom<span class="required"> *</span></label>
+                    <input type="text" id="firstName" class="inputFields" name="firstName" placeholder="Entrez votre prénom" required>
+                </div>
+                <div class="rowId">
+                  <label for="name">Nom<span class="required"> *</span></label>
+                  <input type="text" id="name" class="inputFields" class="nameLabel" name="name" placeholder="Entrez votre nom" required>
+                </div>
+              </div>
 
-      </section>
+              <!-- Champ e-mail -->
+              <div class="emailBlock">
+                  <label for="email">E-mail<span class="required"> *</span></label>
+                  <input type="email" id="email" class="inputFields" name="email" placeholder="votre.email@example.com" required>
+              </div>
+
+              <!-- Champ n° téléphone -->
+              <div class="phoneBlock">
+                <label for="phone">Téléphone</label>
+                <input type="tel" id="phone" class="inputFields" name="phone" placeholder="06 12 34 56 78">
+              </div>
+
+              <!-- Champs adresse -->
+
+                <div class="rowAddress">
+                  <label for="address">Adresse<span class="required"> *</span></label>
+                  <input type="text" id="address" class="inputFields" name="address" required placeholder="Entrez votre adresse">
+                </div>
+                <div class="cityAndCodeBlock">
+                <div class="addressBlock">
+                  <label for="city">Ville<span class="required"> *</span></label>
+                  <input type="text" id="city" class="inputFields" name="city" required placeholder="Entrez votre ville">
+                </div>
+                <div class="addressBlock">
+                <label for="postalCode">Code postal<span class="required"> *</span></label>
+                <input type="text" id="postalCode" class="inputFields" name="postalCode" placeholder="Entrez votre code postal" required>
+                </div>
+                </div>
+
+              <!-- Sélection sujet -->              
+              <div class="subjectBlock">
+                <label for="subject">Sujet<span class="required"> *</span></label>
+                <select id="subject" name="subject" required>
+                  <option value="selection">-- Sélectionnez un sujet --</option>
+                  <option value="technicalIssue">Problème technique</option>
+                  <option value="infoDemand">Demande d'informations</option>
+                  <option value="hiring">Recrutement</option>
+                </select>  
+              </div>
+
+              <!-- Zone de saisie du message -->
+              <div class="messageBlock">
+                <label for="message" class="messageLabel">Message<span class="required"> *</span></label>
+                <textarea id="message" name="message" class="inputFields" placeholder="Entrez votre message..." rows="5" cols="30" required> Entrez votre message...
+                </textarea>
+              </div>
+
+            <!-- Bouton d'envoi -->
+            <div class="submitFormButton">
+            <button class="submitButton" type="submit">Envoyer</button>
+            </div>
+
+             </form>
+
+            </div>
+            
+        </section>
+
     </main>
 
     <footer>
