@@ -31,15 +31,18 @@ header a {
     flex-direction: row;
     align-content: center;
     justify-content: space-between;
+    /* TODO voir pourquoi affichage header desktop problématique */
 }
 
 .logo {
     align-self: center;
     order:1 ;
     height: 150px;
+    width: 150px;
     margin-left: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
+    border-radius: 5px;
 }
 
 .headerCentralUnit {
@@ -375,7 +378,10 @@ footer {
 
 .logoFooter {
     height: 100px;
-    padding-top: 10px;
+    width: 100px;
+    /* padding-top: 10px; */
+    margin-top: 10px;
+    border-radius: 5px;
 }
 
 .socialMedia {
@@ -564,6 +570,90 @@ label {
     color: #1E293B; */    
 }
 
+/* CSS de Page Wishlist */
+
+.h1Wishlist {
+    display: block;
+    color: #475569; 
+    font-size: 30px;
+    text-align: center;
+    font-weight: 800; 
+}
+
+.wishlistBanner {
+  width: 100%;
+  max-width: 1200px;
+  height: 400px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.wishlistDescriptionSection {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 40px 60px 40px 60px;
+}
+
+.wishlistDescriptionParagraph {
+    color: #475569;
+}
+
+.personalDataSection {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    background-color: #F1F5F9;
+    color: #1E293B;
+    border: 1px solid #1E293B;
+    /* margin-top: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px; */
+}
+
+.eventDataSection {
+
+}
+
+.eventDataParagraph {
+    color: #475569;
+}
+
+.wishlistSeparation {
+    color: #1E293B;
+}
+
+/* .wishlistHr {
+    color: #F1F5F9;
+} */
+
+.idDataSection {
+    color: #475569;
+}
+
+.wishlistProductsSection {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.filterBox {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+.filterParagraph {
+    display: inline;
+    color: #334155;
+    border: 1px solid #334155;
+    padding: 20px 60px 20px 60px;
+}
+
 /* Responsive pour mobile */
 @media screen and (max-width: 600px) {
 
@@ -633,6 +723,12 @@ label {
 }
 
     /* CSS page contact Mobile */
+
+.idBlock {
+    padding-bottom: 0px;
+}
+
+
 .rowId {
     display: block;
 }
@@ -642,10 +738,6 @@ label {
     padding-top: 10px;
     padding-bottom: 10px;
     font-size: 18px;
-}
-
-.inputFields {
-    padding-bottom: 10px;
 }
 
 .cityAndCodeBlock {
@@ -663,6 +755,45 @@ label {
 
 .submitButton {
     margin-top: 10px;
+}
+
+/* CSS Page Wishlist Mobile */
+
+.wishlistDescriptionSection {
+    padding: 40px 30px 40px 30px;
+}
+.personalDataSection {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    background-color: #F1F5F9;
+    color: #1E293B;
+}
+
+.eventDataParagraph {
+    padding: 0px 20px 0px 20px;
+}
+
+.wishlistSeparation {
+    color: #F1F5F9;
+}
+
+.idDataParagraph {
+    padding: 0px 20px 0px 20px;
+}
+
+/* .wishlistHr {
+    color: #1E293B;
+    width: 200px;
+} */
+
+.filterBox {
+    justify-content: center;
+    gap: 10px;
+}
+
+.filterParagraph {
+    padding: 20px 40px 20px 40px;
 }
 
 }
