@@ -1,11 +1,11 @@
 [
     {
         "imageURL" : "https://www.lego.com/cdn/cs/set/assets/blt490fcaeb0097ae2f/76968_Prod.png?format=webply&fit=bounds&quality=75&width=800&height=800&dpr=1",
-        "nameProduct" : "",
-        "nameShop": "",
-        "price" : "",
-        "detail" : "",
-        "category" : "",
+        "nameProduct" : "LEGO : Les fossiles de dinosaures : le Tyrannosaurus rex",
+        "nameShop": "LEGO",
+        "price" : "249,99 €",
+        "detail" : "Partagez votre passion pour les dinosaures avec un modèle impressionnant à exposer avec fierté : Les fossiles de dinosaures : le Tyrannosaurus rex (76968). Ce modèle LEGO® Jurassic World contient un fossile de T. rex à l’échelle 1/12 doté d’un crâne, de mâchoires, de bras et d’une queue mobiles. Une plaque descriptive peut être fixée sur le support, et le site de fouilles du modèle inclut des surprises, dont un morceau « d’ambre » et 2 minifigurines du film Jurassic Park de 1993 : Ellie Sattler et Alan Grant.",
+        "category" : "Jouet",
         "url" : "https://www.lego.com/fr-fr/product/dinosaur-fossils-tyrannosaurus-rex-76968?CMP=AFC-AffiliateFR-TnL5HPStwNw-2116208-1706080-10"
     },
 

@@ -638,6 +638,7 @@ label {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
+    background-color: #FFFFFF;
 }
 
 .filterBox {
@@ -652,6 +653,46 @@ label {
     color: #334155;
     border: 1px solid #334155;
     padding: 20px 60px 20px 60px;
+}
+
+/* TODO Régler le problème de style d'alignement de la box */
+.wishlistProductsSectionCardBox {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+
+    max-width: 90%;
+    background-color: #F1F5F9;
+    color: #1E293B;
+}
+.productCard {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: center;
+    max-width: 90%;
+    border-radius: 5px;
+    background-color: #F1F5F9;
+    color: #1E293B;
+
+}
+
+.productCardImage {
+  width: 50px;
+  
+}
+
+.productCardDetails {
+
+}
+
+.productCardNumbers {
+
+}
+
+.productCardDrag {
+
 }
 
 /* Responsive pour mobile */
