@@ -1,71 +1,71 @@
 [
     {
         "imageURL" : "https://www.lego.com/cdn/cs/set/assets/blt490fcaeb0097ae2f/76968_Prod.png?format=webply&fit=bounds&quality=75&width=800&height=800&dpr=1",
-        "nameProduct" : "LEGO : Les fossiles de dinosaures : le Tyrannosaurus rex",
+        "nameProduct" : "LEGO Tyrannosaurus Rex",
         "nameShop": "LEGO",
         "price" : "249,99 €",
         "detail" : "Partagez votre passion pour les dinosaures avec un modèle impressionnant à exposer avec fierté : Les fossiles de dinosaures : le Tyrannosaurus rex (76968). Ce modèle LEGO® Jurassic World contient un fossile de T. rex à l’échelle 1/12 doté d’un crâne, de mâchoires, de bras et d’une queue mobiles. Une plaque descriptive peut être fixée sur le support, et le site de fouilles du modèle inclut des surprises, dont un morceau « d’ambre » et 2 minifigurines du film Jurassic Park de 1993 : Ellie Sattler et Alan Grant.",
-        "category" : "Jouet",
+        "category" : "Jouets",
         "url" : "https://www.lego.com/fr-fr/product/dinosaur-fossils-tyrannosaurus-rex-76968?CMP=AFC-AffiliateFR-TnL5HPStwNw-2116208-1706080-10"
     },
 
     {
         "imageURL" : "https://www.liberdistri.com/2095-large_default/julien-delval-integrale.jpg",
-        "nameProduct" : "",
-        "nameShop": "",
-        "price" : "",
-        "detail" : "",
-        "category" : "",
+        "nameProduct" : "Julien Delval - Coffret intégral",
+        "nameShop": "Liberdistri",
+        "price" : "79,00 €",
+        "detail" : "Ce coffret contient deux livres d'art dédiés à l'artiste Julien Delval. Le premier (Une Monographie) contient une sélection de ses peintures et illustrations ; le second (Des Études) présente un ensemble d'esquisses et de croquis. Le tout est lié aux thématiques de l'imaginaire et de la fantaisie.",
+        "category" : "Livres",
         "url" : "https://www.liberdistri.com/fr/artbooks-sketchbooks/269-julien-delval-integrale-9791096315901.html"
     },
 
         {
         "imageURL" : "https://odette-et-lulu.com/wp-content/uploads/2023/08/foulard-balte_bleu-klein_odette-et-lulu_05.jpg",
-        "nameProduct" : "",
-        "nameShop": "",
-        "price" : "",
-        "detail" : "",
-        "category" : "",
+        "nameProduct" : "Foulard Balte Bleu Klein",
+        "nameShop": "Odette & Lulu",
+        "price" : "42,00 €",
+        "detail" : "Foulard en acrylique, taille 125cmx125cm",
+        "category" : "Vêtements",
         "url" : "https://odette-et-lulu.com/shop/foulard-balte/"
     },
 
         {
         "imageURL" : "https://www.majorica.com/cdn/shop/files/12276.03.2.E00.000.1_1_7ae7cb39-19f8-443e-94c6-6dc2cab09c59.jpg?v=1729678966&width=1946",
-        "nameProduct" : "",
-        "nameShop": "",
-        "price" : "",
-        "detail" : "",
-        "category" : "",
+        "nameProduct" : "Boucles d'oreilles Selene",
+        "nameShop": "Majorica",
+        "price" : "119,00 €",
+        "detail" : "Silver omega-clasp earrings with a 10mm round gray pearl and cubic zirconia. ",
+        "category" : "Bijoux",
         "url" : "https://www.majorica.com/en-eu/products/pearl-and-3-zirconia-earrings-10mm-gray-selene?_pos=13&_sid=a3d0c5d03&_ss=r"
     },
 
         {
         "imageURL" : "https://verapilo.com/cdn/shop/products/CASANOVA.jpg?v=1694740933&width=1780",
-        "nameProduct" : "",
-        "nameShop": "",
-        "price" : "",
-        "detail" : "",
-        "category" : "",
+        "nameProduct" : "Éventail Casanova",
+        "nameShop": "Vera Pilo",
+        "price" : "95,00 €",
+        "detail" : "Monture en palo santo poli à la mai. Tissu coton 100%. Création française. Assemblés à la main par nos familles en Espagne et contrôlé dans nos ateliers en France. Ouvert 42 cm, fermé 23 cm. ",
+        "category" : "Accessoires",
         "url" : "https://verapilo.com/collections/eventails-exotiques/products/eventail-casanova"
     },
 
         {
-        "imageURL" : "https://m.media-amazon.com/images/G/08/apparel/rcxgs/tile._CB483369919_.gif",
-        "nameProduct" : "",
-        "nameShop": "",
-        "price" : "",
-        "detail" : "",
-        "category" : "",
+        "imageURL" : "https://m.media-amazon.com/images/I/71a2oQhZ5KL._SL1500_.jpg",
+        "nameProduct" : "Virus, bactéries, microbes tout savoir pour y échapper",
+        "nameShop": "Amazon",
+        "price" : "22,90 €",
+        "detail" : "Avec humour et pédagogie, Océane Sorel, docteur en virologie, répond à toutes les questions et idées reçues sur les virus, les bactéries et les microbes, tout en délivrant de précieux conseils pour s’en prémunir !",
+        "category" : "Livres",
         "url" : "https://www.amazon.fr/Virus-bact%C3%A9ries-microbes-savoir-%C3%A9chapper/dp/2501176340/ref=sr_1_1?__mk_fr_FR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=2Z386TXYGN01O&dib=eyJ2IjoiMSJ9.wE5hp5FZHJ3AqacP54fbBxH8DGvnYDTa9K8tK7jq0kXhODurjYoj1i1Bk9MFnRfDtPvfhj4TK6T7fOVZF9eZMqtxmxMx7Dmlumku1leSDPLkK2jKmSERmsEgF8vbJ3H3o3YFAIWTjKQlR4mGvuBO0ssgqGQTddl064NajV5vPUTOe0s02urQVzOs4hs7Xb-U7CDz2IfsBgjIkQnbVviCWX0XnWf4B9bN2VGl7rG0BDq-tzj8pMDFWHGFs0rVuTTld5vF5fYNLFJZo6QEZEn23_NEH2ReuQ-6gDJXBJW__2A.TB0GS09HO89JomLjl9LSVrmFm0TxeDDP3E5kR5cAJ4M&dib_tag=se&keywords=oc%C3%A9ane+sorel&qid=1765807727&sprefix=oc%C3%A9ane+sorel%2Caps%2C90&sr=8-1"
     },
 
         {
         "imageURL" : "https://cdn3.philibertnet.com/493173-large_default/les-aventuriers-du-rail-france.jpg",
-        "nameProduct" : "",
-        "nameShop": "",
-        "price" : "",
-        "detail" : "",
-        "category" : "",
+        "nameProduct" : "Les Aventuriers du Rail France",
+        "nameShop": "Philibert",
+        "price" : "37,95 €",
+        "detail" : "Dans l'extension Les Aventuriers du Rail - France, participez à la naissance du chemin de fer français. Et dans la seconde carte incluse, partez à la conquête du grand Ouest américain.",
+        "category" : "Jeux de société",
         "url" : "https://www.philibertnet.com/fr/days-of-wonder/54385-les-aventuriers-du-rail-france-824968721285.html"
     },
 
@@ -90,7 +90,7 @@
     },
 
         {
-        "imageURL" : "https://www.cabaia.fr/cdn/shop/files/TDM_S24_ADVENTURER_LARGE_LONDRES_3701328303961_01.webp?v=1703860500&width=39",
+        "imageURL" : "https://www.cabaia.fr/cdn/shop/files/TDM_S24_ADVENTURER_LARGE_LONDRES_3701328303961_01.webp?v=1703860500&width=192",
         "nameProduct" : "",
         "nameShop": "",
         "price" : "",
@@ -108,7 +108,7 @@
         "url" : "https://www.philibertnet.com/fr/repos-productions/138027-le-seigneur-des-anneaux-duel-pour-la-terre-du-milieu-5425016928004.html"
     },
         {
-        "imageURL" : "https://m.media-amazon.com/images/G/08/apparel/rcxgs/tile._CB483369919_.gif",
+        "imageURL" : "https://m.media-amazon.com/images/I/610das5U2NL._SL1400_.jpg",
         "nameProduct" : "",
         "nameShop": "",
         "price" : "",

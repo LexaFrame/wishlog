@@ -636,7 +636,7 @@ label {
 
 .wishlistProductsSection {
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     flex-direction: column;
     background-color: #FFFFFF;
 }
@@ -658,41 +658,94 @@ label {
 /* TODO Régler le problème de style d'alignement de la box */
 .wishlistProductsSectionCardBox {
     display: flex;
-    flex-wrap: nowrap;
+    flex-direction: column;
     justify-content: center;
-
-    max-width: 90%;
-    background-color: #F1F5F9;
-    color: #1E293B;
 }
+
 .productCard {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-around;
     align-content: center;
-    max-width: 90%;
+    max-width: 96%;
     border-radius: 5px;
     background-color: #F1F5F9;
     color: #1E293B;
-
 }
 
-.productCardImage {
-  width: 50px;
-  
+/* .productCardImage {
+
+} */
+
+.productCardImage img {
+    width: 150px;
+    height: 150px;
+    /* Recadre l'image pour remplir le carré       */
+    object-fit: cover;
+    object-position: left;
+    border-radius: 5px;
+    background-color: #FFFFFF;
 }
 
 .productCardDetails {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
 
+}
+
+.productCardDetailsNameAndCat {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.productCardDetailsName {
+
+}
+
+.productCardDetailsCategory {
+    
+}
+
+.productCardDetailsShopAndDetails {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.productCardDetailsModifyAndMove {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
 }
 
 .productCardNumbers {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
+/* .productCardNumbersDelete {
+} */
+
+.productCardNumbersPriorityAndPrice {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.productCardNumbersNumberAndBuy {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
 .productCardDrag {
-
+    display: flex;
+    justify-content: center;
+    align-content: center;
 }
 
 /* Responsive pour mobile */

@@ -10,6 +10,7 @@ async function loadProducts() {
     // Recherche et sélectionne la div (dans le DOM) dans laquelle je veux créer les cartes. Création de la variable cardContainer pour pouvoir ensuite s'y référer et y mettre les cards : 
     const cardContainer = document.querySelector('.wishlistProductsSectionCardBox');
 
+    products.forEach(product => {
     // Création de la div de la carte produit:
 
         // Création de la variable card dont la valeur sera toujours cette div nouvellement créée. Ensuite utilisation de la variable card possible pour ajouter des classes, du contenu, etc.  : 
@@ -33,20 +34,65 @@ async function loadProducts() {
     const dragDiv = document.createElement('div');
     dragDiv.classList.add('productCardDrag');
 
+    // Création des div contenues dans detailsDiv :
+        // Création de la div contenant les deux premiers éléments de la div detailsDiv selon la même méthode:
+    const nameAndCategoryDiv = document.createElement('div');
+    nameAndCategoryDiv.classList.add('productCardDetailsNameAndCat');
+
+        // Création de la div contenant les deux éléments suivants de la div detailsDiv selon la même méthode:
+    const shopAndDetailsDiv = document.createElement('div');
+    shopAndDetailsDiv.classList.add('productCardDetailsShopAndDetails');
+
+        // Création de la div concernant les deux derniers éléments de la DetailsDiv selon la même méthode:
+    const modifyAndMoveDiv = document.createElement('div');
+    modifyAndMoveDiv.classList.add('productCardDetailsModifyAndMove');
+
+    // Création des div contenues dans numbersDiv:
+
+        // Création de la div contenant l'élément de suppression de numbersDiv:
+    const deleteProduct = document.createElement('div');
+    deleteProduct.classList.add('productCardNumbersDelete');
+
+        // Création de la div contenant la priorité et le prix dans numbersDiv:
+    const priorityAndPrice = document.createElement('div');
+    priorityAndPrice.classList.add('productCardNumbersPriorityAndPrice');
+
+        // Création de la div contenant le nombre d'articles souhaité et le bouton indiquant le choix d'achat :
+    const numberAndBuy = document.createElement('div');
+    numberAndBuy.classList.add('productCardNumbersNumberAndBuy');
+
+
 
     // Créer un élément img pour mettre l'image du produit : 
         // Créer une variable dont la valeur est un nouvel élément img vide :
     const productImage = document.createElement('img');
         // Donne l'url de l'image du premier produit :
-    productImage.src = products[0].imageURL;   
+    productImage.src = product.imageURL;   
         // Définit le texte alternatif de l'image du premier produit avec comme texte de référence le nom du produit, et un autre texte alternatif si le nom du produit n'est pas disponible.
-    productImage.alt = products[0].nameProduct ? products[0].nameProduct : "Image du produit";
+    productImage.alt = product.nameProduct ? product.nameProduct : "Image du produit";
 
     // // Ajout de l'image à la div de la carte :
     // card.appendChild(productImage);
 
     // Ajout de l'image produit à la div qui contient l'image et qui correspond à la classe .productCardImage :
     imageDiv.appendChild(productImage);
+
+    // Ajout du nom du produit à la div DetailsDiv
+    const productName = document.createElement('p');
+    productName.classList.add('productCardDetailsName');
+    productName.textContent = product.nameProduct ? product.nameProduct : "Nom non disponible";
+
+
+    // Ajout du nom du produit à la div qui contient le nom du produit et qui correspond à la classe .productCardDetailsNameAndCat :
+    nameAndCategoryDiv.appendChild(productName);
+
+    // Ajout catégorie du produit à la div DetailsDiv
+    const productCategory = document.createElement('p');
+    productCategory.classList.add('productCardDetailsCategory');
+    productCategory.textContent = product.category ? product.category : "Catégorie non disponible";
+
+    // Ajout de la catégorie du produit à la div qui contient la catégorie et qui correspond à la classe .productCardDetailsNameAndCat :
+    nameAndCategoryDiv.appendChild(productCategory);
 
     // Ajout de la div qui contient l'image (.productCardImage) à la carte (.productCard)
     card.appendChild(imageDiv);
@@ -60,9 +106,20 @@ async function loadProducts() {
     // Ajout de la div qui contient la poignée de drag de la card à la carte
     card.appendChild(dragDiv);
 
+    // Ajout de la div qui contient le nom et la catégorie du produit à DetailsDiv
+    detailsDiv.appendChild(nameAndCategoryDiv);
+
+    // Ajout de la div qui contient le nom du magasin en ligne et la description détaillée du produit
+    detailsDiv.appendChild(shopAndDetailsDiv);
+
+    // Ajout de la div qui contient les boutons modifier et déplacer du produit
+    detailsDiv.appendChild(modifyAndMoveDiv);
+
+
 
     // Ajout de la div card à son parent la div cardContainer (qui correspond à .wishlistProductsSectionCardBox, sélectionnée dans le DOM) :
     cardContainer.appendChild(card);
+});
 }
 
 // Affichage des produits dans la console :
