@@ -706,7 +706,7 @@ label {
 }
 
 .productCardDetailsCategory {
-    
+
 }
 
 .productCardDetailsShopAndDetails {
@@ -715,10 +715,27 @@ label {
     justify-content: flex-start;
 }
 
+.productCardDetailsShop {
+
+}
+
+.productCardDetailsDescription {
+    max-width : 400px;
+    text-align: justify;
+}
+
 .productCardDetailsModifyAndMove {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
+}
+
+.productCardDetailsModifyButton {
+
+}
+
+.productCardDetailsMoveButton {
+
 }
 
 .productCardNumbers {
@@ -727,8 +744,13 @@ label {
     justify-content: center;
 }
 
-/* .productCardNumbersDelete {
-} */
+.productCardNumbersDelete {
+
+}
+
+.productCardNumbersDeleteButton {
+    
+}
 
 .productCardNumbersPriorityAndPrice {
     display: flex;

@@ -62,7 +62,6 @@ async function loadProducts() {
     numberAndBuy.classList.add('productCardNumbersNumberAndBuy');
 
 
-
     // Créer un élément img pour mettre l'image du produit : 
         // Créer une variable dont la valeur est un nouvel élément img vide :
     const productImage = document.createElement('img');
@@ -77,22 +76,91 @@ async function loadProducts() {
     // Ajout de l'image produit à la div qui contient l'image et qui correspond à la classe .productCardImage :
     imageDiv.appendChild(productImage);
 
-    // Ajout du nom du produit à la div DetailsDiv
+    // Ajout du nom du produit à la div DetailsDiv par son enfant
     const productName = document.createElement('p');
     productName.classList.add('productCardDetailsName');
-    productName.textContent = product.nameProduct ? product.nameProduct : "Nom non disponible";
+    productName.textContent = product.nameProduct ? product.nameProduct : "Nom du produit indisponible";
 
 
     // Ajout du nom du produit à la div qui contient le nom du produit et qui correspond à la classe .productCardDetailsNameAndCat :
     nameAndCategoryDiv.appendChild(productName);
 
-    // Ajout catégorie du produit à la div DetailsDiv
+    // Ajout catégorie du produit à la div DetailsDiv par son enfant
     const productCategory = document.createElement('p');
     productCategory.classList.add('productCardDetailsCategory');
-    productCategory.textContent = product.category ? product.category : "Catégorie non disponible";
+    productCategory.textContent = product.category ? product.category : "Catégorie indisponible";
 
     // Ajout de la catégorie du produit à la div qui contient la catégorie et qui correspond à la classe .productCardDetailsNameAndCat :
     nameAndCategoryDiv.appendChild(productCategory);
+
+    // Ajout du nom du magasin à la div DetailsDiv par son enfant
+    const shopName = document.createElement('p');
+    shopName.classList.add('productCardDetailsShop');
+    shopName.textContent = product.nameShop ? product.nameShop : "Nom du magasin indisponible";
+
+    // Ajout du nom du magasin à la div qui contient le nom du magasin et qui correspond à la classe .productCardDetailsShopAndDetails :
+    shopAndDetailsDiv.appendChild(shopName);
+
+    // Ajout de la description détaillée du produit à la div DetailsDiv par son enfant
+    const productDetails = document.createElement('p');
+    productDetails.classList.add('productCardDetailsDescription');
+    productDetails.textContent = product.detail ? product.detail : "Description du produit indisponible";
+
+    // Ajout de la description détaillée du produit à la div qui contient la description et qui correspond à la classe .productCardDetailsShopAndDetails :
+    shopAndDetailsDiv.appendChild(productDetails);
+
+    // Ajout du bouton modifier :
+    const editButton = document.createElement('button');
+    editButton.classList.add('productCardDetailModifyButton');
+    editButton.type = 'button';
+    editButton.setAttribute('aria-label', `Modifier le produit ${product.nameProduct}`); // Ajout d'un label pour accessibilité : indique aux personnes utilisant un lecteur d'écran l'action effectuée et sur quel produit elle sera effectuée
+    editButton.textContent = 'Modifier';
+
+    // Ajout du bouton modifier dans la div .productCardDetailsModifyAndMove :
+    modifyAndMoveDiv.appendChild(editButton);
+
+    // Ajout du bouton déplacer : 
+    const moveButton = document.createElement('button');
+    moveButton.classList.add('productCardDetailMoveButton');
+    moveButton.type = 'button';
+    moveButton.setAttribute('aria-label', `Déplacer le produit ${product.nameProduct}`); // Ajout d'un label pour accessibilité : indique aux personnes utilisant un lecteur d'écran l'action effectuée et sur quel produit elle sera effectuée
+    moveButton.textContent ='Déplacer';
+
+    // Ajout du bouton déplacer dans la div .productCardDetailsModifyAndMove :
+    modifyAndMoveDiv.appendChild(moveButton);
+
+    // Ajout du bouton supprimer dans la div .productCardNumbersDelete :
+
+    const deleteButton = document.createElement('button');
+    deleteButton.classList.add('productCardNumbersDeleteButton');
+    deleteButton.type = 'button';
+    deleteButton.setAttribute('aria-label', `Supprimer le produit ${product.nameProduct}`); // Ajout d'un label pour accessibilité : indique aux personnes utilisant un lecteur d'écran l'action effectuée et sur quel produit elle sera effectuée
+    deleteButton.textContent = 'Supprimer';
+
+    // Ajout du bouton supprimer dans la div .productCardNumbersDelete
+    deleteProduct.appendChild(deleteButton);
+
+    // Ajout du menu déroulant de Priorité dans la div .productCardNumbersPriorityAndPrice
+        // Création du label :
+    const priorityLabel = document.createElement('label');
+    priorityLabel.textContent = "Priorité:";
+    priorityLabel.setAttribute('for', `priority-${product.id}`);
+        // Création du select :
+    const prioritySelect = document.createElement('select');
+    prioritySelect.id = `priority-${product.id}`;
+    prioritySelect.name = 'priority';
+        // Créer le choix de niveaux de priorité :
+    const options = [
+        { value: "", text: "-- Priorité --", disabled: true, selected: true },
+        { value: "very high", text: "Très haute" },
+        { value: "high", text: "Haute"},
+        { value: "medium", text: "Moyenne"},
+        { value: "low", text: "Faible"},
+        { value: "very low", text: "Très Faible"}
+    ];
+
+
+// Chargement des grandes div dans la carte :
 
     // Ajout de la div qui contient l'image (.productCardImage) à la carte (.productCard)
     card.appendChild(imageDiv);
@@ -106,16 +174,17 @@ async function loadProducts() {
     // Ajout de la div qui contient la poignée de drag de la card à la carte
     card.appendChild(dragDiv);
 
-    // Ajout de la div qui contient le nom et la catégorie du produit à DetailsDiv
+    // Ajout de la div qui contient le nom et la catégorie du produit à detailsDiv
     detailsDiv.appendChild(nameAndCategoryDiv);
 
-    // Ajout de la div qui contient le nom du magasin en ligne et la description détaillée du produit
+    // Ajout de la div qui contient le nom du magasin en ligne et la description détaillée du produit à detailsDiv
     detailsDiv.appendChild(shopAndDetailsDiv);
 
-    // Ajout de la div qui contient les boutons modifier et déplacer du produit
+    // Ajout de la div qui contient les boutons modifier et déplacer du produit à detailsDiv
     detailsDiv.appendChild(modifyAndMoveDiv);
 
-
+    // Ajout de la div qui contient le bouton supprimer à numbersDiv
+    numbersDiv.appendChild(deleteProduct);
 
     // Ajout de la div card à son parent la div cardContainer (qui correspond à .wishlistProductsSectionCardBox, sélectionnée dans le DOM) :
     cardContainer.appendChild(card);
