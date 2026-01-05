@@ -77,9 +77,12 @@ async function loadProducts() {
     imageDiv.appendChild(productImage);
 
     // Ajout du nom du produit à la div DetailsDiv par son enfant
-    const productName = document.createElement('p');
+    const productName = document.createElement('a');
     productName.classList.add('productCardDetailsName');
     productName.textContent = product.nameProduct ? product.nameProduct : "Nom du produit indisponible";
+    productName.href = product.url;
+    productName.target = "_blank";
+    productName.rel = "noopener noreferrer";
 
 
     // Ajout du nom du produit à la div qui contient le nom du produit et qui correspond à la classe .productCardDetailsNameAndCat :
@@ -151,13 +154,40 @@ async function loadProducts() {
     prioritySelect.name = 'priority';
         // Créer le choix de niveaux de priorité :
     const options = [
-        { value: "", text: "-- Priorité --", disabled: true, selected: true },
+        { value: "", text: "-- Choisir --", disabled: true, selected: true },
         { value: "very high", text: "Très haute" },
         { value: "high", text: "Haute"},
         { value: "medium", text: "Moyenne"},
         { value: "low", text: "Faible"},
         { value: "very low", text: "Très Faible"}
     ];
+
+    options.forEach( optionData => {
+        const optionElement = document.createElement('option');
+        optionElement.value = optionData.value;
+        optionElement.textContent = optionData.text;
+        if (optionData.disabled) optionElement.disabled = true ;
+        if (optionData.selected) optionElement.selected = true;
+        prioritySelect.appendChild(optionElement);
+    });
+
+    priorityAndPrice.appendChild(priorityLabel);
+    priorityAndPrice.appendChild(prioritySelect);
+
+    // Ajout de l'affichage du prix de l'article dans la div .productCardNumbersPriorityAndPrice
+    const productPrice = document.createElement('p');
+    productPrice.classList.add('productCardNumbersPrice');
+    productPrice.textContent = product.price ? product.price : "Prix indisponible";
+
+    // Ajout du prix du produit à la div qui contient la priorité et le prix;
+    priorityAndPrice.appendChild(productPrice);
+
+    // TODO Insérer ci-dessous le code pour indiquer le nombre d'articles souhaités
+
+    // TODO Ajout d'un bouton pour indiquer qu'on souhaite offrir cet article
+
+    // TODO Ajout des flèches pour indiquer qu'on peut faire un drag&drop dans la div .productCardDrag
+
 
 
 // Chargement des grandes div dans la carte :
@@ -185,6 +215,9 @@ async function loadProducts() {
 
     // Ajout de la div qui contient le bouton supprimer à numbersDiv
     numbersDiv.appendChild(deleteProduct);
+
+    //Ajout de la div qui contient l'élément Priorité à numbersDiv
+    numbersDiv.appendChild(priorityAndPrice);
 
     // Ajout de la div card à son parent la div cardContainer (qui correspond à .wishlistProductsSectionCardBox, sélectionnée dans le DOM) :
     cardContainer.appendChild(card);
