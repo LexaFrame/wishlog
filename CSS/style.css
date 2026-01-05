@@ -770,10 +770,39 @@ label {
     justify-content: space-around;
 }
 
+.productCardNumbersPriorityLabel {
+    /* CSS pour rendre Priority invisible */
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.productCardNumbersPriority {
+
+}
+
+.productCardNumbersPrice {
+
+}
+
 .productCardNumbersNumberAndBuy {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+}
+
+.productCardNumbersNumber {
+
+}
+
+.productCardNumbersNumberLabel {
+    
 }
 
 .productCardDrag {

@@ -133,7 +133,6 @@ async function loadProducts() {
     modifyAndMoveDiv.appendChild(moveButton);
 
     // Ajout du bouton supprimer dans la div .productCardNumbersDelete :
-
     const deleteButton = document.createElement('button');
     deleteButton.classList.add('productCardNumbersDeleteButton');
     deleteButton.type = 'button';
@@ -143,23 +142,25 @@ async function loadProducts() {
     // Ajout du bouton supprimer dans la div .productCardNumbersDelete
     deleteProduct.appendChild(deleteButton);
 
-    // Ajout du menu déroulant de Priorité dans la div .productCardNumbersPriorityAndPrice
-        // Création du label :
-    const priorityLabel = document.createElement('label');
-    priorityLabel.textContent = "Priorité:";
+    // Ajout du menu déroulant de Priorité dans la div .productCardNumbersPriorityAndPrice :
+    const priorityLabel = document.createElement('label'); // Création du label
+    priorityLabel.textContent = "Priorité";
     priorityLabel.setAttribute('for', `priority-${product.id}`);
+    priorityLabel.classList.add('productCardNumbersPriorityLabel'); // Cacher le label visuellement
         // Création du select :
     const prioritySelect = document.createElement('select');
+    prioritySelect.classList.add('productCardNumbersPriority');
     prioritySelect.id = `priority-${product.id}`;
     prioritySelect.name = 'priority';
+
         // Créer le choix de niveaux de priorité :
     const options = [
-        { value: "", text: "-- Choisir --", disabled: true, selected: true },
-        { value: "very high", text: "Très haute" },
-        { value: "high", text: "Haute"},
-        { value: "medium", text: "Moyenne"},
-        { value: "low", text: "Faible"},
-        { value: "very low", text: "Très Faible"}
+        { value: "", text: "-- Choisir la priorité --", disabled: true, selected: true },
+        { value: "very high", text: "Priorité : Très haute" },
+        { value: "high", text: "Priorité : Haute"},
+        { value: "medium", text: "Priorité : Moyenne"},
+        { value: "low", text: "Priorité : Faible"},
+        { value: "very low", text: "Priorité : Très Faible"}
     ];
 
     options.forEach( optionData => {
@@ -171,6 +172,7 @@ async function loadProducts() {
         prioritySelect.appendChild(optionElement);
     });
 
+    // Insertion du label et du select dans la div .productCardNumbersPriorityAndPrice :
     priorityAndPrice.appendChild(priorityLabel);
     priorityAndPrice.appendChild(prioritySelect);
 
@@ -183,6 +185,19 @@ async function loadProducts() {
     priorityAndPrice.appendChild(productPrice);
 
     // TODO Insérer ci-dessous le code pour indiquer le nombre d'articles souhaités
+    const productNumber = document.createElement('input');
+    productNumber.setAttribute('type', 'number');
+    productNumber.classList.add('productCardNumbersNumber');
+
+    const numberLabel = document.createElement('label');
+    numberLabel.classList.add('productCardNumbersNumberLabel')
+    numberLabel.setAttribute('for',number-// ligne en cours de rédaction
+    numberLabel.textContent = "Nombre";
+
+
+    // Ajout du nombre de produits et du label à la div qui contient le nombre et la décision d'achat
+    numberAndBuy.appendChild(productNumber);
+    numberAndBuy.appendChild(numberLabel);
 
     // TODO Ajout d'un bouton pour indiquer qu'on souhaite offrir cet article
 
@@ -218,6 +233,9 @@ async function loadProducts() {
 
     //Ajout de la div qui contient l'élément Priorité à numbersDiv
     numbersDiv.appendChild(priorityAndPrice);
+
+    // Ajout de la div qui contient l'élément nombre et décision d'achat
+    numbersDiv.appendChild(numberAndBuy);
 
     // Ajout de la div card à son parent la div cardContainer (qui correspond à .wishlistProductsSectionCardBox, sélectionnée dans le DOM) :
     cardContainer.appendChild(card);
