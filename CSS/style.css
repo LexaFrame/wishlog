@@ -36,7 +36,7 @@ header a {
 
 .logo {
     align-self: center;
-    order:1 ;
+
     height: 150px;
     width: 150px;
     margin-left: 10px;
@@ -46,8 +46,9 @@ header a {
 }
 
 .headerCentralUnit {
-    order:2 ;
+
     display: flex;
+    flex: 1;
     flex-wrap: wrap;
     justify-content: center;
     align-content: center;
@@ -56,7 +57,7 @@ header a {
 .languageBox {
     display: flex;
     align-items: center;
-    order: 2;
+
     height: 60px;
     color: #F8FAFC;
     padding: 20px;
@@ -94,7 +95,7 @@ header a {
 .searchBlock {
     display: flex;
     flex-grow: 2;
-    order: 3;
+
     height: 60px;
     width: 40%;
     align-items: center;
@@ -104,7 +105,7 @@ header a {
 }
 
 .searchForm {
-    flex-grow: 2;
+
     display: flex;
     align-items: center;
     width: 100%;
@@ -757,7 +758,8 @@ label {
 }
 
 .productCardNumbersDelete {
-
+    display: flex;
+    justify-content: center;
 }
 
 .productCardNumbersDeleteButton {
@@ -768,6 +770,8 @@ label {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    align-items: center;
+    gap: 16px;
 }
 
 .productCardNumbersPriorityLabel {
@@ -784,11 +788,15 @@ label {
 }
 
 .productCardNumbersPriority {
-
+    height: 43px;
 }
 
 .productCardNumbersPrice {
-
+    background-color: #FFFFFF;
+    font-size: 18px;
+    border-radius: 5px;
+    border: 1px solid #1E293B;
+    padding: 10px 5px 10px 5px;
 }
 
 .productCardNumbersNumberAndBuy {
@@ -802,7 +810,16 @@ label {
 }
 
 .productCardNumbersNumberLabel {
-    
+    /* CSS pour rendre Label invisible */
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
 }
 
 .productCardDrag {
