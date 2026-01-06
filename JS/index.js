@@ -209,6 +209,12 @@ async function loadProducts() {
             numberAndBuy.appendChild(numberLabel);
 
             // TODO Ajout d'un bouton pour indiquer qu'on souhaite offrir cet article
+            const buyProduct = document.createElement('button');
+            buyProduct.classList.add('productCardNumbersBuy');
+            buyProduct.type='button';
+            buyProduct.textContent="Je l'offre !";
+
+            numberAndBuy.appendChild(buyProduct);
 
             // TODO Ajout des flèches pour indiquer qu'on peut faire un drag&drop dans la div .productCardDrag
 

@@ -681,6 +681,7 @@ label {
 .productCardImage {
     display: flex;
     align-items: center;
+    width: 125px;
 }
 
 .productCardImage img {
@@ -706,17 +707,21 @@ label {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+
 }
 
 .productCardDetailsName {
     align-content: center;
     font-size: 18px;
     width: 500px;
+    text-decoration: underline;
+    color: #1E293B;
+
 }
 
 .productCardDetailsCategory {
     background-color: #FFFFFF;
-    font-size: 18px;
+    font-size: 17px;
     border-radius: 5px;
     border: 1px solid #1E293B;
     padding: 10px 5px 10px 5px;
@@ -729,27 +734,40 @@ label {
 }
 
 .productCardDetailsShop {
-
+    margin: 0px;
+    font-size: 17px;
+    color: #1E293B;
 }
 
 .productCardDetailsDescription {
-    max-width : 400px;
+    max-width : 600px;
     text-align: justify;
+    font-size: 18px;
+    color: #1E293B;
 }
 
 .productCardDetailsModifyAndMove {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
+    gap: 20px;
 }
 
-.productCardDetailsModifyButton {
+.productCardDetailsModifyAndMove button {
+    background-color: #FFFFFF;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #1E293B;
+    padding: 10px 5px 10px 5px;
+}
+
+/* .productCardDetailsModifyButton {
 
 }
 
 .productCardDetailsMoveButton {
 
-}
+} */
 
 .productCardNumbers {
     display: flex;
@@ -760,18 +778,25 @@ label {
 .productCardNumbersDelete {
     display: flex;
     justify-content: center;
+    align-self: flex-start;
+    align-self: center;
 }
 
 .productCardNumbersDeleteButton {
-
+    background-color: #FFFFFF;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #1E293B;
+    padding: 10px 5px 10px 5px;
 }
 
 .productCardNumbersPriorityAndPrice {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: left;
     align-items: center;
-    gap: 16px;
+    width: 270px;
+    gap: 10px;
 }
 
 .productCardNumbersPriorityLabel {
@@ -788,25 +813,36 @@ label {
 }
 
 .productCardNumbersPriority {
-    height: 43px;
-}
-
-.productCardNumbersPrice {
+    height: 40px;
+    width: 180px;
     background-color: #FFFFFF;
-    font-size: 18px;
+    font-size: 16px;
     border-radius: 5px;
     border: 1px solid #1E293B;
     padding: 10px 5px 10px 5px;
 }
 
+.productCardNumbersPrice {
+    background-color: #FFFFFF;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid #1E293B;
+    padding: 10px 5px 10px 5px;
+    
+}
+
 .productCardNumbersNumberAndBuy {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: left;
+    gap: 10px;
 }
 
 .productCardNumbersNumber {
-
+    width: 180px;
+    border-radius: 5px;
+    border: 1px solid #1E293B;   
 }
 
 .productCardNumbersNumberLabel {
@@ -820,6 +856,15 @@ label {
     clip: rect(0, 0, 0, 0);
     white-space: nowrap;
     border: 0;
+}
+
+.productCardNumbersBuy {
+    background-color: #059364;
+    color: #F8FAFC;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #1E293B;
+    padding: 10px 5px 10px 5px;   
 }
 
 .productCardDrag {
@@ -968,6 +1013,30 @@ label {
 
 .filterParagraph {
     padding: 20px 40px 20px 40px;
+}
+
+.productCard {
+
+}
+
+.productCardImage img {
+
+}
+
+.productCardImage img {
+
+}
+
+.productCardDetailsShopAndDetails {
+
+}
+
+.productCardDetailsDescription {
+
+}
+
+.productCardDetailsModifyAndMove {
+    justify-content: center;
 }
 
 }
