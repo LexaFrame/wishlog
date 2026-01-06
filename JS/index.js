@@ -202,13 +202,13 @@ async function loadProducts() {
             numberLabel.classList.add('productCardNumbersNumberLabel');
             numberLabel.setAttribute('for',numberId);
             numberLabel.textContent = "Nombre";
-            // TODO : quand j'aurai le temps, créer une indication visible de nombre mais intégré à l'input.
+            // TODO : Quand j'aurai le temps, créer une indication visible de nombre mais intégré à l'input.
 
             // Ajout du nombre de produits et du label à la div qui contient le nombre et la décision d'achat
             numberAndBuy.appendChild(productNumber);
             numberAndBuy.appendChild(numberLabel);
 
-            // TODO Ajout d'un bouton pour indiquer qu'on souhaite offrir cet article
+            // Ajout d'un bouton pour indiquer qu'on souhaite offrir cet article
             const buyProduct = document.createElement('button');
             buyProduct.classList.add('productCardNumbersBuy');
             buyProduct.type='button';
@@ -216,8 +216,12 @@ async function loadProducts() {
 
             numberAndBuy.appendChild(buyProduct);
 
-            // TODO Ajout des flèches pour indiquer qu'on peut faire un drag&drop dans la div .productCardDrag
+            // Ajout des flèches pour indiquer qu'on peut faire un drag&drop dans la div .productCardDrag
+            dragDiv.innerHTML=`<svg class="dragIcons arrowUp" fill="#1E293B" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg"> <g id="SVGRepo_bgCarrier" stroke-width="0"/> <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/> <g id="SVGRepo_iconCarrier"> <path d="M0.256 23.481c0 0.269 0.106 0.544 0.313 0.75 0.412 0.413 1.087 0.413 1.5 0l14.119-14.119 13.913 13.912c0.413 0.413 1.087 0.413 1.5 0s0.413-1.087 0-1.5l-14.663-14.669c-0.413-0.412-1.088-0.412-1.5 0l-14.869 14.869c-0.213 0.212-0.313 0.481-0.313 0.756z"/> </g></svg>
+            <svg class="dragIcons arrowDown"fill="#1E293B" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" transform="matrix(1, 0, 0, -1, 0, 0)"> <g id="SVGRepo_bgCarrier" stroke-width="0"/> <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/> <g id="SVGRepo_iconCarrier"> <path d="M0.256 23.481c0 0.269 0.106 0.544 0.313 0.75 0.412 0.413 1.087 0.413 1.5 0l14.119-14.119 13.913 13.912c0.413 0.413 1.087 0.413 1.5 0s0.413-1.087 0-1.5l-14.663-14.669c-0.413-0.412-1.088-0.412-1.5 0l-14.869 14.869c-0.213 0.212-0.313 0.481-0.313 0.756z"/> </g> </svg>`
 
+            dragDiv.setAttribute('aria-label', 'Déplacer le produit');
+            
 
 
         // Chargement des grandes div dans la carte :

@@ -135,6 +135,7 @@ header a {
 }
 
 .createAccount {
+    /* TODO trouver moyen de décoller le bouton du CTA */
     height: 60px;
     width: 120px;
     align-content: center;
@@ -724,7 +725,7 @@ label {
     font-size: 17px;
     border-radius: 5px;
     border: 1px solid #1E293B;
-    padding: 10px 5px 10px 5px;
+    padding: 10px 10px 10px 10px;
 }
 
 .productCardDetailsShopAndDetails {
@@ -758,7 +759,7 @@ label {
     font-size: 16px;
     border-radius: 5px;
     border: 1px solid #1E293B;
-    padding: 10px 5px 10px 5px;
+    padding: 10px 10px 10px 10px;
 }
 
 /* .productCardDetailsModifyButton {
@@ -787,7 +788,7 @@ label {
     font-size: 16px;
     border-radius: 5px;
     border: 1px solid #1E293B;
-    padding: 10px 5px 10px 5px;
+    padding: 10px 10px 10px 10px;
 }
 
 .productCardNumbersPriorityAndPrice {
@@ -829,7 +830,7 @@ label {
     border-radius: 5px;
     border: 1px solid #1E293B;
     padding: 10px 5px 10px 5px;
-    
+
 }
 
 .productCardNumbersNumberAndBuy {
@@ -869,8 +870,13 @@ label {
 
 .productCardDrag {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-content: center;
+}
+
+.dragIcons {
+    height:20px;
 }
 
 /* Responsive pour mobile */
