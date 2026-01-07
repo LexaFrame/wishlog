@@ -52,6 +52,7 @@ header a {
     flex-wrap: wrap;
     justify-content: center;
     align-content: center;
+    margin-right:5px;
 }
 
 .languageBox {
@@ -611,6 +612,7 @@ label {
     background-color: #F1F5F9;
     color: #1E293B;
     border: 1px solid #1E293B;
+    margin: 0px 10px 0px 10px;
     /* margin-top: 20px;
     padding-top: 20px;
     padding-bottom: 20px; */
@@ -647,6 +649,7 @@ label {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-end;
+    padding-right: 10px;
     gap: 20px;
 }
 
@@ -686,8 +689,7 @@ label {
 }
 
 .productCardImage img {
-    width: 150px;
-    height: 150px;
+    width: 100%;
     /* Recadre l'image pour remplir le carré       */
     object-fit: cover;
     object-position: left;
@@ -708,24 +710,31 @@ label {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-
+    align-items: center;
+    /* padding: 10px 0px 0px 0px; */
 }
 
 .productCardDetailsName {
-    align-content: center;
+    display: inline-block;
+
     font-size: 18px;
     width: 500px;
     text-decoration: underline;
     color: #1E293B;
+    /* height: 20px; */
 
 }
 
 .productCardDetailsCategory {
+    margin: 0;
+    text-align:center;
     background-color: #FFFFFF;
     font-size: 17px;
     border-radius: 5px;
     border: 1px solid #1E293B;
     padding: 10px 10px 10px 10px;
+    margin-left: 5px;
+    /* height: 20px; */
 }
 
 .productCardDetailsShopAndDetails {
@@ -735,7 +744,8 @@ label {
 }
 
 .productCardDetailsShop {
-    margin: 0px;
+    margin: 0;
+
     font-size: 17px;
     color: #1E293B;
 }
@@ -880,7 +890,7 @@ label {
 }
 
 /* Responsive pour mobile */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 645px) {
 
     /* Header mobile */
 
@@ -982,7 +992,7 @@ label {
     margin-top: 10px;
 }
 
-/* CSS Page Wishlist Mobile */
+    /* CSS Page Wishlist Mobile */
 
 .wishlistDescriptionSection {
     padding: 40px 30px 40px 30px;
@@ -1022,33 +1032,46 @@ label {
 }
 
 .productCard {
-
+    padding: 25px 10px 25px 10px;;
 }
 
-.productCardImage img {
-
+.productCardImage {
+    width:100% ;
+    justify-content: center;
+    /* margin-top: 10px; */
 }
 
-.productCardImage img {
-
+.productCardDetailsName {
+    width: 100%;
+    margin-top: 10px;
 }
 
-.productCardDetailsShopAndDetails {
-
+.productCardDetailsName a {
+    height: 19px;
 }
+
 
 .productCardDetailsDescription {
-
+    width : 100%;
 }
 
 .productCardDetailsModifyAndMove {
     justify-content: center;
+    padding: 10px 0px 40px 0px;
+}
+
+/* .productCardNumbersNumberAndBuy {
+} */
+
+.productCardDrag {
+    border : 1px solid #1E293B;
+    padding : 0px 5px 0px 5px;
 }
 
 }
 
 /* Responsive layout intermédiaire */
-@media (min-width: 601px) and (max-width: 1190px) {
+@media (min-width: 646px) and (max-width: 1190px) {
 
 .headerBox {
     flex-direction: column;
@@ -1091,6 +1114,14 @@ label {
 
 .submitButton {
     margin-top: 10px;
+}
+
+.productCardNumbers {
+    margin-top: 15px;
+}
+
+.productCardDetailsModifyAndMove {
+    padding: 10px 0px 40px 0px;
 }
 
 }

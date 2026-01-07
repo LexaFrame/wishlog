@@ -1,9 +1,12 @@
+
+const url = window.location.origin + '/wishlist.json'
+console.log(url)
 // Création des cards produit :
 
 // Création de ma fonction asynchrone que je nomme "loadProducts" destinée à utiliser mon fichier .JSON. Rien entre parenthèses car je n'ai pas de paramètres à appeler :
 async function loadProducts() {
     // Création de ma variable response dans laquelle sera stocké le résultat du fetch qui lui-même renvoie la promesse qui est un objet qui contiendra la réponse quand elle sera prête.
-    const response = await fetch('wishlist.json');
+    const response = await fetch(url);
     // Création de la variable products dans laquelle on stocke le tableau d'objets du .JSON
     const products = await response.json();
 
