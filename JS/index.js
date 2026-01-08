@@ -1,7 +1,7 @@
 
 const url = window.location.origin + '/wishlist.json'
 console.log(url)
-// Création des cards produit :
+
 
 // Création de ma fonction asynchrone que je nomme "loadProducts" destinée à utiliser mon fichier .JSON. Rien entre parenthèses car je n'ai pas de paramètres à appeler :
 async function loadProducts() {
@@ -10,6 +10,30 @@ async function loadProducts() {
     // Création de la variable products dans laquelle on stocke le tableau d'objets du .JSON
     const products = await response.json();
 
+    // Création du menu déroulant de filtre "Catégories":
+    const categoriesSet = new Set(); // Création d'un set Catégories qui va regrouper toutes les catégories définies dans le .JSON
+    products.forEach(product => {
+        if (product.category) { // Ignore les produits sans catégorie indiquée
+            categoriesSet.add(product.category);// Ajoute les catégories à CategoriesSet
+        }
+        });
+    
+        const categories = Array.from(categoriesSet);
+
+        const selectCategory = document.getElementById('filterCategory');
+
+        categoriesSet.forEach(category => {
+            const categoryOptions = document.createElement('option');
+            categoryOptions.classList.add('filterCategoryOptions');
+            categoryOptions.value = category;
+            categoryOptions.textContent = category;
+
+
+            selectCategory.appendChild(categoryOptions);
+        })
+
+
+        // Création des cards produit :
     // Recherche et sélectionne la div (dans le DOM) dans laquelle je veux créer les cartes. Création de la variable cardContainer pour pouvoir ensuite s'y référer et y mettre les cards : 
     const cardContainer = document.querySelector('.wishlistProductsSectionCardBox');
 

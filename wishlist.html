@@ -113,7 +113,30 @@
 
             <!-- TODO Créer des menus déroulants pour filtrer -->
             <div class="filterBox">
-                <p class="filterParagraph">Catégorie</p><p class="filterParagraph">Trier par :</p>
+                <label for="filterCategory" class="filterLabel">Catégorie</label>
+                <select id="filterCategory" name="filterCategory">
+                  <option value="selection">Catégorie</option>
+                  <option value="all">Toutes les catégories</option>                  
+                  <!-- <option value="Jouets"></option>
+                  <option value="Livres"></option>
+                  <option value="Vêtements"></option>
+                  <option value="Bijoux"></option>
+                  <option value="Accessoires"></option>
+                  <option value="Jeux de société"></option>
+                  <option value="Ustensiles de cuisine"></option>                  
+                  <option value="Bagagerie"></option> -->
+                </select>  
+
+                <label for="sortItems" class="sortItemsLabel">Trier par :</label>
+                <select id="sortItems" name="filterCategory">
+                  <option value="selection">Trier par :</option>
+                  <option value="Prix croissant">Prix croissant</option>
+                  <option value="Prix décroissant">Prix décroissant</option>
+                  <option value="Date d'ajout la plus récente">Date d'ajout la plus récente</option>
+                  <option value="Date d'ajout la plus ancienne">Date d'ajout la plus ancienne</option>
+                  <option value="Priorité de la plus haute à la plus faible">Priorité de la plus haute à la plus faible</option>
+                  <option value="Priorité de la plus faible à la plus haute">Priorité de la plus faible à la plus haute</option>
+                </select> 
             </div>
             
             <div class="wishlistProductsSectionCardBox">

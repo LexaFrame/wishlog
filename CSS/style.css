@@ -649,15 +649,63 @@ label {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-end;
+    align-items: center;
     padding-right: 10px;
     gap: 20px;
 }
 
-.filterParagraph {
+/* .filterParagraph {
     display: inline;
     color: #334155;
     border: 1px solid #334155;
     padding: 20px 60px 20px 60px;
+} */
+
+#filterCategory {
+    display: inline;
+    text-align: justify;
+    height: 60px;
+    background-color: #FFFFFF;
+    color: #334155;
+    font-size: 16px;
+    border: 1px solid #334155;
+    padding: 20px 60px 20px 60px; 
+    margin-top: 10px;  
+}
+
+#sortItems {
+    display: inline;
+    height: 60px;
+    background-color: #FFFFFF;
+    color: #334155;
+    font-size: 16px;
+    border: 1px solid #334155;
+    padding: 20px 60px 20px 60px;
+    margin-top: 10px;     
+}
+
+.filterLabel {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}   
+
+.sortItemsLabel {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;        
 }
 
 /* TODO Régler le problème de style d'alignement de la box */
