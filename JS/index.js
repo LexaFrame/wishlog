@@ -44,6 +44,7 @@ async function loadProducts() {
             const card = document.createElement('div');
             // Ajout de la classe .productCard à la variable card, cela permet au style CSS de .productCard de s'appliquer à cette div une fois qu'elle sera dans le DOM:
             card.classList.add('productCard');
+            card.dataset.category = product.category // Ajout d'un attribut catégorie pour servir au filtre par catégories ensuite
 
             // Création de la div contenant l'image de la carte produit  selon la même méthode:
             const imageDiv = document.createElement('div');
@@ -285,7 +286,10 @@ async function loadProducts() {
 
             // Ajout de la div card à son parent la div cardContainer (qui correspond à .wishlistProductsSectionCardBox, sélectionnée dans le DOM) :
             cardContainer.appendChild(card);
-});
+    });
+    selectCategory.addEventListener("change", () => {
+                
+    });
 }
 
 // Affichage des produits dans la console :
