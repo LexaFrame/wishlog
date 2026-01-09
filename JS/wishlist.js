@@ -18,18 +18,18 @@ async function loadProducts() {
         }
         });
     
-        const categories = Array.from(categoriesSet);
+        const categories = Array.from(categoriesSet); // À vérifier : récupère les catégories de categoriesSet et les stocke dans une variable ?
 
-        const selectCategory = document.getElementById('filterCategory');
+        const selectCategory = document.getElementById('filterCategory'); // Je récupère la valeur de la balise select qui est dans le DOM
 
-        categoriesSet.forEach(category => {
-            const categoryOptions = document.createElement('option');
-            categoryOptions.classList.add('filterCategoryOptions');
-            categoryOptions.value = category;
-            categoryOptions.textContent = category;
+        categoriesSet.forEach(category => { // À vérifier : Prend chaque catégories de categoriesSet
+            const categoryOptions = document.createElement('option'); // À vérifier : crée la variable categoryOptions et accède au DOM pour créer la balise option
+            categoryOptions.classList.add('filterCategoryOptions'); // À vérifier : Ajoute une classe à la balise option
+            categoryOptions.value = category; // À vérifier : Donne la valeur category à categoryOptions
+            categoryOptions.textContent = category; // À vérifier : Affiche le texte de category à categoryOptions
 
 
-            selectCategory.appendChild(categoryOptions);
+            selectCategory.appendChild(categoryOptions); // À vérifier : Ajoute/charge categoryOptions à selectCategory
         })
 
 
@@ -288,7 +288,10 @@ async function loadProducts() {
             cardContainer.appendChild(card);
     });
     selectCategory.addEventListener("change", () => {
-                
+       const selectedCategory = selectCategory.value;
+    //    console.log("Catégorie choisie :", selectedCategory);       
+       document.querySelectorAll('.productCard') // Récupérer toutes les cartes présentes dans le DOM pour les parcourir
+    
     });
 }
 
