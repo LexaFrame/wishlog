@@ -290,8 +290,18 @@ async function loadProducts() {
     selectCategory.addEventListener("change", () => {
        const selectedCategory = selectCategory.value;
     //    console.log("Catégorie choisie :", selectedCategory);       
-       document.querySelectorAll('.productCard') // Récupérer toutes les cartes présentes dans le DOM pour les parcourir
-    
+       const allCards = document.querySelectorAll('.productCard'); // Récupérer toutes les cartes présentes dans le DOM pour les parcourir
+            allCards.forEach(card => {
+            console.log(card.dataset.category);
+            if (selectedCategory === "all") {
+                card.style.display = "flex";
+                } else if (selectedCategory === card.dataset.category) {
+                card.style.display = "flex";
+                } else { 
+                card.style.display = "none";
+                }
+        });
+        
     });
 }
 
