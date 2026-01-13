@@ -7,24 +7,28 @@
 
     <!-- Mots-clés pour aider le référencement -->
     <meta name="author" content="Sarah Segui Bilger" />
+    <meta name="description" content="Créez et partagez vos listes d'envies, de souhaits, d'anniversaire, de mariage ou de naissance avec vos proches !">
 
     <!-- Appel du fichier CSS -->
     <link rel="stylesheet" href="css/style.css" />
 
     <!-- Titre de la page -->
     <title>WishLog - La liste d'envies universelle et gratuite</title>
-    <!-- <script src="js/darkmode.js">
 
-    </script> -->
+    <script src="js/darkmode.js">
+
+    </script>
+
   </head>
 
   <body>
     <!--Début du code du contenu de la page-->
 
     <header>
+      <!-- TODO menu burger : <a href="#"></a> Penser à mettre le mot Menu, une personne handicapée ne verra pas le caractère spécial pour indiquer la présence du menu. Si ce n'est pas possible, mettre un aria-label (aria-label="Menu") -->
+
       <!-- Conteneur du header -->
       <div class="headerBox">
-
         <!--Logo du site-->
         <img src="images/LogoWishLog2.png" title="WishLog" alt="Logo de Wishlog" class="logo"/>
 
@@ -47,7 +51,7 @@
 
             <!--Insertion de la barre de recherche-->
             <form action="#" class="searchForm" role="search">
-              <label for="search-input" class="visually-hidden"></label>
+              <label for="searchInput" class="visually-hidden">Rechercher</label>
               <input type="search" name="q" id="searchInput" class="searchBar" placeholder="Rechercher" />
             <!-- Bouton recherche -->
             <button type="submit" class="searchButton" aria-label="Lancer la recherche">
@@ -56,19 +60,18 @@
             </form>
           </div>
 
-        <!-- Bouton de connexion -->
-         <a href="#" class="createAccount">Connexion</a>
+          <!-- Bouton de connexion -->
+          <a href="#" class="createAccount">Connexion</a>
 
-      <!-- Menu de navigation avec des puces non ordonnées -->
-    <nav class="menu">
-      <ul>
-        <li> <a href="#" class="menuLink">Créer</a><span class="separation">|</span></li>
-        <li> <a href="wishlist.html" class="menuLink">Modifier</a><span class="separation">|</span></li>
-        <li> <a href="#" class="menuLink">Partager</a><span class="separation">|</span></li>
-        <li> <a href="contact.html" class="menuLink">Contact</a></li>        
-      </ul>
-    </nav>
-
+          <!-- Menu de navigation avec des puces non ordonnées -->
+          <nav class="menu">
+            <ul>
+              <li> <a href="#" class="menuLink">Créer</a><span class="separation">|</span></li>
+              <li> <a href="wishlist.html" class="menuLink">Modifier</a><span class="separation">|</span></li>
+              <li> <a href="#" class="menuLink">Partager</a><span class="separation">|</span></li>
+              <li> <a href="contact.html" class="menuLink">Contact</a></li>        
+            </ul>
+          </nav>
       </div>
       <!-- BoutonCTA1 -->
       <a href="#" class="CTA1">Créer ma liste</a>
@@ -101,7 +104,6 @@
             <!-- Séparateur -->
             <div class="divideSection">
                 <span class="wishlistSeparation">|</span>
-                <!-- <hr class="wishlistHr"/> -->
             </div>
 
             <!-- Identification et adresse de la personne si applicable -->
@@ -114,20 +116,12 @@
          <!-- Section avec cartes produit -->
          <section class="wishlistProductsSection">
 
-            <!-- TODO Créer des menus déroulants pour filtrer -->
+            <!-- Création des menus déroulants pour filtrer -->
             <div class="filterBox">
                 <label for="filterCategory" class="filterLabel">Catégorie</label>
                 <select id="filterCategory" name="filterCategory">
                   <option value="selection">Catégories</option>
                   <option value="all">Toutes les catégories</option>                  
-                  <!-- <option value="Jouets"></option>
-                  <option value="Livres"></option>
-                  <option value="Vêtements"></option>
-                  <option value="Bijoux"></option>
-                  <option value="Accessoires"></option>
-                  <option value="Jeux de société"></option>
-                  <option value="Ustensiles de cuisine"></option>                  
-                  <option value="Bagagerie"></option> -->
                 </select>  
 
                 <label for="sortItems" class="sortItemsLabel">Trier par :</label>

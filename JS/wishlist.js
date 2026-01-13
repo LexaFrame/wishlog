@@ -1,4 +1,3 @@
-
 const url = window.location.origin + '/wishlist.json'
 console.log(url)
 
@@ -238,6 +237,7 @@ async function loadProducts() {
                 const productPrice = document.createElement('p');
                 productPrice.classList.add('productCardNumbersPrice');
                 productPrice.textContent = product.price ? product.price : "Prix indisponible";
+                productPrice.setAttribute('aria-label', `Prix du produit ${product.nameProduct}`); 
 
                 // Ajout du prix du produit à la div qui contient la priorité et le prix :
                 priorityAndPrice.appendChild(productPrice);
