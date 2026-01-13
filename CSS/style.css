@@ -1126,7 +1126,13 @@ label {
 }
 
 .dark header {
-    background-color: #111827;
+    /* background-color: #111827; */
+    /* background-color:#283144;
+    background-color:#475569;
+    background-color:#334155; */
+    background-color: #1f273a;
+    border : 1px solid #F8FAFC;
+    /* border-color: #F8FAFC; */
 }
 
 .dark header a {
@@ -1134,12 +1140,12 @@ label {
 }
 
 .dark .createAccount {
-    background-color: #111827;
+    background-color: #1f273a;
 }
 
 .dark .createAccount:hover {
     background-color: #F1F5F9;
-    color: #111827;
+    color: #1f273a;
 }
 
 .dark .menu {
@@ -1148,22 +1154,24 @@ label {
 
 .dark .menuLink:hover {
     background-color: #F1F5F9; 
-    color: #111827;
+    color: #1f273a;
 }
 
 .dark .CTA1 {
     background-color: #064E3B;
     color: #F1F5F9 ;
-    border-color: #111827;
+    border-color: #1f273a;
 }
 
 .dark .CTA1:hover {
     background-color: #10B981;
-    color: #111827;
+    color: #1f273a;
 }
 
 .dark main {
-    background-color: #0B0F1A;
+    /* background-color: #0B0F1A; */
+    background-color: #111827;
+    border : 1px solid #F8FAFC;
 }
 
 .dark h1 {
@@ -1181,17 +1189,18 @@ label {
 .dark .CTA2 {
     background-color: #064E3B;
     color: #F1F5F9 ;
-    border-color: #111827
+    border-color: #1f273a
 }
 
 .dark .CTA2:hover {
     background-color: #10B981;
-    color: #111827;
+    color: #1f273a;
 }
 
 .dark .descriptionSection {
-    background-color: #1E293B;
-    color: #F1F5F9;
+    /* background-color: #1E293B; */
+    background-color: #29323f;
+    color: #29323b;
 }
 
 .dark .descriptionParagraph1 {
@@ -1206,15 +1215,15 @@ label {
     background-color: #0B0F1A;
     color: #F1F5F9;
     box-shadow: #0B0F1A;
-    border-color: #1E293B
+    border-color: #29323f
 }
 
 .dark .cardsOptions::before {
-    border: 1px solid #1E293B;
+    border: 1px solid #29323f;
 }
 
 .dark footer {
-    background-color: #111827;
+    background-color: #1f273a;
 }
 
 .dark .aboutBox {
@@ -1225,14 +1234,13 @@ label {
     border-top: 1px solid #F1F5F9;
 }
 
-/* TODO : choisir une couleur */
 .dark .contactSection {
-    background-color: #1E293B;
+    background-color: #29323f;
     color:#F1F5F9;
 }
 
 .dark .contactFormSection {
-    background-color: #1E293B;
+    background-color: #29323f;
     color:#F1F5F9;    
 }
 
@@ -1242,14 +1250,14 @@ label {
 
 .dark .submitButton {
     background-color: #F1F5F9;
-    color: #1E293B;
-    border-color: #1E293B;
+    color: #29323f;
+    border-color: #29323f;
 }
 
 .dark .submitButton:hover {
     background-color: #10B981;
     color:#F1F5F9;
-    border-color: #1E293B;
+    border-color: #29323f;
 }
 
 .dark .h1Wishlist {
@@ -1261,7 +1269,7 @@ label {
 }
 
 .dark .personalDataSection{
-    background-color: #1E293B;
+    background-color: #29323f;
     color: #F1F5F9;
     border: 1px solid #F1F5F9;
 }
@@ -1285,17 +1293,19 @@ label {
 .dark #filterCategory{
     background-color: #0B0F1A;
     color: #CBD5E1;
-    border: 1px solid #1E293B;
+    /* border: 1px solid #29323f; */
+    border: 1px solid #F1F5F9;
 }
 
 .dark #sortItems{
     background-color: #0B0F1A;
     color: #CBD5E1;
-    border: 1px solid #1E293B;
+    /* border: 1px solid #29323f; */
+    border: 1px solid #F1F5F9;
 }
 
 .dark .productCard {
-    background-color: #1E293B;
+    background-color: #29323f;
     color: #F1F5F9;
     border: 1px solid #F1F5F9;
     /* border: 1px solid #1E293B; */
@@ -1303,7 +1313,7 @@ label {
 
 .dark .productCardImage img {
     box-shadow:1px 1px 1px 1px #0B0F1A;
-    background-color: #1E293B;
+    background-color: #29323f;
 }
 
 .dark .productCardDetailsName {
@@ -1311,7 +1321,7 @@ label {
 }
 
 .dark .productCardDetailsCategory {
-    background-color: #1E293B;
+    background-color: #29323f;
     border: 1px solid #FFFFFF;
 }
 
@@ -1324,25 +1334,25 @@ label {
 }
 
 .dark .productCardDetailsModifyAndMove button {
-    background-color: #1E293B;
+    background-color: #29323f;
     color: #FFFFFF;
     border: 1px solid #FFFFFF;
 }
 
 .dark .productCardNumbersDeleteButton {
-    background-color: #1E293B;
+    background-color: #29323f;
     color: #FFFFFF;
     border: 1px solid #FFFFFF;
 }
 
 .dark .productCardNumbersPriority {
-    background-color: #1E293B;
+    background-color: #29323f;
     color: #FFFFFF;
     border: 1px solid #FFFFFF;
 }
 
 .dark .productCardNumbersPrice {
-    background-color: #1E293B;
+    background-color: #29323f;
     border: 1px solid #FFFFFF;    
 }
 
@@ -1356,12 +1366,20 @@ label {
     border: 1px solid #FFFFFF;
 }
 
+.dark .productCardDrag {
+    border : 1px solid #FFFFFF;
+}
+
+.dark .dragIcons {
+    fill: #FFFFFF;
+}
+
 /* CSS mobile mode sombre */
 
 .dark @media screen and (max-width: 645px) {
 
 .dark .wishlistSeparation {
-    color: #1E293B;
+    color: #29323f;
 }
 
 .dark .productCardDrag {
@@ -1548,9 +1566,9 @@ Main : #0B0F1A
 Header : #111827
 Footer : #111827
 ContactSection : #0B0F1A
-DescriptionSection : #1E293B
-ProductCard : #1E293B
-Menu:hover #F8FAFC → #1E293B
+DescriptionSection : #29323f
+ProductCard : #29323f
+Menu:hover #F8FAFC → #29323f
 Bouton 1 : #111827
 Bouton 2 : #1E293B
 Bouton hover : #334155
@@ -1559,20 +1577,20 @@ Bouton CTA hover : #10B981
 Bouton createAccount : #111827
 Bouton createAccount:hover : #F1F5F9
 CardsOptions : #0B0F1A
-SubmitButton : #1E293B
+SubmitButton : #29323f
 SubmitButton:hover : #10B981
-PersonalDataSection : #1E293B
+PersonalDataSection : #29323f
 WishlistProductsSection : #0B0F1A
 FilterCategory : #0B0F1A
 SortItems : #0B0F1A
-ProductCardImage img : #1E293B
-ProductCardsCategory : #1E293B
-productCardDetailsModifyAndMove button : #1E293B
-productCardNumbersDeleteButton : #1E293B
-productCardNumbersPriority : #1E293B
+ProductCardImage img : #29323f
+ProductCardsCategory : #29323f
+productCardDetailsModifyAndMove button : #29323f
+productCardNumbersDeleteButton : #29323f
+productCardNumbersPriority : #29323f
 productCardNumbersPrice : #F1F5F9
 productCardNumbersBuy : #10B981
-PersonalDataSection : #1E293B
+PersonalDataSection : #29323f
 
 
 -Textes 5 couleurs différentes
@@ -1624,25 +1642,25 @@ Bordure menu : #CBD5E1
 Bordure CTA : #111827
 Border aboutBox : #CBD5E1
 Bordure CTA2 : #111827
-Bordure cardsOptions : #1E293B
+Bordure cardsOptions : #29323f
 Hr : #334155
 Box-shadow cardsOptions : #0B0F1A
-Bordure cardsOptions::before : #1E293B
+Bordure cardsOptions::before : #29323f
 Bordure copyrightBox : #F1F5F9
-Bordure submitButton : #1E293B
-Bordure submitButton:hover : #1E293B
-Bordure personalDataSection : #1E293B
-Bordure filterCategory : #1E293B
-Bordure sortItems : #1E293B
-Bordure productCard : #1E293B
+Bordure submitButton : #29323f
+Bordure submitButton:hover : #29323f
+Bordure personalDataSection : #29323f
+Bordure filterCategory : #29323f
+Bordure sortItems : #29323f
+Bordure productCard : #29323f
 Box-shadow productCardImage img : #0B0F1A
-Bordure productCardDetailsCategory : #1E293B
-Bordure productCardDetailsModifyAndMove button : #1E293B
-Bordure productCardNumbersDeleteButton : #1E293B
-Bordure productCardNumbersPriority : #1E293B
-Bordure productCardNumbersPrice : #1E293B
-Bordure productCardNumbersNumber : #1E293B
-Bordure productCardNumbersBuy : #1E293B
-WishlistSeparation : #1E293B
-Bordure productCardDrag : #1E293B
+Bordure productCardDetailsCategory : #29323f
+Bordure productCardDetailsModifyAndMove button : #29323f
+Bordure productCardNumbersDeleteButton : #29323f
+Bordure productCardNumbersPriority : #29323f
+Bordure productCardNumbersPrice : #29323f
+Bordure productCardNumbersNumber : #29323f
+Bordure productCardNumbersBuy : #29323f
+WishlistSeparation : #29323f
+Bordure productCardDrag : #29323f
 */

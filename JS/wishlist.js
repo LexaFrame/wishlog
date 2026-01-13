@@ -11,25 +11,38 @@ async function loadProducts() {
     const products = await response.json();
 
     // Création du menu déroulant de filtre "Catégories":
-    const categoriesSet = new Set(); // Création d'un set Catégories qui va regrouper toutes les catégories définies dans le .JSON
+
+    // Création d'un Set pour stocker les catégories uniques présentes dans le JSON (pas de doublons) :
+    const categoriesSet = new Set(); 
     products.forEach(product => {
-        if (product.category) { // Ignore les produits sans catégorie indiquée
-            categoriesSet.add(product.category);// Ajoute les catégories à CategoriesSet
+        // On vérifie que le produit possède bien une catégorie (évite les valeurs undefined ou vides):
+        if (product.category) {
+            // Ajoute les catégories à CategoriesSet sauf si elle existe déjà :
+            categoriesSet.add(product.category); 
         }
         });
-    
-        const categories = Array.from(categoriesSet); // À vérifier : récupère les catégories de categoriesSet et les stocke dans une variable ?
+        // Transformation du Set en tableau classique (utile si on veut utiliser des méthodes de tableaux) :
+        const categories = Array.from(categoriesSet);
 
-        const selectCategory = document.getElementById('filterCategory'); // Je récupère la valeur de la balise select qui est dans le DOM
+        // Récupération du menu déroulant select déjà présent dans le HTML en accédant au DOM :
+        const selectCategory = document.getElementById('filterCategory');
 
-        categoriesSet.forEach(category => { // À vérifier : Prend chaque catégories de categoriesSet
-            const categoryOptions = document.createElement('option'); // À vérifier : crée la variable categoryOptions et accède au DOM pour créer la balise option
-            categoryOptions.classList.add('filterCategoryOptions'); // À vérifier : Ajoute une classe à la balise option
-            categoryOptions.value = category; // À vérifier : Donne la valeur category à categoryOptions
-            categoryOptions.textContent = category; // À vérifier : Affiche le texte de category à categoryOptions
+        // Parcourir le set et récupérer chaque catégorie unique pour créer les options du menu : 
+        categoriesSet.forEach(category => {
 
+            // Création d'une balise option pour le menu déroulant, en accédant au DOM :
+            const categoryOptions = document.createElement('option');
 
-            selectCategory.appendChild(categoryOptions); // À vérifier : Ajoute/charge categoryOptions à selectCategory
+            // Ajoute une classe CSS à la balise option :
+            categoryOptions.classList.add('filterCategoryOptions');
+
+            // La valeur envoyée lors de la sélection (lors de la sélection, donne la valeur de category à categoryOptions.value) :
+            categoryOptions.value = category; 
+            // Affiche le texte pour l'utilisateur dans le menu déroulant :
+            categoryOptions.textContent = category;
+
+            // Ajout de l'option categoryOptions dans le menu select :
+            selectCategory.appendChild(categoryOptions);
         })
 
 
@@ -287,19 +300,31 @@ async function loadProducts() {
             // Ajout de la div card à son parent la div cardContainer (qui correspond à .wishlistProductsSectionCardBox, sélectionnée dans le DOM) :
             cardContainer.appendChild(card);
     });
+
+    // Ajout d'un eventListener sur le menu déroulant selectCategory (se déclenche à chaque changement) :
     selectCategory.addEventListener("change", () => {
-       const selectedCategory = selectCategory.value;
-    //    console.log("Catégorie choisie :", selectedCategory);       
-       const allCards = document.querySelectorAll('.productCard'); // Récupérer toutes les cartes présentes dans le DOM pour les parcourir
-            allCards.forEach(card => {
-            console.log(card.dataset.category);
+        
+        // Récupération de la valeur sélectionnée dans le menu :
+        const selectedCategory = selectCategory.value;      
+
+        // Récupérer toutes les cartes produit présentes dans le DOM :
+        const allCards = document.querySelectorAll('.productCard');
+
+        // Parcourir toutes les cartes produit récupérées pour décider si elle doit être affichée ou non :
+        allCards.forEach(card => {
+
+            // Si l'utilisateur choisit "all", on affiche toutes les cartes :
             if (selectedCategory === "all") {
                 card.style.display = "flex";
-                } else if (selectedCategory === card.dataset.category) {
+
+            // Sinon, on affiche uniquement les cartes dont la catégorie correspond à la sélection :
+            } else if (selectedCategory === card.dataset.category) {
                 card.style.display = "flex";
-                } else { 
+
+            // Toutes les autres cartes sont cachées :
+            } else { 
                 card.style.display = "none";
-                }
+            }
         });
         
     });

@@ -12,7 +12,7 @@ WishLog est une application web permettant de créer une liste d'achat (aussi ap
 
 Développement de pages web en utilisant :
 
-- Figma 
+- Figma (facultatif)
 - HTML5
 - CSS3
 - Compréhension de la mise en page responsive.
@@ -53,6 +53,7 @@ Exemple : Utilisation de JavaScript pour rendre les interfaces interactives.
 - Modifier un article (MVP)
 - Supprimer un article (MVP)
 - Créer manuellement un article si import impossible (MVP)
+- Afficher les articles
 - Partager la liste : URL / mail / RS (MVP)
 - Créer une fonction "ne pas me gâcher la surprise"
 
