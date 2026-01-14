@@ -4,7 +4,7 @@
 
 ## Description de WishLog
 
-WishLog est une application web permettant de créer une liste d'achat (aussi appelée liste d'envies) à partir de produits mis en vente sur tous types de sites de e-commerce. 
+WishLog est une application web développée en HTML, CSS et JavaScript permettant de créer une liste d'achat (aussi appelée liste d'envies) à partir de produits mis en vente sur tous types de sites de e-commerce. 
 
 ## Compétences visées
 
@@ -31,6 +31,10 @@ Exemple : Utilisation de JavaScript pour rendre les interfaces interactives.
 ## Structure du projet (arborescence des fichiers)
 
 ## Technologies utilisées
+
+- HTML5
+- CSS3
+- JavaScript (vanilla)
 
 ## Fonctionnalités principales
 
@@ -64,10 +68,14 @@ Exemple : Utilisation de JavaScript pour rendre les interfaces interactives.
 
 
 ## Instructions d'installation (si applicable)
+Aucune installation nécessaire. Le site est accessible directement en ligne via GitHub Pages.
 
 ## Lien vers le site déployé
+J’ai utilisé GitHub Pages pour héberger un site statique. Mon code est versionné avec Git, poussé sur GitHub, et GitHub Pages publie automatiquement la branche main.
+Adresse du site hébergé via GitHub Pages : https://lexaframe.github.io/wishlog/
 
 ## Choix de conception et notes explicatives
+Le site a été développé pour être responsive.
 
 ## Auteur, date de création, droit d'auteur
 
