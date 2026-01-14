@@ -1,0 +1,10 @@
+Copyright (c) 2026 Sarah Segui Bilger
+
+All rights reserved.
+
+This project and its source code are provided for educational purposes only.
+The repository is public solely to comply with training requirements.
+
+Any reproduction, modification, distribution, or commercial use,
+in whole or in part, without explicit prior written permission
+from the author is strictly prohibited.

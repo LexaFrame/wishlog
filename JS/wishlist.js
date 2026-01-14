@@ -1,3 +1,9 @@
+/**
+ * @author Sarah Segui Bilger
+ * @project WishLog
+ * @context Educational project – public repository required by training
+ */
+
 const url = window.location.origin + '/wishlist.json'
 console.log(url)
 

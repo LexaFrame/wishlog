@@ -69,7 +69,23 @@ Exemple : Utilisation de JavaScript pour rendre les interfaces interactives.
 
 ## Choix de conception et notes explicatives
 
-## Auteur et date de création
+## Auteur, date de création, droit d'auteur
 
 Auteur : Sarah Segui Bilger
-Date de création : 15/12/2025 
+Date de création : 15/12/2025  
+
+Projet réalisé par **Sarah Segui Bilger** dans le cadre d'une formation en développement web.
+Dépôt rendu public uniquement à des fins pédagogiques.
+
+Les clés et données sensibles ont été volontairement retirées.
+
+Toute réutilisation sans autorisation est interdite.
+
+## Legal notice - ENGLISH
+
+This project was created by **Sarah Segui Bilger** as part of a web development training program.
+
+The repository is made public solely to comply with educational requirements.
+All rights are reserved. Any reproduction, modification, distribution or reuse
+of the code, in whole or in part, without explicit prior written permission
+from the author is prohibited.

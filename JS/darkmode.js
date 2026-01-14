@@ -1,3 +1,10 @@
+/**
+ * @author Sarah Segui Bilger
+ * @project WishLog
+ * @context Educational project – public repository required by training
+ */
+
+
 // Détection de la préférence de thème du système :
 const darkModeRequest = window.matchMedia("(prefers-color-scheme: dark)");
 
