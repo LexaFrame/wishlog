@@ -4,7 +4,7 @@
  * @context Educational project – public repository required by training
  */
 
-const url = window.location.origin + '/wishlist.json'
+const url = 'wishlist.json';
 console.log(url)
 
 
