@@ -28,6 +28,8 @@ Exemple : Utilisation de JavaScript pour rendre les interfaces interactives.
 
 ## Captures d'écran ou GIF de démonstration
 
+![Capture du projet](images\wishlogindexcapture.png)
+
 ## Structure du projet (arborescence des fichiers)
 
 ## Technologies utilisées
