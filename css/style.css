@@ -471,6 +471,10 @@ footer {
     justify-content: center;
 }
 
+.formCard {
+    max-width: 770px;
+}
+
 label {
     font-size: 18px;
 }
@@ -479,12 +483,19 @@ label {
     font-size: 17px;
 }
 
+.userNameBlock {
+    padding-bottom: 10px;
+}
 .idBlock {
     padding-bottom: 10px;
 }
 
 .rowId {
     display: inline;
+}
+
+.rowPass {
+    padding-bottom: 10px;
 }
 
 .messageLabel {
@@ -501,7 +512,7 @@ label {
     padding-bottom: 10px;
 }
 
-#firstName, #name, #email, #phone, #address, #city, #postalCode, #message {
+#userName, #firstName, #name, #email, #password1, #password2, #phone, #address, #city, #postalCode, #country, #message {
     width: 300px;
 }
 
@@ -518,7 +529,7 @@ label {
     width: 770px;
 }
 
-.emailBlock, .phoneBlock, .rowAddress, .subjectBlock, .messageBlock, .submitFormButton {
+.emailBlock, .phoneBlock, .rowAddress, .rowCountry, .subjectBlock, .messageBlock, .submitFormButton {
     padding-top: 10px;
     padding-bottom: 10px;
 }
