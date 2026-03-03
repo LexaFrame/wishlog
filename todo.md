@@ -1,4 +1,10 @@
 # TODO
+1. renommer les fichiers en php
+2. branch + commit
+3. include header et footer
+4. merise
+5. recréer la base de données
+6. attaquer refactorer php + pdo + mysql
 
 ## SEO
 
