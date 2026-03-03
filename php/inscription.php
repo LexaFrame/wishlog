@@ -1,0 +1,264 @@
+<?php 
+var_dump($_POST);
+// print_r($_POST);
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['userName'], $_POST['firstName'],$_POST['name'], $_POST['email'], $_POST['password1'], $_POST['password2'], $_POST['address'], $_POST['city'], $_POST['postalCode'], $_POST['country'])) {
+
+  $user_name = trim($_POST['userName']);
+  $first_name = trim($_POST['firstName']);
+  $name = trim($_POST['name']);
+  $email = trim($_POST['email']);
+  $password1 = trim($_POST['password1']);
+  $password2 = trim($_POST['password2']);
+  $address = trim($_POST['address']);
+  $city = trim($_POST['city']);
+  $postal_code = trim($_POST['postalCode']);
+  $country = trim($_POST['country']);
+
+  echo escape_HTML($user_name);
+  echo escape_HTML($first_name);
+  echo escape_HTML($name);
+  echo escape_HTML($email);
+  echo escape_HTML($address);
+  echo escape_HTML($city);
+  echo escape_HTML($postal_code);
+  echo escape_HTML($country);
+}
+?>
+<!DOCTYPE html>
+<!--
+  Author: Sarah Segui Bilger
+  Project: WishLog
+  Context: Educational project – public repository required by training
+-->
+<html lang="fr">
+  <head>
+    <!-- Encodage du site -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Mots-clés pour aider le référencement -->
+    <meta name="author" content="Sarah Segui Bilger" />
+    <meta name="description" content="Créez et partagez vos listes d'envies, de souhaits, d'anniversaire, de mariage ou de naissance avec vos proches !">
+
+    <!-- Appel du fichier CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Titre de la page -->
+    <title>WishLog - La liste d'envies universelle et gratuite</title>
+
+    <!-- <script src="js/darkmode.js">
+
+    </script> -->
+
+  </head>
+
+  <body>
+    <!--Début du code du contenu de la page-->
+
+    <header>
+      <!-- TODO menu burger : <a href="#"></a> Penser à mettre le mot Menu, une personne handicapée ne verra pas le caractère spécial pour indiquer la présence du menu. Si ce n'est pas possible, mettre un aria-label (aria-label="Menu") -->
+
+      <!-- Conteneur du header -->
+      <div class="headerBox">
+
+        <!--Logo du site-->
+        <a href="index.html">
+        <img src="images/logowishlog.png" title="WishLog" alt="Logo de Wishlog" class="logo"/>
+        </a>
+
+        <div class="headerCentralUnit">
+
+          <!-- Choix de la langue // aria-haspopup : cet élément ouvre quelque chose ? // aria-expanded : l'élément est ouvert ? // aria-hidden : ignore l'élément pour l'accessibilité -->
+          <div class="languageBox">
+            <button class="buttonLanguage" aria-haspopup="true" aria-expanded="false">
+              <span class="tagLanguage">FR</span>
+              <span class="triangle" aria-hidden="true"></span>
+            </button>
+
+            <ul class="language-menu" hidden>
+            <li><a href="/en/" lang="en">EN</a></li>
+            </ul>
+          </div>
+
+          <!-- Bloc recherche -->
+          <div class="searchBlock">
+
+            <!--Insertion de la barre de recherche-->
+            <form action="#" class="searchForm" role="search">
+              <label for="searchInput" class="visually-hidden">Rechercher</label>
+              <input type="search" name="q" id="searchInput" class="searchBar" placeholder="Rechercher" />
+            <!-- Bouton recherche -->
+            <button type="submit" class="searchButton" aria-label="Lancer la recherche">
+              <img src="images/magnifyingglass.png" class="searchIcon" alt="" aria-hidden= "true"/>
+            </button>
+            </form>
+          </div>
+
+          <!-- Bouton de connexion -->
+          <a href="#" class="createAccount">Connexion</a>
+
+          <!-- Menu de navigation avec des puces non ordonnées -->
+          <nav class="menu">
+            <ul>
+              <li> <a href="inscription.html" class="menuLink">Créer</a><span class="separation">|</span></li>
+              <li> <a href="wishlist.html" class="menuLink">Modifier</a><span class="separation">|</span></li>
+              <li> <a href="#" class="menuLink">Partager</a><span class="separation">|</span></li>
+              <li> <a href="contact.html" class="menuLink">Contact</a></li>        
+            </ul>
+          </nav>
+      </div>
+      <!-- BoutonCTA1 -->
+      <a href="#" class="CTA1">Créer ma liste</a>
+    </div>
+    </header>
+
+
+    <main>
+        <!-- Introduction à la page Contact -->
+        <section class="contactSection">
+
+            <!-- Div à rétablir si nécessaire <div class="contactPageIntro"> -->
+                
+                <!-- Titre de la page -->
+                <div class="pageTitleBox">
+                    <h1 class="h1Contact">Créez votre liste</h1>
+                </div>
+
+                <!-- Paragraphe contact -->
+                <div class="pageParagraphBox">
+                    <p class="contactP">Prenez quelques instants pour saisir vos informations personnelles afin de créer votre liste d'envies et la partager avec vos proches.</p>
+                </div>
+
+            <!-- </div> -->
+        </section>
+        <!-- Formulaire de contact -->
+        <section class="contactFormSection">
+
+            <!-- Début formulaire -->           
+            <div class="formCard">
+            <form class="form" method="POST" action="http://localhost/wishlog/php/traitement.php">
+
+            <!-- Champs d'identification -->
+              <!-- Champ pseudo -->
+              <div class="userNameBlock">
+                  <label for="userName">Pseudo<span class="required"> *</span></label>
+                  <input type="text" id="userName" class="inputFields" name="userName" placeholder="Entrez votre nom d'utilisateur" required>
+              </div>
+              <!-- Champ prénom & nom-->
+              <div class="idBlock">
+                <div class="rowId">
+                    <label for="firstName">Prénom</label>
+                    <input type="text" id="firstName" class="inputFields" name="firstName" placeholder="Entrez votre prénom" required>
+                </div>
+                <div class="rowId">
+                  <label for="name">Nom</label>
+                  <input type="text" id="name" class="inputFields nameLabel" name="name" placeholder="Entrez votre nom" required>
+                </div>
+              </div>
+
+              <!-- Champ e-mail -->
+              <div class="emailBlock">
+                  <label for="email">E-mail<span class="required"> *</span></label>
+                  <input type="email" id="email" class="inputFields" name="email" placeholder="votre.email@example.com" required>
+              </div>
+
+              <!-- Champs mot de passe -->
+                <div class="rowPass">
+                    <label for="password1">Mot de passe<span class="required"> *</span></label>
+                    <input type="password" id="password1" class="inputFields" name="password1" placeholder="Entrez votre mot de passe" required>
+                </div>
+                <div class="rowPass">
+                  <label for="password2">Confirmation du mot de passe<span class="required"> *</span></label>
+                  <input type="password" id="password2" class="inputFields nameLabel" name="password2" placeholder="Confirmation de votre mot de passe" required>
+                </div>
+
+
+              <!-- Champs adresse -->
+                <div class="rowAddress">
+                  <label for="address">Adresse</label>
+                  <input type="text" id="address" class="inputFields" name="address" required placeholder="Entrez votre adresse">
+                </div>
+                <div class="cityAndCodeBlock">
+                <div class="addressBlock">
+                  <label for="city">Ville</label>
+                  <input type="text" id="city" class="inputFields" name="city" required placeholder="Entrez votre ville">
+                </div>
+                <div class="addressBlock">
+                <label for="postalCode">Code postal</label>
+                <input type="text" id="postalCode" class="inputFields" name="postalCode" placeholder="Entrez votre code postal" required>
+                </div>
+                <div class="rowCountry">
+                  <label for="country">Pays</label>
+                  <input type="text" id="country" class="inputFields" name="country" required placeholder="Entrez votre pays">
+                </div>
+              </div>
+
+            <!-- Bouton d'envoi -->
+            <div class="submitFormButton">
+            <button class="submitButton" type="submit">Créer</button>
+            </div>
+
+             </form>
+
+            </div>
+            
+        </section>
+
+    </main>
+
+    <footer>
+      <!-- Conteneur du footer -->
+      <div class="footerBox">
+
+        <!-- Conteneur de la section "À propos" -->
+        <div class="aboutBox">
+          <span>À propos</span>
+          <div class="aboutBoxList">
+            <ul>
+              <li><a href="#" class="aboutLink">Qui sommes-nous ?</a></li>
+              <li><a href="#" class="aboutLink">F.A.Q.</a></li>
+              <li><a href="#" class="aboutLink">Contact</a></li>
+              <li><a href="#" class="aboutLink">Plan du site</a></li>      
+            </ul>
+          </div>
+        </div>
+
+        <!-- Logo du site -->
+        <div class="footerLogoBox">
+          <a href="index.html">
+          <img src="images/logowishlog.png" title="WishLog" alt="Logo de Wishlog" class="logoFooter"/>
+          </a>
+          <!-- Réseaux sociaux -->
+            <!-- Insérer boutons icônes liens RS ci-dessous -->
+            <div class="socialMedia">
+              <a href="https://www.facebook.com/">
+                <img src="images/facebook.png" class="buttonSocialMedia" title="Facebook" alt="Logo de Facebook"/>
+              </a>
+              <a href="https://www.instagram.com/">
+                <img src="images/instagram.png" class="buttonSocialMedia" title="Instagram" alt="Logo d'Instagram"/>
+              </a>
+            </div>
+        </div>
+
+        <!-- Conteneur de la section "Informations" -->
+        <div class="infoBox">
+            <span>Informations</span>
+            <div class="infoBoxList">
+            <ul>
+              <li><a href="#" class="infoBoxLink">Partenaires</a></li>
+              <li><a href="#" class="infoBoxLink">Presse</a></li>
+              <li><a href="#" class="infoBoxLink">Politique de confidentialité</a></li>
+              <li><a href="#" class="infoBoxLink">Mentions légales</a></li>
+            </ul>
+            </div>
+        </div>
+      </div>
+      <div class="copyrightBox">
+        <span>© 2025 - www.wishlog.com - Tous droits réservés.</span>
+      </div>
+    </footer>
+
+
+  </body>
+  </html>
