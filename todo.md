@@ -1,10 +1,11 @@
 # TODO
-1. renommer les fichiers html en php
+1. renommer les fichiers en php
 2. branch + commit
 3. include header et footer
 4. merise
 5. recréer la base de données
 6. attaquer refactorer php + pdo + mysql
+
 ## SEO
 
 - [] index.html qui est la première page du site
