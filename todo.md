@@ -1,7 +1,8 @@
 # TODO
 1. renommer les fichiers en php
 2. branch + commit
-3. include header et footer
+3. include header et footer : Créer un dossier includes/ ou partials/ pour tous les éléments réutilisables comme header/footer. Utiliser require_once : évite les doublons et les erreurs.
+Utiliser des chemins relatifs clairs pour ne pas dépendre de l’environnement serveur. Nommer les fichiers de manière explicite.
 4. merise
 5. recréer la base de données
 6. attaquer refactorer php + pdo + mysql

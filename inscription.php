@@ -25,93 +25,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['userName'], $_POST['fi
   echo escape_HTML($country);
 }
 ?>
-<!DOCTYPE html>
 <!--
   Author: Sarah Segui Bilger
   Project: WishLog
   Context: Educational project – public repository required by training
 -->
+
+<!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <!-- Encodage du site -->
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Mots-clés pour aider le référencement -->
-    <meta name="author" content="Sarah Segui Bilger" />
-    <meta name="description" content="Créez et partagez vos listes d'envies, de souhaits, d'anniversaire, de mariage ou de naissance avec vos proches !">
-
-    <!-- Appel du fichier CSS -->
-    <link rel="stylesheet" href="css/style.css" />
-
-    <!-- Titre de la page -->
-    <title>WishLog - La liste d'envies universelle et gratuite</title>
-
-    <!-- <script src="js/darkmode.js">
-
-    </script> -->
-
-  </head>
+<!-- Utilisation de require_once pour inclure le head (de façon centralisée et modifiable) une seule et unique fois : permet d'éviter des bugs, les doublons -->
+<?php require_once 'includes/head.php';?> 
 
   <body>
     <!--Début du code du contenu de la page-->
 
-    <header>
-      <!-- TODO menu burger : <a href="#"></a> Penser à mettre le mot Menu, une personne handicapée ne verra pas le caractère spécial pour indiquer la présence du menu. Si ce n'est pas possible, mettre un aria-label (aria-label="Menu") -->
-
-      <!-- Conteneur du header -->
-      <div class="headerBox">
-
-        <!--Logo du site-->
-        <a href="index.html">
-        <img src="images/logowishlog.png" title="WishLog" alt="Logo de Wishlog" class="logo"/>
-        </a>
-
-        <div class="headerCentralUnit">
-
-          <!-- Choix de la langue // aria-haspopup : cet élément ouvre quelque chose ? // aria-expanded : l'élément est ouvert ? // aria-hidden : ignore l'élément pour l'accessibilité -->
-          <div class="languageBox">
-            <button class="buttonLanguage" aria-haspopup="true" aria-expanded="false">
-              <span class="tagLanguage">FR</span>
-              <span class="triangle" aria-hidden="true"></span>
-            </button>
-
-            <ul class="language-menu" hidden>
-            <li><a href="/en/" lang="en">EN</a></li>
-            </ul>
-          </div>
-
-          <!-- Bloc recherche -->
-          <div class="searchBlock">
-
-            <!--Insertion de la barre de recherche-->
-            <form action="#" class="searchForm" role="search">
-              <label for="searchInput" class="visually-hidden">Rechercher</label>
-              <input type="search" name="q" id="searchInput" class="searchBar" placeholder="Rechercher" />
-            <!-- Bouton recherche -->
-            <button type="submit" class="searchButton" aria-label="Lancer la recherche">
-              <img src="images/magnifyingglass.png" class="searchIcon" alt="" aria-hidden= "true"/>
-            </button>
-            </form>
-          </div>
-
-          <!-- Bouton de connexion -->
-          <a href="#" class="createAccount">Connexion</a>
-
-          <!-- Menu de navigation avec des puces non ordonnées -->
-          <nav class="menu">
-            <ul>
-              <li> <a href="inscription.html" class="menuLink">Créer</a><span class="separation">|</span></li>
-              <li> <a href="wishlist.html" class="menuLink">Modifier</a><span class="separation">|</span></li>
-              <li> <a href="#" class="menuLink">Partager</a><span class="separation">|</span></li>
-              <li> <a href="contact.html" class="menuLink">Contact</a></li>        
-            </ul>
-          </nav>
-      </div>
-      <!-- BoutonCTA1 -->
-      <a href="#" class="CTA1">Créer ma liste</a>
-    </div>
-    </header>
+    <!-- Utilisation de require_once pour inclure le header (de façon centralisée et modifiable) une seule et unique fois : permet d'éviter des bugs, les doublons -->
+    <?php require_once 'includes/header.php';?>
 
 
     <main>
@@ -207,57 +137,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['userName'], $_POST['fi
 
     </main>
 
-    <footer>
-      <!-- Conteneur du footer -->
-      <div class="footerBox">
-
-        <!-- Conteneur de la section "À propos" -->
-        <div class="aboutBox">
-          <span>À propos</span>
-          <div class="aboutBoxList">
-            <ul>
-              <li><a href="#" class="aboutLink">Qui sommes-nous ?</a></li>
-              <li><a href="#" class="aboutLink">F.A.Q.</a></li>
-              <li><a href="#" class="aboutLink">Contact</a></li>
-              <li><a href="#" class="aboutLink">Plan du site</a></li>      
-            </ul>
-          </div>
-        </div>
-
-        <!-- Logo du site -->
-        <div class="footerLogoBox">
-          <a href="index.html">
-          <img src="images/logowishlog.png" title="WishLog" alt="Logo de Wishlog" class="logoFooter"/>
-          </a>
-          <!-- Réseaux sociaux -->
-            <!-- Insérer boutons icônes liens RS ci-dessous -->
-            <div class="socialMedia">
-              <a href="https://www.facebook.com/">
-                <img src="images/facebook.png" class="buttonSocialMedia" title="Facebook" alt="Logo de Facebook"/>
-              </a>
-              <a href="https://www.instagram.com/">
-                <img src="images/instagram.png" class="buttonSocialMedia" title="Instagram" alt="Logo d'Instagram"/>
-              </a>
-            </div>
-        </div>
-
-        <!-- Conteneur de la section "Informations" -->
-        <div class="infoBox">
-            <span>Informations</span>
-            <div class="infoBoxList">
-            <ul>
-              <li><a href="#" class="infoBoxLink">Partenaires</a></li>
-              <li><a href="#" class="infoBoxLink">Presse</a></li>
-              <li><a href="#" class="infoBoxLink">Politique de confidentialité</a></li>
-              <li><a href="#" class="infoBoxLink">Mentions légales</a></li>
-            </ul>
-            </div>
-        </div>
-      </div>
-      <div class="copyrightBox">
-        <span>© 2025 - www.wishlog.com - Tous droits réservés.</span>
-      </div>
-    </footer>
+    <!-- Utilisation de require_once pour inclure le footer (de façon centralisée et modifiable) une seule et unique fois : permet d'éviter des bugs, les doublons -->
+    <?php require_once 'includes/footer.php';?>
 
 
   </body>
