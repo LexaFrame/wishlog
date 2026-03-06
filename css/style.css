@@ -435,9 +435,9 @@ footer {
     margin: 10px;
 }
 
-/* CSS Page Contact */
+/* CSS Pages Formulaires */
 
-.contactSection {
+.contactSection, .addProductSection {
     background-color: #FFFFFF;
     max-width: 1200px;
     margin: auto;
@@ -449,7 +449,7 @@ footer {
     text-align: center;
 }
 
-.h1Contact {
+.h1AddProduct,.h1Contact,.h1FormPages {
     display: block;
     color: #475569; 
     font-size: 30px;
@@ -460,12 +460,12 @@ footer {
 .pageParagraphBox {
     padding-bottom: 20px;
 }
-.contactP {
+.contactP, .addProductP {
     display: block;
     font-size: 18px;
 }
 
-.contactFormSection {
+.contactFormSection, .addProductFormSection {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -483,22 +483,11 @@ label {
     font-size: 17px;
 }
 
-.userNameBlock {
-    padding-bottom: 10px;
-}
 .idBlock {
     padding-bottom: 10px;
 }
 
-.rowId {
-    display: inline;
-}
-
-.rowPass {
-    padding-bottom: 10px;
-}
-
-.messageLabel {
+.messageLabel, .descriptionAddProductLabel {
     display: block;
     padding-bottom: 10px;
 }
@@ -507,11 +496,13 @@ label {
     color: crimson;
 }
 
+/* Présent sur page Contact & Inscription */
 .cityAndCodeBlock {
     padding-top: 10px;
     padding-bottom: 10px;
 }
 
+/* TODO Champs Page Contact & inscription : créer id spécifiques inscription */
 #userName, #firstName, #name, #email, #password1, #password2, #phone, #address, #city, #postalCode, #country, #message {
     width: 300px;
 }
@@ -521,15 +512,15 @@ label {
     gap: 20px;
 }
 
-#subject {
+#subject, #categoryAddProduct, #priorityAddProduct {
     font-size: 17px;
 }
 
-#message {
+#message, #descriptionAddProduct {
     width: 770px;
 }
 
-.emailBlock, .phoneBlock, .rowAddress, .rowCountry, .subjectBlock, .messageBlock, .submitFormButton {
+.emailBlock, .phoneBlock, .rowAddress, .rowCountry, .subjectBlock, .messageBlock, .submitFormButton, .titleAddProductBlock, .shopAddProductBlock, .priceAddProductBlock, .categoryAddProductBlock, .priorityAddProductBlock, .descriptionAddProductBlock, .linkAddProductBlock {
     padding-top: 10px;
     padding-bottom: 10px;
 }
@@ -556,6 +547,26 @@ label {
     background-color: #F1F5F9;
     color: #1E293B; */    
 }
+
+/* CSS Page Contact */
+
+.rowId {
+    display: inline;
+}
+
+/* CSS Page Inscription */
+
+.userNameBlock {
+    padding-bottom: 10px;
+}
+
+.rowPass {
+    padding-bottom: 10px;
+}
+
+/* CSS Page Ajout article */
+
+
 
 /* CSS de Page Wishlist */
 
@@ -913,6 +924,7 @@ label {
 .dragIcons {
     height:20px;
 }
+
 
 /* Responsive pour mobile */
 @media screen and (max-width: 645px) {

@@ -45,14 +45,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['userName'], $_POST['fi
 
 
     <main>
-        <!-- Introduction à la page Contact -->
-        <section class="contactSection">
+        <!-- Introduction à la page d'Inscription -->
+        <section class="contactSection"> <!--TODO modifier noms de classe-->
 
             <!-- Div à rétablir si nécessaire <div class="contactPageIntro"> -->
                 
                 <!-- Titre de la page -->
                 <div class="pageTitleBox">
-                    <h1 class="h1Contact">Créez votre liste</h1>
+                    <h1 class="h1FormPages">Enregistrez-vous pour créer votre liste</h1>
                 </div>
 
                 <!-- Paragraphe contact -->
@@ -126,7 +126,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['userName'], $_POST['fi
 
             <!-- Bouton d'envoi -->
             <div class="submitFormButton">
-            <button class="submitButton" type="submit">Créer</button>
+            <button class="submitButton" type="submit">Valider</button>
             </div>
 
              </form>

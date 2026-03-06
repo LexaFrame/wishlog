@@ -41,7 +41,7 @@
             <!-- Début formulaire -->
             
             <div class="formCard">
-            <form class="form">
+            <form class="form"method="POST" action=""> <!-- TODO saisir lien dans action ="" -->
 
               <!-- Champs d'identification -->
               <div class="idBlock">
