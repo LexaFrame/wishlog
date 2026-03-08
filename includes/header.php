@@ -38,12 +38,12 @@
           </div>
 
           <!-- Bouton de connexion -->
-          <a href="#" class="createAccount">Connexion</a>
+          <a href="inscription.php" class="createAccount">Connexion</a>
 
           <!-- Menu de navigation avec des puces non ordonnées -->
           <nav class="menu">
             <ul>
-              <li> <a href="inscription.php" class="menuLink">Créer</a><span class="separation">|</span></li>
+              <li> <a href="creerliste.php" class="menuLink">Créer</a><span class="separation">|</span></li>
               <li> <a href="ajoutarticle.php" class="menuLink">Modifier</a><span class="separation">|</span></li>
               <li> <a href="wishlist.php" class="menuLink">Partager</a><span class="separation">|</span></li>
               <li> <a href="contact.php" class="menuLink">Contact</a></li>        

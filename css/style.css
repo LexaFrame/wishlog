@@ -437,7 +437,7 @@ footer {
 
 /* CSS Pages Formulaires */
 
-.contactSection, .addProductSection {
+.contactSection, .addProductSection, .createWishlistSection {
     background-color: #FFFFFF;
     max-width: 1200px;
     margin: auto;
@@ -449,7 +449,7 @@ footer {
     text-align: center;
 }
 
-.h1AddProduct,.h1Contact,.h1FormPages {
+.h1AddProduct,.h1Contact,.h1FormPages, .h1CreateWishlist {
     display: block;
     color: #475569; 
     font-size: 30px;
@@ -460,12 +460,12 @@ footer {
 .pageParagraphBox {
     padding-bottom: 20px;
 }
-.contactP, .addProductP {
+.contactP, .addProductP, .addWishlistP {
     display: block;
     font-size: 18px;
 }
 
-.contactFormSection, .addProductFormSection {
+.contactFormSection, .addProductFormSection, .createWishlistFormSection {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -520,7 +520,7 @@ label {
     width: 770px;
 }
 
-.emailBlock, .phoneBlock, .rowAddress, .rowCountry, .subjectBlock, .messageBlock, .submitFormButton, .titleAddProductBlock, .shopAddProductBlock, .priceAddProductBlock, .categoryAddProductBlock, .priorityAddProductBlock, .descriptionAddProductBlock, .linkAddProductBlock {
+.emailBlock, .phoneBlock, .rowAddress, .rowCountry, .subjectBlock, .messageBlock, .submitFormButton, .titleAddProductBlock, .shopAddProductBlock, .priceAddProductBlock, .categoryAddProductBlock, .priorityAddProductBlock, .descriptionAddProductBlock, .linkAddProductBlock, .titleCreateWishlistBlock, .dateCreateWishlistBlock, .typeOfWishlistBlock, .descriptionCreateWishlistBlock, .keepSurpriseBlock {
     padding-top: 10px;
     padding-bottom: 10px;
 }
@@ -565,6 +565,10 @@ label {
 }
 
 /* CSS Page Ajout article */
+
+
+
+/* CSS Page Création de liste */
 
 
 

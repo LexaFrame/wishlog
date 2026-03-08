@@ -27,12 +27,12 @@
                 
                 <!-- Titre de la page -->
                 <!-- TODO décommenter et récupérer dans le CSS les règles correspondantes qui ont disparu <div class="pageTitleBox"> --> 
-                    <h1 class="h1AddProduct">Ajoutez un article</h1> <!-- TODO changer la classe -->
+                    <h1 class="h1AddProduct">Ajoutez un produit</h1> <!-- TODO changer la classe -->
                 <!-- </div> -->
 
                 <!-- Paragraphe ajout d'articles -->
                 <div class="pageParagraphBox">
-                    <p class="addProductP">Saisissez les informations de l'article que vous souhaitez ajouter à votre liste.</p>
+                    <p class="addProductP">Saisissez les informations du produit que vous souhaitez ajouter à votre liste.</p>
                 </div>
 
             <!-- </div> -->
@@ -88,7 +88,7 @@
 
                 <!-- Zone de saisie de la description du produit -->
               <div class="descriptionAddProductBlock">
-                <label for="descriptionAddProduct" class="descriptionAddProductLabel">Description de l'article</label>
+                <label for="descriptionAddProduct" class="descriptionAddProductLabel">Description du produit</label>
                 <textarea id="descriptionAddProduct" name="descriptionAddProduct" class="inputFields" placeholder="Entrez votre message..." rows="5" cols="30" required>
                 </textarea>
               </div>
