@@ -1,3 +1,17 @@
+.env
+
+*.log
+
 .vscode
 
+cache/
+
+logs/
+
 notes.md
+
+todo.md
+
+uploads/
+
+vendor/

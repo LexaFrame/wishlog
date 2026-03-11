@@ -64,6 +64,12 @@
                   <input type="text" id="priceAddProduct" class="inputFields" name="priceAddProduct" placeholder="" required>
               </div>
 
+                <!-- Champ quantité -->
+              <div class="quantityAddProductBlock">
+                  <label for="quantityAddProduct">Quantité</label>
+                  <input type="number" id="quantityAddProduct" class="inputFields" name="quantityAddProduct" min="1" step="1" value="1" required>
+              </div>                
+
                 <!-- Sélection catégorie -->              
                 <div class="categoryAddProductBlock">
                     <label for="categoryAddProduct">Catégorie</label>
@@ -91,6 +97,12 @@
                 <label for="descriptionAddProduct" class="descriptionAddProductLabel">Description du produit</label>
                 <textarea id="descriptionAddProduct" name="descriptionAddProduct" class="inputFields" placeholder="Entrez votre message..." rows="5" cols="30" required>
                 </textarea>
+              </div>
+
+                <!-- Champ pour charger une image du produit-->
+              <div class="imageAddProductBlock">
+                  <label for="imageAddProduct">Photo du produit</label>
+                  <input type="file" id="imageAddProduct" class="inputFields" name="imageAddProduct" accept="image/*">
               </div>
 
                 <!-- Champ lien vers le produit-->

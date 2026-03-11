@@ -21,6 +21,11 @@ SET time_zone = "+00:00";
 -- Database: `wishlog_dev`
 --
 
+CREATE DATABASE IF NOT EXISTS wishlog_dev
+  DEFAULT CHARACTER SET utf8mb4
+  COLLATE utf8mb4_0900_ai_ci;
+USE wishlog_dev;
+
 -- --------------------------------------------------------
 
 --
@@ -31,7 +36,7 @@ CREATE TABLE `wluser_wlwishlist` (
   `user_id` int NOT NULL,
   `wishlist_id` int NOT NULL,
   `role_in_wishlist` varchar(50) NOT NULL,
-  `date_joined_wishlist` datetime NOT NULL
+  `date_joined_wishlist` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -45,8 +50,8 @@ CREATE TABLE `wlwishlist_wlproduct` (
   `product_id` int NOT NULL,
   `category_id` int DEFAULT NULL,
   `product_quantity` int NOT NULL DEFAULT '1',
-  `buy_decision` tinyint(1) NOT NULL,
-  `purchase_cancelled` tinyint(1) NOT NULL
+  `buy_decision` BOOLEAN NOT NULL DEFAULT FALSE,
+  `purchase_cancelled` BOOLEAN NOT NULL DEFAULT FALSE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -58,7 +63,7 @@ CREATE TABLE `wlwishlist_wlproduct` (
 CREATE TABLE `wl_category` (
   `category_id` int NOT NULL,
   `category_name` varchar(50) NOT NULL,
-  `created_at_category` datetime NOT NULL,
+  `created_at_category` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `wishlist_id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -77,7 +82,7 @@ CREATE TABLE `wl_product` (
   `product_description` text,
   `product_price` decimal(10,2) NOT NULL,
   `product_origin` varchar(50) NOT NULL,
-  `created_at_product` datetime NOT NULL
+  `created_at_product` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -110,8 +115,8 @@ CREATE TABLE `wl_user` (
   `user_postalcode` varchar(10) DEFAULT NULL,
   `user_city` varchar(50) DEFAULT NULL,
   `user_country` varchar(50) DEFAULT NULL,
-  `created_at_user_account` datetime NOT NULL,
-  `last_login_at` datetime NOT NULL,
+  `created_at_user_account` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `last_login_at` DATETIME NULL,
   `role_id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -126,8 +131,8 @@ CREATE TABLE `wl_wishlist` (
   `wishlist_name` varchar(50) NOT NULL,
   `event_type` varchar(50) DEFAULT NULL,
   `event_date` date DEFAULT NULL,
-  `created_at_wishlist` datetime NOT NULL,
-  `hide_purchases` tinyint(1) DEFAULT NULL
+  `created_at_wishlist` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `hide_purchases` BOOLEAN NOT NULL DEFAULT FALSE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
