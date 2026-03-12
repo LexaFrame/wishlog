@@ -28,6 +28,20 @@ USE wishlog_dev;
 
 -- --------------------------------------------------------
 
+SET FOREIGN_KEY_CHECKS = 0;
+
+DROP TABLE IF EXISTS `wlwishlist_wlproduct`;
+DROP TABLE IF EXISTS `wluser_wlwishlist`;
+DROP TABLE IF EXISTS `wl_product`;
+DROP TABLE IF EXISTS `wl_category`;
+DROP TABLE IF EXISTS `wl_wishlist`;
+DROP TABLE IF EXISTS `wl_user`;
+DROP TABLE IF EXISTS `wl_role`;
+
+SET FOREIGN_KEY_CHECKS = 1;
+
+-- --------------------------------------------------------
+
 --
 -- Table structure for table `wluser_wlwishlist`
 --
@@ -48,7 +62,6 @@ CREATE TABLE `wluser_wlwishlist` (
 CREATE TABLE `wlwishlist_wlproduct` (
   `wishlist_id` int NOT NULL,
   `product_id` int NOT NULL,
-  `category_id` int DEFAULT NULL,
   `product_quantity` int NOT NULL DEFAULT '1',
   `buy_decision` BOOLEAN NOT NULL DEFAULT FALSE,
   `purchase_cancelled` BOOLEAN NOT NULL DEFAULT FALSE
@@ -82,7 +95,8 @@ CREATE TABLE `wl_product` (
   `product_description` text,
   `product_price` decimal(10,2) NOT NULL,
   `product_origin` varchar(50) NOT NULL,
-  `created_at_product` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `created_at_product` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `category_id` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -112,7 +126,7 @@ CREATE TABLE `wl_user` (
   `user_password_hash` varchar(255) NOT NULL,
   `user_birthdate` date DEFAULT NULL,
   `user_address` varchar(255) DEFAULT NULL,
-  `user_postalcode` varchar(10) DEFAULT NULL,
+  `user_postalcode` varchar(20) DEFAULT NULL,
   `user_city` varchar(50) DEFAULT NULL,
   `user_country` varchar(50) DEFAULT NULL,
   `created_at_user_account` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -151,8 +165,7 @@ ALTER TABLE `wluser_wlwishlist`
 --
 ALTER TABLE `wlwishlist_wlproduct`
   ADD PRIMARY KEY (`wishlist_id`,`product_id`),
-  ADD KEY `product_id` (`product_id`),
-  ADD KEY `category_id` (`category_id`);
+  ADD KEY `product_id` (`product_id`);
 
 --
 -- Indexes for table `wl_category`
@@ -165,7 +178,8 @@ ALTER TABLE `wl_category`
 -- Indexes for table `wl_product`
 --
 ALTER TABLE `wl_product`
-  ADD PRIMARY KEY (`product_id`);
+  ADD PRIMARY KEY (`product_id`),
+  ADD KEY `category_id` (`category_id`);
 
 --
 -- Indexes for table `wl_role`
@@ -239,8 +253,7 @@ ALTER TABLE `wluser_wlwishlist`
 --
 ALTER TABLE `wlwishlist_wlproduct`
   ADD CONSTRAINT `wlwishlist_wlproduct_ibfk_1` FOREIGN KEY (`wishlist_id`) REFERENCES `wl_wishlist` (`wishlist_id`),
-  ADD CONSTRAINT `wlwishlist_wlproduct_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `wl_product` (`product_id`),
-  ADD CONSTRAINT `wlwishlist_wlproduct_ibfk_3` FOREIGN KEY (`category_id`) REFERENCES `wl_category` (`category_id`);
+  ADD CONSTRAINT `wlwishlist_wlproduct_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `wl_product` (`product_id`);
 
 --
 -- Constraints for table `wl_category`
@@ -249,10 +262,49 @@ ALTER TABLE `wl_category`
   ADD CONSTRAINT `wl_category_ibfk_1` FOREIGN KEY (`wishlist_id`) REFERENCES `wl_wishlist` (`wishlist_id`);
 
 --
+--
+-- Constraints for table `wl_product`
+--
+ALTER TABLE `wl_product`
+  ADD CONSTRAINT `wl_product_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `wl_category` (`category_id`);
+
+--
 -- Constraints for table `wl_user`
 --
 ALTER TABLE `wl_user`
   ADD CONSTRAINT `wl_user_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `wl_role` (`role_id`);
+
+INSERT INTO `wl_role`(`role_name`,`role_description`)
+VALUES 
+('Administrator', 'The Administrator can upload, edit and delete anything he deems necessary on the website'),
+('User', 'The User can register, login, create, customize, update, delete and share a wishlist');
+
+INSERT INTO `wl_user`(`user_name`, `user_firstname`,`user_lastname`,`user_email`, `user_password_hash`, `user_birthdate`, `user_address`, `user_postalcode`, `user_city`, `user_country`,`role_id`)
+VALUES ('PAQ', 'Francisca', 'Canals', 'francisca.canals@mail.com', '$2y$12$6.0KJVdrDIs54r.GM8NUPuz2R.ythMf3Qbpt5wDeV/nb7PJc2rvdG', '2001-01-01', '6 calle Jeronimo Estades', '6872Y', 'Soller', 'España', 1);
+
+INSERT INTO `wl_user`(`user_name`, `user_firstname`,`user_lastname`,`user_email`, `user_password_hash`, `user_country`, `role_id`)
+VALUES ('Vic', 'Victor', 'Alter', 'victor.alter@mail.com', '$2y$12$KahzF.TLr9OUnGF0fluqKO4EV9uvpoN1pr7NDO1BlcARsZDx/y7IK', 'France', 2);
+
+INSERT INTO `wl_user`(`user_name`, `user_email`, `user_password_hash`, `role_id`)
+VALUES ('MCE','maria.nadal@mail.com', '$2y$12$4Hf3DPyyJIIBk781GXwY4eJFuXN4MaXt4c3xDtwyvyrnggjHGcsWe', 2);
+
+INSERT INTO `wl_wishlist`(`wishlist_name`, `event_type`, `event_date`, `hide_purchases`)
+VALUES ('Anniversaire', 'birthday','2026-08-01', TRUE);
+
+INSERT INTO `wl_wishlist`(`wishlist_name`, `hide_purchases`)
+VALUES ('Ma liste d\'envies', TRUE);
+
+INSERT INTO `wl_wishlist`(`wishlist_name`, `event_type`, `event_date`, `hide_purchases`)
+VALUES ('La liste de bébé A.', 'baby','2026-03-02', TRUE);
+
+INSERT INTO `wl_category`(`category_name`, `wishlist_id`)
+VALUES 
+('Jewelry', 1),
+('Books', 2),
+('Vinyl', 2);
+
+INSERT INTO `wl_product`
+
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

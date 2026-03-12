@@ -6,6 +6,8 @@
 
 cache/
 
+generatehash.php
+
 logs/
 
 notes.md
