@@ -6,7 +6,7 @@ var_dump($_POST);
 // require_once "config/database.php";
 
 // Préparation de la requête :
-// $requete = $connection->prepare("REQUETE_SQL");
+// $requete = $pdo->prepare("REQUETE_SQL");
 
 // Exécution de la requête :
 // $requete->execute();

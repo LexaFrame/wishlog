@@ -94,6 +94,7 @@ CREATE TABLE `wl_product` (
   `product_image_url` varchar(255) DEFAULT NULL,
   `product_description` text,
   `product_price` decimal(10,2) NOT NULL,
+  `product_priority` int DEFAULT NULL,
   `product_origin` varchar(50) NOT NULL,
   `created_at_product` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `category_id` int DEFAULT NULL

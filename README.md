@@ -91,7 +91,108 @@ Les clés et données sensibles ont été volontairement retirées.
 
 Toute réutilisation sans autorisation est interdite.
 
-## Legal notice - ENGLISH
+--
+
+# Training Project
+
+## Title : WishLog
+
+## WishLog description
+
+WishLog is a web application developed using HTML, CSS, and JavaScript that allows users to create a shopping list (also called a wishlist) from products sold on any type of e-commerce website.
+
+## Targeted Skills
+
+### Build static web or mobile web user interfaces
+
+Development of web pages using:
+
+- Figma (optional)
+- HTML5
+- CSS3
+- Understanding responsive layout design
+
+Example: Writing HTML5 and CSS3 code to structure web pages and apply styling.
+
+### Develop the dynamic part of web or mobile web user interfaces
+
+- JavaScript programming
+- Use of libraries and frameworks to enhance user interaction
+
+Example: Using JavaScript to make interfaces interactive.
+
+## Screenshots or Demo GIFs
+
+![Capture du projet](images\wishlogindexcapture.png)
+
+## Project Structure (File Tree)
+
+## Technologies Used
+
+- HTML5
+- CSS3
+- JavaScript (vanilla)
+
+## Main Features
+
+### Access and profile
+
+- Create administrator access (MVP)
+- Create editor access (MVP)
+- Create a user account (MVP)
+- User login (MVP)
+- Password recovery (MVP)
+- Modify account settings (MVP)
+- Delete account (MVP)
+
+### User environment
+
+- Create a profile page / dashboard (MVP)
+- Create a list (MVP)
+- Edit a list (MVP)
+- Delete a list (MVP)
+- Organize lists
+- Add an item (MVP)
+- Edit an item (MVP)
+- Delete an item (MVP)
+- Manually create an item if import is not possible (MVP)
+- Display items
+- Share the list: URL / email / social networks (MVP)
+- Create a "don't spoil the surprise" feature
+
+### List customization
+
+- Create categories to filter items within the list (price, priority, type if specified, most recent addition)
+- Manually organize items within the list for maximum customization: drag-and-drop or entering the position number where the item should be placed (other items automatically shift below it once positioned) to avoid tedious drag-and-drop when the list is long
+- Interface customization (photo, custom URL)
+
+## Installation Instructions (if applicable)
+
+No installation required. The website is directly accessible online via GitHub Pages.
+
+## Link to the deployed site
+
+I used GitHub Pages to host a static website. My code is versioned with Git, pushed to GitHub, and GitHub Pages automatically publishes the main branch.
+
+Website hosted via GitHub Pages: URL
+
+## Design choices and explanatory notes
+
+The website was developed to be responsive.
+
+## Author, creation date, copyright
+
+Author: Sarah Segui Bilger
+Creation date: 15/12/2025
+
+Project created by Sarah Segui Bilger as part of a web development training program.
+The repository is made public for educational purposes only.
+
+Keys and sensitive data have been intentionally removed.
+
+Any reuse without authorization is prohibited.
+
+## Legal notice - ENGLISH / TODO : ajouter une version française
 
 This project was created by **Sarah Segui Bilger** as part of a web development training program.
 

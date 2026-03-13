@@ -49,7 +49,7 @@ async function loadProducts() {
             selectCategory.appendChild(categoryOptions);
         })
 
-
+/* Début de la partie commentée transformée en PHP
     // Création des cards produit (conteneur principal de toutes les infos produit) en plusieurs étapes:
 
     // 1- Recherche et sélectionne la div (dans le DOM) dans laquelle je veux créer toutes les cartes produit :
@@ -325,6 +325,7 @@ async function loadProducts() {
         // Ajout de la div card à son parent la div cardContainer (qui correspond à .wishlistProductsSectionCardBox, sélectionnée dans le DOM) :
         cardContainer.appendChild(card);
     });
+Fin de la partie commentée transformée en PHP */
 
     // Ajout d'un eventListener sur le menu déroulant selectCategory (se déclenche à chaque changement) :
     selectCategory.addEventListener("change", () => {

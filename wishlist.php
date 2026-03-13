@@ -1,3 +1,36 @@
+<?php
+
+// Intégration de ma requête SQL pour afficher les produits dans la wishlist grâce à PDO :
+
+// Établir la connexion entre la page et le fichier database.php :
+require_once "config/database.php";
+
+// Préparation de la requête :
+$affichage_wishlist = $pdo->prepare(
+    "SELECT product_name, shop_name, product_url, product_image_url, product_description, product_price, product_priority, product_quantity, category_name
+    FROM wl_wishlist 
+    INNER JOIN wlwishlist_wlproduct ON wl_wishlist.wishlist_id = wlwishlist_wlproduct.wishlist_id 
+    INNER JOIN wl_product ON wlwishlist_wlproduct.product_id= wl_product.product_id 
+    LEFT JOIN wl_category ON wl_product.category_id = wl_category.category_id
+    WHERE wl_wishlist.wishlist_id = :wishlist_id;"
+);
+
+
+
+// Exécution de la requête :
+$affichage_wishlist->execute([':wishlist_id' => 1]);
+
+
+// Récupérer le résultat :
+$affichage_final = $affichage_wishlist->fetchAll();
+
+//Structure utilisée plus bas pour l'affichage des cartes, à supprimer dès que devenu inutile : 
+/*foreach ($affichage_final as $products) {
+  
+}*/
+
+?>
+
 <!--
   Author: Sarah Segui Bilger
   Project: WishLog
@@ -74,7 +107,38 @@
                 </select> 
             </div>
             
+            <!-- Conteneur des cartes produit -->
             <div class="wishlistProductsSectionCardBox">
+
+              <!-- Début du foreach : pour chaque ligne dans $affichage_final on crée une carte. $products représente une ligne de résultats -->
+              <?php foreach ($affichage_final as $products) : ?>
+
+                <!-- Carte individuelle par produits -->
+                 <!-- Data-category sert au filtre JS -->
+                <div class="productCard" data-category="<?php echo htmlspecialchars($products['category_name']); ?>">
+
+                  <!-- Contenu de la carte -->
+
+                  <!-- Image du produit -->
+                  <div class="productCardImage">
+
+                    <!-- Récupération de src et alt depuis la base de données -->
+                    <img src="<?php echo htmlspecialchars($products['product_image_url']); ?>" alt="<?php echo htmlspecialchars($products['product_name']); ?>">
+                  </div>
+
+                  <!-- Détails du produit -->
+                  <div class="productCardDetails">
+
+                    <!-- Nom et catégorie du produit -->
+                    <div class="productCardDetailsNameAndCat"> 
+                      <a class="productCardDetailsName" href="$products['product_url']" target="_blank" rel="noopener noreferrer">LEGO Tyrannosaurus Rex</a>
+                      <p class="productCardDetailsCategory">Jouets</p>
+                    </div>
+
+                  </div>
+
+                </div>
+              <?php endforeach; ?>
             </div>
 
          </section>
