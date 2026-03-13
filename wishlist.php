@@ -131,8 +131,8 @@ $affichage_final = $affichage_wishlist->fetchAll();
 
                     <!-- Nom et catégorie du produit -->
                     <div class="productCardDetailsNameAndCat"> 
-                      <a class="productCardDetailsName" href="$products['product_url']" target="_blank" rel="noopener noreferrer">LEGO Tyrannosaurus Rex</a>
-                      <p class="productCardDetailsCategory">Jouets</p>
+                      <a class="productCardDetailsName" href="<?php echo htmlspecialchars($products['product_url']);?>" target="_blank" rel="noopener noreferrer"><?php echo htmlspecialchars($products['product_name']);?></a>
+                      <p class="productCardDetailsCategory"><?php echo htmlspecialchars($products['category_name']);?></p>
                     </div>
 
                   </div>
