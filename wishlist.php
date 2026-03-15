@@ -115,7 +115,7 @@ $affichage_final = $affichage_wishlist->fetchAll();
 
                 <!-- Carte individuelle par produits -->
                 <!-- Data-category sert au filtre JS -->
-                <div class="productCard" data-category="<?php echo htmlspecialchars($products['category_name']); ?>">
+                <div class="productCard" data-category="<?php echo htmlspecialchars($products['category_name'] ?? ''); ?>"> <!-- Utilisation de l'opérateur ?? ou null coalescing operator" qui fournit une valeur par défaut si la variable est NULL : ?? '' signifie que si la variable est NULL, il faut utiliser une chaîne vide à la place. -->
 
                   <!-- Contenu de la carte -->
 
@@ -123,7 +123,7 @@ $affichage_final = $affichage_wishlist->fetchAll();
                   <div class="productCardImage">
 
                     <!-- Récupération de src et alt depuis la base de données -->
-                    <img src="<?php echo htmlspecialchars($products['product_image_url']); ?>" alt="<?php echo htmlspecialchars($products['product_name']); ?>">
+                    <img src="<?php echo htmlspecialchars($products['product_image_url'] ?? ''); ?>" alt="<?php echo htmlspecialchars($products['product_name']); ?>">
                   </div>
 
                   <!-- Détails du produit -->
@@ -131,15 +131,17 @@ $affichage_final = $affichage_wishlist->fetchAll();
 
                     <!-- Nom et catégorie du produit -->
                     <div class="productCardDetailsNameAndCat"> 
-                      <a class="productCardDetailsName" href="<?php echo htmlspecialchars($products['product_url']);?>" target="_blank" rel="noopener noreferrer"><?php echo htmlspecialchars($products['product_name']);?></a>
-                      <p class="productCardDetailsCategory"><?php echo htmlspecialchars($products['category_name']);?></p>
+                      <a class="productCardDetailsName" href="<?php echo htmlspecialchars($products['product_url'] ?? '');?>" target="_blank" rel="noopener noreferrer"><?php echo htmlspecialchars($products['product_name']);?></a>
+                      <!-- Si la catégorie n'a pas été renseignée, c'est-à-dire est NULL, ne pas afficher la zone -->
+                      <?php if ($products['category_name']): ?><p class="productCardDetailsCategory"><?php echo htmlspecialchars($products['category_name'] ?? '');?></p>
+                        <?php endif; ?>
                     </div>
 
                     <!-- Magasin et description du produit -->
 
                     <div class="productCardDetailsShopAndDetails">
-                      <p class="productCardDetailsShop"><?php echo htmlspecialchars($products['shop_name']);?></p>
-                      <p class="productCardDetailsDescription"><?php echo htmlspecialchars($products['product_description']);?></p>
+                      <p class="productCardDetailsShop"><?php echo htmlspecialchars($products['shop_name'] ?? '');?></p>
+                      <p class="productCardDetailsDescription"><?php echo htmlspecialchars($products['product_description'] ?? '');?></p>
                     </div>
 
                     <!-- Boutons Modifier et Déplacer -->
@@ -160,9 +162,9 @@ $affichage_final = $affichage_wishlist->fetchAll();
                     <!-- Priorité et prix -->
                     <div class="productCardNumbersPriorityAndPrice">
 
-                      <!-- TODO Priorité du produit -->
-                      <label for="priority-<?php echo $products['product_id']; ?>" class="productCardNumbersPriorityLabel">Priorité</label>
-                      <select class="productCardNumbersPriority" id="priority-<?php echo $products['product_id']; ?>" name="priority"><option value="" disabled="">-- Choisir la priorité --</option><option value="very high">Priorité : Très haute</option><option value="high">Priorité : Haute</option><option value="medium">Priorité : Moyenne</option><option value="low">Priorité : Faible</option><option value="very low">Priorité : Très Faible</option>
+                      <!-- Priorité du produit -->
+                      <label for="priority-<?php echo htmlspecialchars($products['product_id']); ?>" class="productCardNumbersPriorityLabel">Priorité</label>
+                      <select class="productCardNumbersPriority" id="priority-<?php echo htmlspecialchars($products['product_id']); ?>" name="priority"><option value="" disabled="">-- Choisir la priorité --</option><option value="very high">Priorité : Très haute</option><option value="high">Priorité : Haute</option><option value="medium">Priorité : Moyenne</option><option value="low">Priorité : Faible</option><option value="very low">Priorité : Très Faible</option>
                       </select>
 
                       <!-- Prix du produit -->
@@ -171,8 +173,8 @@ $affichage_final = $affichage_wishlist->fetchAll();
 
                     <!-- Quantité et décision d'achat du produit -->
                     <div class="productCardNumbersNumberAndBuy">
-                      <input type="number" min="1" class="productCardNumbersNumber" id="number-<?php echo $products['product_id']; ?>" value="<?php echo htmlspecialchars($products['product_quantity']); ?>">
-                      <label class="productCardNumbersNumberLabel" for="number-<?php echo $products['product_id']; ?>">Nombre</label>
+                      <input type="number" min="1" class="productCardNumbersNumber" id="number-<?php echo htmlspecialchars($products['product_id']); ?>" value="<?php echo htmlspecialchars($products['product_quantity']); ?>">
+                      <label class="productCardNumbersNumberLabel" for="number-<?php echo htmlspecialchars($products['product_id']); ?>">Nombre</label>
                       <button class="productCardNumbersBuy" type="button">Je l'offre !</button>
                     </div>
 
@@ -184,7 +186,7 @@ $affichage_final = $affichage_wishlist->fetchAll();
                         
                     <svg class="dragIcons arrowDown" fill="#1E293B" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" transform="matrix(1, 0, 0, -1, 0, 0)"> <g id="SVGRepo_bgCarrier" stroke-width="0"></g> <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g> <g id="SVGRepo_iconCarrier"> <path d="M0.256 23.481c0 0.269 0.106 0.544 0.313 0.75 0.412 0.413 1.087 0.413 1.5 0l14.119-14.119 13.913 13.912c0.413 0.413 1.087 0.413 1.5 0s0.413-1.087 0-1.5l-14.663-14.669c-0.413-0.412-1.088-0.412-1.5 0l-14.869 14.869c-0.213 0.212-0.313 0.481-0.313 0.756z"></path> </g></svg>
                   </div>
-                  
+
                 </div>
               <?php endforeach; ?>
             </div>
@@ -195,9 +197,9 @@ $affichage_final = $affichage_wishlist->fetchAll();
     <!-- Utilisation de require_once pour inclure le footer (de façon centralisée et modifiable) une seule et unique fois : permet d'éviter des bugs, les doublons -->
     <?php require_once 'includes/footer.php';?>
 
-  <script src="js/wishlist.js">
+  <!-- <script src="js/wishlist.js">
 
-  </script>
+  </script> -->
 
   </body>
 </html>
