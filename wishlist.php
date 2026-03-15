@@ -7,7 +7,7 @@ require_once "config/database.php";
 
 // Préparation de la requête :
 $affichage_wishlist = $pdo->prepare(
-    "SELECT product_name, shop_name, product_url, product_image_url, product_description, product_price, product_priority, product_quantity, category_name
+    "SELECT product_name, shop_name, product_url, product_image_url, product_description, product_price, product_priority, wl_product.product_id, product_quantity, category_name
     FROM wl_wishlist 
     INNER JOIN wlwishlist_wlproduct ON wl_wishlist.wishlist_id = wlwishlist_wlproduct.wishlist_id 
     INNER JOIN wl_product ON wlwishlist_wlproduct.product_id= wl_product.product_id 
@@ -114,7 +114,7 @@ $affichage_final = $affichage_wishlist->fetchAll();
               <?php foreach ($affichage_final as $products) : ?>
 
                 <!-- Carte individuelle par produits -->
-                 <!-- Data-category sert au filtre JS -->
+                <!-- Data-category sert au filtre JS -->
                 <div class="productCard" data-category="<?php echo htmlspecialchars($products['category_name']); ?>">
 
                   <!-- Contenu de la carte -->
@@ -135,8 +135,56 @@ $affichage_final = $affichage_wishlist->fetchAll();
                       <p class="productCardDetailsCategory"><?php echo htmlspecialchars($products['category_name']);?></p>
                     </div>
 
+                    <!-- Magasin et description du produit -->
+
+                    <div class="productCardDetailsShopAndDetails">
+                      <p class="productCardDetailsShop"><?php echo htmlspecialchars($products['shop_name']);?></p>
+                      <p class="productCardDetailsDescription"><?php echo htmlspecialchars($products['product_description']);?></p>
+                    </div>
+
+                    <!-- Boutons Modifier et Déplacer -->
+                    <div class="productCardDetailsModifyAndMove">
+                      <button class="productCardDetailModifyButton" type="button" aria-label="Modifier le produit <?php echo htmlspecialchars($products['product_name']);?>">Modifier</button>
+                      <button class="productCardDetailMoveButton" type="button" aria-label="Déplacer le produit <?php echo htmlspecialchars($products['product_name']);?>">Déplacer</button>
+                    </div>
+
                   </div>
 
+                  <!-- Gestion du produit : Données chiffrées et priorités du produit -->
+                  <div class="productCardNumbers">
+
+                    <!-- Supprimer le produit -->
+                    <div class="productCardNumbersDelete"><button class="productCardNumbersDeleteButton" type="button" aria-label="Supprimer le produit <?php echo htmlspecialchars($products['product_name']);?>">Supprimer</button>
+                    </div>
+
+                    <!-- Priorité et prix -->
+                    <div class="productCardNumbersPriorityAndPrice">
+
+                      <!-- TODO Priorité du produit -->
+                      <label for="priority-<?php echo $products['product_id']; ?>" class="productCardNumbersPriorityLabel">Priorité</label>
+                      <select class="productCardNumbersPriority" id="priority-<?php echo $products['product_id']; ?>" name="priority"><option value="" disabled="">-- Choisir la priorité --</option><option value="very high">Priorité : Très haute</option><option value="high">Priorité : Haute</option><option value="medium">Priorité : Moyenne</option><option value="low">Priorité : Faible</option><option value="very low">Priorité : Très Faible</option>
+                      </select>
+
+                      <!-- Prix du produit -->
+                      <p class="productCardNumbersPrice" aria-label="Prix du produit <?php echo htmlspecialchars($products['product_name']);?>"><?php echo htmlspecialchars($products['product_price']);?></p>
+                    </div>
+
+                    <!-- Quantité et décision d'achat du produit -->
+                    <div class="productCardNumbersNumberAndBuy">
+                      <input type="number" min="1" class="productCardNumbersNumber" id="number-<?php echo $products['product_id']; ?>" value="<?php echo htmlspecialchars($products['product_quantity']); ?>">
+                      <label class="productCardNumbersNumberLabel" for="number-<?php echo $products['product_id']; ?>">Nombre</label>
+                      <button class="productCardNumbersBuy" type="button">Je l'offre !</button>
+                    </div>
+
+                  </div>
+
+                  <!-- Icône de déplacement du produit -->
+                  <div class="productCardDrag" aria-label="Déplacer le produit">
+                    <svg class="dragIcons arrowUp" fill="#1E293B" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg"> <g id="SVGRepo_bgCarrier" stroke-width="0"></g> <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g> <g id="SVGRepo_iconCarrier"> <path d="M0.256 23.481c0 0.269 0.106 0.544 0.313 0.75 0.412 0.413 1.087 0.413 1.5 0l14.119-14.119 13.913 13.912c0.413 0.413 1.087 0.413 1.5 0s0.413-1.087 0-1.5l-14.663-14.669c-0.413-0.412-1.088-0.412-1.5 0l-14.869 14.869c-0.213 0.212-0.313 0.481-0.313 0.756z"></path> </g></svg>
+                        
+                    <svg class="dragIcons arrowDown" fill="#1E293B" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" transform="matrix(1, 0, 0, -1, 0, 0)"> <g id="SVGRepo_bgCarrier" stroke-width="0"></g> <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g> <g id="SVGRepo_iconCarrier"> <path d="M0.256 23.481c0 0.269 0.106 0.544 0.313 0.75 0.412 0.413 1.087 0.413 1.5 0l14.119-14.119 13.913 13.912c0.413 0.413 1.087 0.413 1.5 0s0.413-1.087 0-1.5l-14.663-14.669c-0.413-0.412-1.088-0.412-1.5 0l-14.869 14.869c-0.213 0.212-0.313 0.481-0.313 0.756z"></path> </g></svg>
+                  </div>
+                  
                 </div>
               <?php endforeach; ?>
             </div>
