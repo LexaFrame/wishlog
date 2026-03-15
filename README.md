@@ -4,7 +4,7 @@
 
 ## Description de WishLog
 
-WishLog est une application web développée en HTML, CSS et JavaScript permettant de créer une liste d'achat (aussi appelée liste d'envies) à partir de produits mis en vente sur tous types de sites de e-commerce. 
+WishLog est une application web développée en HTML, CSS, JavaScript, PHP et MySQL permettant de créer une liste d'achat (aussi appelée liste d'envies) à partir de produits mis en vente sur tous types de sites de e-commerce. 
 
 ## Compétences visées
 
@@ -26,6 +26,13 @@ Exemple : Codage en HTML5 et CSS3 pour structurer des pages web et appliquer des
 
 Exemple : Utilisation de JavaScript pour rendre les interfaces interactives.
 
+### Développer la partie back-end d'une application web ou web mobile sécurisée
+
+Développement de pages web en utilisant :
+
+- MySQL
+- PHP
+
 ## Captures d'écran ou GIF de démonstration
 
 ![Capture du projet](images\wishlogindexcapture.png)
@@ -37,6 +44,12 @@ Exemple : Utilisation de JavaScript pour rendre les interfaces interactives.
 - HTML5
 - CSS3
 - JavaScript (vanilla)
+- MySQL 8.4.8
+- PHP 8.2.29
+- Docker (environnement de développement)
+- Apache 2.4.65
+- PHPMyAdmin
+- PDO
 
 ## Fonctionnalités principales
 
@@ -78,6 +91,7 @@ Adresse du site hébergé via GitHub Pages : https://lexaframe.github.io/wishlog
 
 ## Choix de conception et notes explicatives
 Le site a été développé pour être responsive.
+Les mots de passe des données de test sont des placeholders — générer de nouveaux hashs avec password_hash() avant utilisation.
 
 ## Auteur, date de création, droit d'auteur
 
@@ -99,7 +113,7 @@ Toute réutilisation sans autorisation est interdite.
 
 ## WishLog description
 
-WishLog is a web application developed using HTML, CSS, and JavaScript that allows users to create a shopping list (also called a wishlist) from products sold on any type of e-commerce website.
+WishLog is a web application developed using HTML, CSS, JavaScript, PHP and MySQL that allows users to create a shopping list (also called a wishlist) from products sold on any type of e-commerce website.
 
 ## Targeted Skills
 
@@ -121,6 +135,13 @@ Example: Writing HTML5 and CSS3 code to structure web pages and apply styling.
 
 Example: Using JavaScript to make interfaces interactive.
 
+### Develop the back-end part of a secure web or mobile web application
+
+Development of web applications using:
+
+- MySQL
+- PHP
+
 ## Screenshots or Demo GIFs
 
 ![Capture du projet](images\wishlogindexcapture.png)
@@ -132,6 +153,12 @@ Example: Using JavaScript to make interfaces interactive.
 - HTML5
 - CSS3
 - JavaScript (vanilla)
+- MySQL 8.4.8
+- PHP 8.2.29
+- Docker (development environment)
+- Apache 2.4.65
+- phpMyAdmin
+- PDO
 
 ## Main Features
 

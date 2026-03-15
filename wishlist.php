@@ -5,8 +5,39 @@
 // Établir la connexion entre la page et le fichier database.php :
 require_once "config/database.php";
 
+if (isset($_POST['delete_action'])) {
+  // Récupérer l'id depuis $_POST qui vient du champ hidden du formulaire :
+  $product_id_delete = $_POST['delete_product_id'];
+
+  try {
+    // Préparation de la 1ère requête pour la suppression du produit :
+    $delete_product1 = $pdo->prepare(
+      "DELETE FROM wlwishlist_wlproduct WHERE product_id = :product_id;"
+    );
+
+    // Exécution de la 1ère requête de suppression du produit :
+    $delete_product1->execute([':product_id'=>$product_id_delete]);
+
+    // Préparation de la 2e requête pour la suppression du produit :
+    $delete_product2 = $pdo->prepare(
+      "DELETE FROM wl_product WHERE product_id = :product_id;"
+    );
+
+    // Exécution de la 2e requête de suppression du produit :
+    $delete_product2->execute([':product_id'=>$product_id_delete]);
+
+    // Message à destination de l'utilisateur pour l'informer du succès de la suppression :
+    $delete_success_message = "Le produit a été supprimé.";
+
+  } catch (PDOException $error) {
+    // Message à destination de l'utilisateur pour l'informer du succès de la suppression :
+    error_log($error->getMessage());
+    $delete_error_message = "La suppression a échoué.";
+  }
+}
+
 // Préparation de la requête :
-$affichage_wishlist = $pdo->prepare(
+$display_wishlist = $pdo->prepare(
     "SELECT product_name, shop_name, product_url, product_image_url, product_description, product_price, product_priority, wl_product.product_id, product_quantity, category_name
     FROM wl_wishlist 
     INNER JOIN wlwishlist_wlproduct ON wl_wishlist.wishlist_id = wlwishlist_wlproduct.wishlist_id 
@@ -15,14 +46,12 @@ $affichage_wishlist = $pdo->prepare(
     WHERE wl_wishlist.wishlist_id = :wishlist_id;"
 );
 
-
-
 // Exécution de la requête :
-$affichage_wishlist->execute([':wishlist_id' => 1]);
+$display_wishlist->execute([':wishlist_id' => 1]);
 
 
 // Récupérer le résultat :
-$affichage_final = $affichage_wishlist->fetchAll();
+$final_display = $display_wishlist->fetchAll();
 
 //Structure utilisée plus bas pour l'affichage des cartes, à supprimer dès que devenu inutile : 
 /*foreach ($affichage_final as $products) {
@@ -107,11 +136,19 @@ $affichage_final = $affichage_wishlist->fetchAll();
                 </select> 
             </div>
             
+            <?php if (isset($delete_success_message)) : ?>
+              <p class="productDeleteSuccess"><?php echo htmlspecialchars($delete_success_message); ?></p>
+            <?php endif; ?>
+
+            <?php if (isset($delete_error_message)) : ?>
+              <p class="productDeleteError"><?php echo htmlspecialchars($delete_error_message); ?></p>
+            <?php endif; ?>
+
             <!-- Conteneur des cartes produit -->
             <div class="wishlistProductsSectionCardBox">
 
               <!-- Début du foreach : pour chaque ligne dans $affichage_final on crée une carte. $products représente une ligne de résultats -->
-              <?php foreach ($affichage_final as $products) : ?>
+              <?php foreach ($final_display as $products) : ?>
 
                 <!-- Carte individuelle par produits -->
                 <!-- Data-category sert au filtre JS -->
@@ -156,7 +193,15 @@ $affichage_final = $affichage_wishlist->fetchAll();
                   <div class="productCardNumbers">
 
                     <!-- Supprimer le produit -->
-                    <div class="productCardNumbersDelete"><button class="productCardNumbersDeleteButton" type="button" aria-label="Supprimer le produit <?php echo htmlspecialchars($products['product_name']);?>">Supprimer</button>
+                    <div class="productCardNumbersDelete">
+
+                      <!-- Mise en place de la suppression du produit à l'aide d'un formulaire qui renvoie les données en POST vers cette même page pour que PHP reçoive les données et traite la suppression -->
+                      <form method="POST" action="wishlist.php">
+                        <!-- Champ caché de l'utilisateur qui envoie le product_id du produit concerné au serveur -->
+                        <input type="hidden" name="delete_product_id" value="<?php echo htmlspecialchars($products['product_id']);?>">
+                        <!-- Name="delete_action" : grâce à delete_action, le lien se fait avec isset($_POST['delete_action']) et permet de détecter que c'est ce bouton qui a déclenché la soumission. Onclick : affiche une boîte de dialogue JS, si l'utilisateur clique sur annuler, renvoie false et empêche la soumission du formulaire, sinon renvoie true -->
+                        <button class="productCardNumbersDeleteButton" type="submit" name="delete_action" onclick="return confirm('Êtes-vous sûr(e) de vouloir supprimer ce produit de votre liste d\'envies ?')" aria-label="Supprimer le produit <?php echo htmlspecialchars($products['product_name']);?>">Supprimer</button>
+                      </form>
                     </div>
 
                     <!-- Priorité et prix -->

@@ -15,7 +15,7 @@ require_once 'config/database.php';
 // Récupérer le résultat :
 // $resultat = $requete->fetchAll();
 
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['userName'], $_POST['firstName'],$_POST['name'], $_POST['email'], $_POST['password1'], $_POST['password2'], $_POST['address'], $_POST['city'], $_POST['postalCode'], $_POST['country'])) {
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['userName'], $_POST['firstName'],$_POST['name'], $_POST['email'], $_POST['password1'], $_POST['password2'], $_POST['address'], $_POST['city'], $_POST['postalCode'], $_POST['country'])) {
 
   $user_name = trim($_POST['userName']);
   $first_name = trim($_POST['firstName']);

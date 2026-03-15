@@ -281,13 +281,13 @@ VALUES
 ('User', 'The User can register, login, create, customize, update, delete and share a wishlist');
 
 INSERT INTO `wl_user`(`user_name`, `user_firstname`,`user_lastname`,`user_email`, `user_password_hash`, `user_birthdate`, `user_address`, `user_postalcode`, `user_city`, `user_country`,`role_id`)
-VALUES ('PAQ', 'Francisca', 'Canals', 'francisca.canals@mail.com', '$2y$12$6.0KJVdrDIs54r.GM8NUPuz2R.ythMf3Qbpt5wDeV/nb7PJc2rvdG', '2001-01-01', '6 calle Jeronimo Estades', '6872Y', 'Soller', 'España', 1);
+VALUES ('PAQ', 'Francisca', 'Canals', 'francisca.canals@mail.com', '$2y$10$HASH_EXEMPLE_A_REMPLACER', '2001-01-01', '6 calle Jeronimo Estades', '6872Y', 'Soller', 'España', 1);
 
 INSERT INTO `wl_user`(`user_name`, `user_firstname`,`user_lastname`,`user_email`, `user_password_hash`, `user_country`, `role_id`)
-VALUES ('Vic', 'Victor', 'Alter', 'victor.alter@mail.com', '$2y$12$KahzF.TLr9OUnGF0fluqKO4EV9uvpoN1pr7NDO1BlcARsZDx/y7IK', 'France', 2);
+VALUES ('Vic', 'Victor', 'Alter', 'victor.alter@mail.com', '$2y$10$HASH_EXEMPLE_A_REMPLACER', 'France', 2);
 
 INSERT INTO `wl_user`(`user_name`, `user_email`, `user_password_hash`, `role_id`)
-VALUES ('MCE','maria.nadal@mail.com', '$2y$12$4Hf3DPyyJIIBk781GXwY4eJFuXN4MaXt4c3xDtwyvyrnggjHGcsWe', 2);
+VALUES ('MCE','maria.nadal@mail.com', '$2y$10$HASH_EXEMPLE_A_REMPLACER', 2);
 
 INSERT INTO `wl_wishlist`(`wishlist_name`, `event_type`, `event_date`, `hide_purchases`)
 VALUES ('Anniversaire', 'birthday','2026-08-01', TRUE);
