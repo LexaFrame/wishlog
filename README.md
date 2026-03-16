@@ -44,6 +44,7 @@ Développement de pages web en utilisant :
 - HTML5
 - CSS3
 - JavaScript (vanilla)
+- Looping
 - MySQL 8.4.8
 - PHP 8.2.29
 - Docker (environnement de développement)
@@ -153,6 +154,7 @@ Development of web applications using:
 - HTML5
 - CSS3
 - JavaScript (vanilla)
+- Looping
 - MySQL 8.4.8
 - PHP 8.2.29
 - Docker (development environment)

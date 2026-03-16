@@ -940,14 +940,14 @@ label {
 
 /* CSS messages d'erreur ajout produit, wishlist */
 
-.productFormSuccess, .productDeleteSuccess {
+.updateProductFormSuccess, .productFormSuccess, .productDeleteSuccess {
     display: block;
     text-align: center;
     width: 100%;
     color: green;
 }
 
-.productFormError, .productDeleteError {
+.updateProductFormError, .productFormError, .productDeleteError {
     display: block;
     text-align: center;
     width: 100%;

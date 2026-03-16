@@ -183,7 +183,8 @@ $final_display = $display_wishlist->fetchAll();
 
                     <!-- Boutons Modifier et Déplacer -->
                     <div class="productCardDetailsModifyAndMove">
-                      <button class="productCardDetailModifyButton" type="button" aria-label="Modifier le produit <?php echo htmlspecialchars($products['product_name']);?>">Modifier</button>
+                      <!-- La propriété window.location.href permet, en assignant une nouvelle valeur, de rediriger le navigateur vers cette nouvelle URL, comme quand on clique sur un lien. 'addproduct.php?id=...' correspond à l'url vers laquelle on redirige et le ?id= est un paramètre GET qui permet de passer une valeur dans l'URL. Ensuite php echo htmlspecialchars($products['product_id']); insère dynamiquement l'id du produit à modifier dans l'URL  -->
+                      <button class="productCardDetailModifyButton" type="button" onclick="window.location.href='addproduct.php?id=<?php echo htmlspecialchars($products['product_id']); ?>'" aria-label="Modifier le produit <?php echo htmlspecialchars($products['product_name']);?>">Modifier</button>
                       <button class="productCardDetailMoveButton" type="button" aria-label="Déplacer le produit <?php echo htmlspecialchars($products['product_name']);?>">Déplacer</button>
                     </div>
 
