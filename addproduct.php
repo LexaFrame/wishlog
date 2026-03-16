@@ -7,8 +7,9 @@ $product_edit_mode = isset($_GET['id']);
 //Initialisation de la variable à null, elle sera remplie si on est en mode modification :
 $product_to_edit = null;
 
-// Si edit_mode est true, on récupère l'id depuis l'URL et on fait le SELECT nécessaire pour pouvoir modifier le produit.
+// Si $product_edit_mode est true, on récupère l'id depuis l'URL et on fait le SELECT nécessaire pour pouvoir modifier le produit.
 if ($product_edit_mode) {
+    // À commenter :
     $product_id_edit = $_GET['id'];
 
     // Requête pour récupérer les informations du produit que l'on souhaite modifier et les afficher dans le formulaire :
@@ -155,13 +156,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['titleAddProduct'], $_
             <!-- Div à rétablir si nécessaire <div class="contactPageIntro"> -->
                 
                 <!-- Titre de la page -->
+                 <!-- Adaptation du titre de la page grâce à l'opérateur ternaire ?: pour if/else -->
                 <!-- TODO décommenter et récupérer dans le CSS les règles correspondantes qui ont disparu <div class="pageTitleBox"> --> 
-                    <h1 class="h1AddProduct">Ajoutez un produit</h1> <!-- TODO changer la classe -->
+                    <h1 class="h1AddProduct"><?php echo $product_edit_mode ? 'Modifiez un produit' : 'Ajoutez un produit'; ?></h1>
                 <!-- </div> -->
 
                 <!-- Paragraphe ajout d'articles -->
                 <div class="pageParagraphBox">
-                    <p class="addProductP">Saisissez les informations du produit que vous souhaitez ajouter à votre liste.</p>
+                    <p class="addProductP"><?php echo $product_edit_mode ? 'Modifiez les informations du produit.' : 'Saisissez les informations du produit que vous souhaitez ajouter à votre liste.'; ?></p>
                 </div>
 
             <!-- </div> -->
@@ -189,7 +191,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['titleAddProduct'], $_
 
             <!-- TODO Début formulaire -> à adapter-->           
             <div class="formCard">
-            <form class="form" method="POST" action=""> <!-- TODO saisir lien dans action ="" -->
+            <form class="form" method="POST" action=""> <!-- TODO saisir lien dans action ="" ? -->
 
             <!-- Champs de détail des articles -->
                 <!-- Champ titre -->

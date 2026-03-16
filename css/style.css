@@ -963,6 +963,7 @@ label {
 
 .headerBox {
     flex-direction: column;
+    align-items: center;
 }
 
 .headerCentralUnit {
