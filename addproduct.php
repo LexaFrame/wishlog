@@ -1,5 +1,12 @@
 <?php
+session_start();
+require_once 'includes/auth_check.php';
+// ^Créer une session, à écrire en premier avant tout affichage HTML, sur la page de connexion 
+
 require_once 'config/database.php';
+$product_priority = null; // valeur par défaut
+$product_description = null; // valeur par défaut
+$product_quantity = 1;       // valeur par défaut
 
 // 1- Détection du mode : update ou create ?
 // Vérifie si le paramètre 'id' est présent dans l'URL (ex : addproduct.php?id=3), si oui, $product_edit_mode = true.
@@ -37,12 +44,31 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['titleAddProduct'], $_
     $product_name = trim($_POST['titleAddProduct']);
     $shop_name = trim($_POST['shopAddProduct'] ?? '');
     $product_price = trim($_POST['priceAddProduct']);
-    $product_quantity = trim($_POST['quantityAddProduct']);
+
+    // Comme on souhaite retirer pour l'instant la gestion de la quantité, on fixe la valeur à 1 par défaut. Cela servira pour l'insertion dans la table wlwishlist_wlproduct sans dépendre du formulaire :
+    $product_quantity = 1;
     // Gestion du nom de catégorie reportée pour une fonctionnalité future $category_name = trim($_POST['categoryAddProduct'] ?? '');
-    $product_priority = trim($_POST['priorityAddProduct'] ?? '');
+
+    // Retiré, à vérifier pourquoi erreur : $product_priority = trim($_POST['priorityAddProduct'] ?? '');
+    // Gestion priorité : vérifie si l'utilisateur a laissé le champ sur l'option par défaut "selection".
+    // Si c'est le cas, on met NULL pour éviter d'envoyer une chaîne non numérique dans la base de données.
+if ($product_priority === "selection") {
+    $product_priority = null; // valeur par défaut acceptable pour la colonne product_priority
+}
+    $product_priority = $_POST['priorityAddProduct'] ?? null;
+if ($product_priority === "selection") {
+    $product_priority = null; // valeur par défaut acceptable
+}
+    // Retiré, à vérifier pourquoi erreur $product_description = trim($_POST['descriptionAddProduct'] ?? '');
+    // Gestion description : Si la description est vide (ou ne contient que des espaces), on la met à NULL pour éviter d'insérer une chaîne vide inutile dans la base. L'opérateur "?? ''" permet de mettre une chaîne vide si le champ n'existe pas dans $_POST.
     $product_description = trim($_POST['descriptionAddProduct'] ?? '');
+    if ($product_description === '') {
+        $product_description = null;
+    }
+
     $product_image_url = trim($_POST['imageAddProduct'] ?? '');
-    $product_url = trim($_POST['linkAddProduct']);
+    $product_url = trim($_POST['linkAddProduct']); 
+
     // Valeurs fixes côté serveur (pour l'instant $product_origin est toujours 'manual' et la gestion des catégories est reportée):
     $product_origin = 'manual';
     $category_id = null;

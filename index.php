@@ -1,3 +1,9 @@
+<?php
+session_start();
+require_once 'includes/auth_check.php';
+// ^Créer une session, à écrire en premier avant tout affichage HTML, sur la page de connexion 
+?>
+
 <!--
   Author: Sarah Segui Bilger
   Project: WishLog
@@ -43,10 +49,10 @@
         <!-- Cards présentant les options d'utilisation disponibles -->
         <div class="optionsList">
           <div class="cardsOptions">
-            <p>Tous les magasins</p>
+            <p>Tous magasins</p>
           </div>
           <div class="cardsOptions">
-            <p>Personnalisé</p>            
+            <p>Personnalisée</p>            
           </div>
           <div class="cardsOptions">
             <p>Nomade</p>           
@@ -55,7 +61,7 @@
             <p>Fonction : ne pas gâcher la surprise</p>                     
           </div>
           <div class="cardsOptions">
-            <p>Gratuit</p>                      
+            <p>Gratuite</p>                      
           </div>        
           <div class="cardsOptions">
             <p>Sans publicité</p>                       

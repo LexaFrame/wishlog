@@ -1,3 +1,9 @@
+<?php
+session_start();
+require_once 'includes/auth_check.php';
+// ^Créer une session, à écrire en premier avant tout affichage HTML, sur la page de connexion 
+?>
+
 <!--
   Author: Sarah Segui Bilger
   Project: WishLog

@@ -33,11 +33,63 @@ Développement de pages web en utilisant :
 - MySQL
 - PHP
 
+#### Conception de la base de données (Merise)
+
+##### MCD - Modèle Conceptuel de Données
+
+![MCD de Wishlog](docs/SEGUI_BILGER_Sarah_ECF-7.2_[MCD_WISHLOG].jpg)
+
+##### MLD - Modèle Logique de Données
+
+![MLD de Wishlog](docs/SEGUI_BILGER_SARAH_ECF-7.2_[MLD_WISHLOG].jpg)
+
+##### MPD- Modèle Physique de Données
+
+![MPD de Wishlog](docs/SEGUI_BILGER_SARAH_ECF-7.2_[MPD_WISHLOG].svg)
+
 ## Captures d'écran ou GIF de démonstration
 
-![Capture du projet](images\wishlogindexcapture.png)
+![Capture du projet](images/wishlogindexcapture.png)
 
 ## Structure du projet (arborescence des fichiers)
+
+lamp-server/                        # Environnement Docker
+├── .env                            # Variables d'environnement (exclu de Git)
+├── .gitignore
+├── docker-compose.yml              # Configuration des conteneurs Docker
+├── Dockerfile.php                  # Image PHP/Apache
+├── apache-config/
+│   └── localhost.conf
+└── www/
+    └── wishlog/                    # Code source de l'application
+        ├── config/
+        │   └── database.php        # Connexion PDO à la BDD
+        ├── css/
+        │   └── style.css
+        ├── docs/                   # MCD, MLD, MPD
+        ├── images/                 # Images utilisées pour le site
+        ├── includes/
+        │   ├── head.php
+        │   ├── header.php
+        │   ├── footer.php
+        │   └── traitement.php
+        ├── js/
+        │   ├── darkmode.js
+        │   └── wishlist.js
+        ├── sql/
+        │   └── wishlog_dev.sql
+        ├── .env.example
+        ├── .gitignore
+        ├── 404.php
+        ├── index.php
+        ├── addproduct.php
+        ├── contact.php
+        ├── createwishlist.php
+        ├── login.php
+        ├── signup.php
+        ├── wishlist.json
+        ├── wishlist.php
+        └── README.md
 
 ## Technologies utilisées
 
@@ -82,9 +134,42 @@ Développement de pages web en utilisant :
 - Organiser manuellement les articles dans la liste pour personnaliser au maximum : glisser-déposer ou saisie du numéro auquel on veut placer l'article (le reste se réarrange en-dessous de l'article une fois qu'il est positionné) pour éviter des glisser-déposer fastidieux quand la liste est longue
 - Personnalisation de l'interface (photo, url customisée)
 
-
 ## Instructions d'installation (si applicable)
-Aucune installation nécessaire. Le site est accessible directement en ligne via GitHub Pages.
+Projet Front-End : Aucune installation nécessaire. Le site est accessible directement en ligne via GitHub Pages.
+Pour le projet complet : 
+
+### Prérequis
+- Docker Desktop installé et en cours d'exécution
+- Git
+
+### Étapes
+
+#### **Configurer l'environnement** TODO : ajouter la bonne URL quand elle sera disponible
+Cloner le dépôt dans le dossier `lamp-server/www/` :
+```bash
+cd lamp-server/www
+git clone https://github.com/tonusername/wishlog.git 
+```
+Puis copier le fichier `.env.example` à la racine de `lamp-server` et le renommer `.env` :
+```bash
+cp wishlog/.env.example ../.env
+```
+Modifier ensuite le fichier `.env` avec vos propres valeurs.
+
+#### **Démarrer les conteneurs Docker**
+```bash
+cd lamp-server
+docker-compose up -d
+```
+
+#### **Importer la base de données**
+- Ouvrir phpMyAdmin à l'adresse `http://localhost/phpmyadmin`
+- Importer le fichier `sql/SEGUI_BILGER_Sarah_ECF-7.2_script.sql`
+
+#### **Accéder à l'application**
+Ouvrir le navigateur à l'adresse `http://localhost`
+
+
 
 ## Lien vers le site déployé
 J’ai utilisé GitHub Pages pour héberger un site statique. Mon code est versionné avec Git, poussé sur GitHub, et GitHub Pages publie automatiquement la branche main.
@@ -143,11 +228,63 @@ Development of web applications using:
 - MySQL
 - PHP
 
+#### Database Conception (Merise)
+
+##### CDM - Conceptual Data Model
+
+![MCD de Wishlog](docs/SEGUI_BILGER_Sarah_ECF-7.2_[MCD_WISHLOG].jpg)
+
+##### LDM - Logical Data Model
+
+![MLD de Wishlog](docs/SEGUI_BILGER_SARAH_ECF-7.2_[MLD_WISHLOG].jpg)
+
+##### PDM - Physical Data Model
+
+![MPD de Wishlog](docs/SEGUI_BILGER_SARAH_ECF-7.2_[MPD_WISHLOG].svg)
+
 ## Screenshots or Demo GIFs
 
-![Capture du projet](images\wishlogindexcapture.png)
+![Capture du projet](images/wishlogindexcapture.png)
 
 ## Project Structure (File Tree)
+
+lamp-server/                        # Docker environment
+├── .env                            # Environment variables (excluded from Git)
+├── .gitignore
+├── docker-compose.yml              # Docker containers configuration
+├── Dockerfile.php                  # PHP/Apache image
+├── apache-config/
+│   └── localhost.conf
+└── www/
+    └── wishlog/                    # Application source code
+        ├── config/
+        │   └── database.php        # PDO database connection
+        ├── css/
+        │   └── style.css
+        ├── docs/                   # MCD, MLD, MPD
+        ├── images/                 # Website images
+        ├── includes/
+        │   ├── head.php
+        │   ├── header.php
+        │   ├── footer.php
+        │   └── traitement.php
+        ├── js/
+        │   ├── darkmode.js
+        │   └── wishlist.js
+        ├── sql/
+        │   └── wishlog_dev.sql
+        ├── .env.example
+        ├── .gitignore
+        ├── 404.php
+        ├── index.php
+        ├── addproduct.php
+        ├── contact.php
+        ├── createwishlist.php
+        ├── login.php
+        ├── signup.php
+        ├── wishlist.json
+        ├── wishlist.php
+        └── README.md
 
 ## Technologies Used
 
@@ -197,17 +334,52 @@ Development of web applications using:
 
 ## Installation Instructions (if applicable)
 
-No installation required. The website is directly accessible online via GitHub Pages.
+Front-End version only : No installation required. The website is directly accessible online via GitHub Pages.
+
+For the full project : 
+
+### Prerequisites
+- Docker Desktop installed and running
+- Git
+
+### Steps
+
+#### **Environment setup** TODO : change the URL when the right one is available :
+
+Clone the repository into the `lamp-server/www/` folder:
+```bash
+cd lamp-server/www
+git clone https://github.com/tonusername/wishlog.git
+```
+Then copy the `.env.example` file to the root of `lamp-server` and rename it `.env`:
+```bash
+cp wishlog/.env.example ../.env
+```
+Then edit the `.env` file with your own values.
+
+#### **Start the Docker containers**
+```bash
+cd lamp-server
+docker-compose up -d
+```
+
+#### **Import the database**
+- Open phpMyAdmin at `http://localhost/phpmyadmin`
+- Import the file `sql/SEGUI_BILGER_Sarah_ECF-7.2_script.sql`
+
+#### **Access the application**
+Open your browser at `http://localhost`
 
 ## Link to the deployed site
 
 I used GitHub Pages to host a static website. My code is versioned with Git, pushed to GitHub, and GitHub Pages automatically publishes the main branch.
 
-Website hosted via GitHub Pages: URL
+Website hosted via GitHub Pages: [URL](https://lexaframe.github.io/wishlog/)
 
 ## Design choices and explanatory notes
 
 The website was developed to be responsive.
+The test passwords are placeholders — generate new hashes with password_hash() before use.
 
 ## Author, creation date, copyright
 
