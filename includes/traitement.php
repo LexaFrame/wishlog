@@ -41,4 +41,3 @@ if (!password_check($password1, $password2)) {
 
 
     // var_dump($_POST);
-?>

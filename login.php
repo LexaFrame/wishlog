@@ -1,9 +1,11 @@
 <?php 
-var_dump($_POST);
-// print_r($_POST);
+session_start(); // 1- Vérifier que la session n'est pas déjà ouverte
 
-// Établir la connexion entre la page et le fichier database.php :
-// require_once "config/database.php";
+// 2 - Établir la connexion entre la page et le fichier database.php :
+require_once 'config/database.php';
+
+// var_dump($_POST);
+// print_r($_POST);
 
 // Préparation de la requête :
 // $requete = $pdo->prepare("REQUETE_SQL");
@@ -14,16 +16,41 @@ var_dump($_POST);
 // Récupérer le résultat :
 // $resultat = $requete->fetchAll();
 
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['userName'], $_POST['email'], $_POST['password1'])) {
-
-  $user_name = trim($_POST['userName']);
+// 3 - Vérifier que la requête est bien POST et que les champs e-mail et mot de passe sont bien remplis par l'utilisateur
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['email'], $_POST['password1'])) {
   $email = trim($_POST['email']);
-  $password1 = trim($_POST['password1']);
+  $password = trim($_POST['password1']);
+    // 3-2 Requête pour récupérer les informations de l'utilisateur pour vérifier qu'elles correspondent à ce qui figure déjà dans la base de données :
+    $login_attempt = $pdo->prepare(
+        "SELECT user_id, user_email, user_password_hash
+        FROM wl_user
+        WHERE user_email = :email"
+    );
 
-  echo escape_HTML($user_name);
-  echo escape_HTML($email);
+    // 3-3 Exécution de la requête de vérification :
+    $login_attempt->execute(
+        [':email'=>$email]
+    );
+
+    // 3-4 Récupérer le résultat de $login_attempt :
+    $login_result = $login_attempt->fetch();
+
+    // 
+    if($login_result === false) {
+        $login_error_message = "L'e-mail ou le mot de passe est incorrect";
+    } else {
+        if(!password_verify($password, $login_result['user_password_hash'])) {
+            $login_error_message = "L'e-mail ou le mot de passe est incorrect";
+        } else {
+            $_SESSION['user_id'] = $login_result['user_id'];
+            header('Location: index.php');
+            exit();
+        }
+    }
+
 }
 ?>
+
 <!--
   Author: Sarah Segui Bilger
   Project: WishLog
@@ -66,14 +93,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['userName'], $_POST['em
 
             <!-- Début formulaire -->           
             <div class="formCard">
-            <form class="form" method="POST" action="http://localhost/wishlog/php/traitement.php">
+            <form class="form" method="POST" action="login.php">
 
             <!-- Champs d'identification -->
-              <!-- Champ pseudo -->
+              <!-- Champ pseudo
               <div class="userNameBlock">
                   <label for="userName">Pseudo<span class="required"> *</span></label>
                   <input type="text" id="userName" class="inputFields" name="userName" placeholder="Entrez votre nom d'utilisateur" required>
+              </div> -->
+              
+              <!-- Champ email -->
+              <div class="emailBlock">
+                  <label for="email">E-mail :<span class="required"> *</span></label>
+                  <input type="email" id="email" class="inputFields" name="email" placeholder="Entrez votre adresse e-mail" required>
               </div>
+
 
               <!-- Champs mot de passe -->
                 <div class="rowPass">
@@ -84,6 +118,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['userName'], $_POST['em
                 <div class="pageParagraphLoginForgotBox">
                     <p class="loginForgot">Identifiant ou mot de passe oublié ? <a href="">cliquez-ici</a>.</p>
                 </div>
+
+            <!-- Affichage du message d'erreur en cas de mauvaise adresse e-mail ou mauvais mot de passe -->
+            <?php if (isset($login_error_message)) : ?>
+                <p class="loginError"><?php echo htmlspecialchars($login_error_message); ?></p>
+            <?php endif; ?>
 
             <!-- Bouton d'envoi -->
             <div class="submitFormButton">

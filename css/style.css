@@ -947,7 +947,7 @@ label {
     color: green;
 }
 
-.updateProductFormError, .productFormError, .productDeleteError {
+.updateProductFormError, .productFormError, .productDeleteError, .loginError {
     display: block;
     text-align: center;
     width: 100%;

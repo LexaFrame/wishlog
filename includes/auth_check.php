@@ -8,5 +8,3 @@ if (!isset($_SESSION['user_id'])) {
     // On arrête l'exécution du reste du code :
     exit();
 }
-
-?>
