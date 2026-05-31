@@ -1,19 +1,6 @@
 <?php 
-var_dump($_POST);
-// print_r($_POST);
-
-require_once 'config/database.php';
 // Établir la connexion entre la page et le fichier database.php :
-// require_once "config/database.php";
-
-// Préparation de la requête :
-// $requete = $connection->prepare("REQUETE_SQL");
-
-// Exécution de la requête :
-// $requete->execute();
-
-// Récupérer le résultat :
-// $resultat = $requete->fetchAll();
+require_once 'config/database.php';
 
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['userName'], $_POST['firstName'],$_POST['name'], $_POST['email'], $_POST['password1'], $_POST['password2'], $_POST['address'], $_POST['city'], $_POST['postalCode'], $_POST['country'])) {
 
@@ -27,15 +14,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['userName'], $_POST['f
   $city = trim($_POST['city']);
   $postal_code = trim($_POST['postalCode']);
   $country = trim($_POST['country']);
-
-  echo escape_HTML($user_name);
-  echo escape_HTML($first_name);
-  echo escape_HTML($name);
-  echo escape_HTML($email);
-  echo escape_HTML($address);
-  echo escape_HTML($city);
-  echo escape_HTML($postal_code);
-  echo escape_HTML($country);
 }
 ?>
 <!--

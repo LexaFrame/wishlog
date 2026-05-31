@@ -10,7 +10,7 @@ try {
     $pdo = new PDO(
 
         // Data Source Name ou DSN : c'est le premier argument lors de la création de la connexion. mysql (type de base qu'on veut utiliser), host (adresse de la machine sur laquelle tourne le serveur de base de données), dbname (nom de la base à laquelle je veux me connecter), charset (encodage). Ils sont récupérés depuis les variables d'environnement Docker :
-        "mysql:host=" . $_ENV['DB_HOST'] . ";dbname=" . $_ENV['MYSQL_DATABASE'] . ";charset=utf8mb4",
+        "mysql:host=" . $_ENV['DB_HOST'] . ";dbname=" . $_ENV['DB_DATABASE'] . ";charset=utf8mb4",
         
         // Identifiants utilisés pour se connecter à MySQL, ce sont les deux autres arguments qui doivent figurer dans cet ordre et on les récupère depuis les variables d'environnement Docker : 
         $_ENV['DB_USER'],

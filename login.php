@@ -4,51 +4,44 @@ session_start(); // 1- Vérifier que la session n'est pas déjà ouverte
 // 2 - Établir la connexion entre la page et le fichier database.php :
 require_once 'config/database.php';
 
-// var_dump($_POST);
-// print_r($_POST);
+// 3 - Connexion de l'utilisateur s'il figure bien dans la base de données (vérification email et mot de passe) et lancement de la session : 
 
-// Préparation de la requête :
-// $requete = $pdo->prepare("REQUETE_SQL");
+    // 3-1 - Vérifier que la requête est bien POST et que les champs e-mail et mot de passe sont bien remplis par l'utilisateur, si c'est le cas
+    if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['email'], $_POST['password1'])) {
 
-// Exécution de la requête :
-// $requete->execute();
+        //3-2 Nettoyer et récupérer la saisie utilisateur dans des variables :
+        $email = trim($_POST['email']);
+        $password = trim($_POST['password1']);
 
-// Récupérer le résultat :
-// $resultat = $requete->fetchAll();
+        // 3-3 Requête pour comparer les informations de l'utilisateur afin de vérifier qu'elles correspondent à ce qui figure déjà dans la base de données :
+        $login_attempt = $pdo->prepare(
+            "SELECT user_id, user_email, user_password_hash
+            FROM wl_user
+            WHERE user_email = :email"
+        );
 
-// 3 - Vérifier que la requête est bien POST et que les champs e-mail et mot de passe sont bien remplis par l'utilisateur
-if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['email'], $_POST['password1'])) {
-  $email = trim($_POST['email']);
-  $password = trim($_POST['password1']);
-    // 3-2 Requête pour récupérer les informations de l'utilisateur pour vérifier qu'elles correspondent à ce qui figure déjà dans la base de données :
-    $login_attempt = $pdo->prepare(
-        "SELECT user_id, user_email, user_password_hash
-        FROM wl_user
-        WHERE user_email = :email"
-    );
+        // 3-4 Exécution de la requête de vérification :
+        $login_attempt->execute(
+            [':email'=>$email]
+        );
 
-    // 3-3 Exécution de la requête de vérification :
-    $login_attempt->execute(
-        [':email'=>$email]
-    );
+        // 3-5 Récupérer le résultat de $login_attempt :
+        $login_result = $login_attempt->fetch();
 
-    // 3-4 Récupérer le résultat de $login_attempt :
-    $login_result = $login_attempt->fetch();
-
-    // 
-    if($login_result === false) {
-        $login_error_message = "L'e-mail ou le mot de passe est incorrect";
-    } else {
-        if(!password_verify($password, $login_result['user_password_hash'])) {
+        // 3-6 Indiquer à l'utilisateur si sa saisie comporte une erreur :
+        if($login_result === false) {
             $login_error_message = "L'e-mail ou le mot de passe est incorrect";
         } else {
-            $_SESSION['user_id'] = $login_result['user_id'];
-            header('Location: index.php');
-            exit();
+            if(!password_verify($password, $login_result['user_password_hash'])) {
+                $login_error_message = "L'e-mail ou le mot de passe est incorrect";
+            } else {
+                $_SESSION['user_id'] = $login_result['user_id'];
+                header('Location: index.php');
+                exit();
+            }
         }
-    }
 
-}
+    }
 ?>
 
 <!--

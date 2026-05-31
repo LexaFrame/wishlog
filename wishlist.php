@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'includes/auth_check.php';
+// require_once 'includes/auth_check.php';
 // ^Créer une session, à écrire en premier avant tout affichage HTML, sur la page de connexion 
 
 // Intégration de ma requête SQL pour afficher les produits dans la wishlist grâce à PDO :

@@ -61,6 +61,7 @@
           </nav>
       </div>
       <!-- BoutonCTA1 -->
+       <!-- TODO : mettre en place une alternative au bouton CTA si utilisateur connecté -->
       <a href="signup.php" class="CTA1">Créer ma liste</a>
     </div>
     </header>
