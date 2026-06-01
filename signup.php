@@ -171,11 +171,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['userName'], $_POST['e
               <div class="idBlock">
                 <div class="rowId">
                     <label for="firstName">Prénom</label>
-                    <input type="text" id="firstName" class="inputFields" name="firstName" placeholder="Entrez votre prénom" required>
+                    <input type="text" id="firstName" class="inputFields" name="firstName" placeholder="Entrez votre prénom">
                 </div>
                 <div class="rowId">
                   <label for="name">Nom</label>
-                  <input type="text" id="name" class="inputFields nameLabel" name="name" placeholder="Entrez votre nom" required>
+                  <input type="text" id="name" class="inputFields nameLabel" name="name" placeholder="Entrez votre nom">
                 </div>
               </div>
 
@@ -209,20 +209,20 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['userName'], $_POST['e
               <!-- Champs adresse -->
                 <div class="rowAddress">
                   <label for="address">Adresse</label>
-                  <input type="text" id="address" class="inputFields" name="address" required placeholder="Entrez votre adresse">
+                  <input type="text" id="address" class="inputFields" name="address" placeholder="Entrez votre adresse">
                 </div>
                 <div class="cityAndCodeBlock">
                 <div class="addressBlock">
                   <label for="city">Ville</label>
-                  <input type="text" id="city" class="inputFields" name="city" required placeholder="Entrez votre ville">
+                  <input type="text" id="city" class="inputFields" name="city" placeholder="Entrez votre ville">
                 </div>
                 <div class="addressBlock">
                 <label for="postalCode">Code postal</label>
-                <input type="text" id="postalCode" class="inputFields" name="postalCode" placeholder="Entrez votre code postal" required>
+                <input type="text" id="postalCode" class="inputFields" name="postalCode" placeholder="Entrez votre code postal">
                 </div>
                 <div class="rowCountry">
                   <label for="country">Pays</label>
-                  <input type="text" id="country" class="inputFields" name="country" required placeholder="Entrez votre pays">
+                  <input type="text" id="country" class="inputFields" name="country" placeholder="Entrez votre pays">
                 </div>
               </div>
 

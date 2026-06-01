@@ -65,9 +65,7 @@ require_once 'config/database.php';
 
     <main>
         <!-- Introduction à la page d'Inscription -->
-        <section class="contactSection"> <!--TODO modifier noms de classe-->
-
-            <!-- Div à rétablir si nécessaire <div class="contactPageIntro"> -->
+        <section class="loginIntroSection">
                 
                 <!-- Titre de la page -->
                 <div class="pageTitleBox">
@@ -85,15 +83,15 @@ require_once 'config/database.php';
                     </p>
                 <?php endif; ?>
 
-                <!-- Paragraphe contact -->
+                <!-- Paragraphe connexion -->
                 <div class="pageParagraphBox">
                     <p class="contactP">Saisissez vos informations d'identification ou <a href="signup.php">créez votre compte</a> pour créer votre liste d'envies et la partager avec vos proches.</p>
                 </div>
 
             <!-- </div> -->
         </section>
-        <!-- Formulaire de contact -->
-        <section class="contactFormSection">
+        <!-- Formulaire de connexion -->
+        <section class="loginFormSection">
 
             <!-- Début formulaire -->           
             <div class="formCard">

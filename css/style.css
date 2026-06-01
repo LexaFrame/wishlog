@@ -437,7 +437,7 @@ footer {
 
 /* CSS Pages Formulaires */
 
-.contactSection, .addProductSection, .createWishlistSection {
+.contactSection, .addProductSection, .createWishlistSection, .loginIntroSection {
     background-color: #FFFFFF;
     max-width: 1200px;
     margin: auto;
@@ -474,7 +474,7 @@ footer {
     font-size: 16px;   
 }
 
-.contactFormSection, .addProductFormSection, .createWishlistFormSection {
+.contactFormSection, .addProductFormSection, .createWishlistFormSection, .loginFormSection {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -944,7 +944,7 @@ label {
     display: block;
     text-align: center;
     width: 100%;
-    color: green;
+    color: green !important;
 }
 
 .updateProductFormError, .productFormError, .productDeleteError, .loginError, .signupError {
