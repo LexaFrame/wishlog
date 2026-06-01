@@ -74,6 +74,17 @@ require_once 'config/database.php';
                     <h1 class="h1FormPages">Connectez-vous</h1>
                 </div>
 
+                <!-- Mise en place du message flash créé dans signup.php suite à la réussite de la création d'un compte utilisateur : -->
+                <?php
+                if (isset($_SESSION['signup_success'])) : ?>
+                    <p class="signupSuccess">
+                    <?php echo htmlspecialchars($_SESSION['signup_success']);
+                    // Utilisation de unset() qui supprime la clé 'signup_success de $_SESSION après l'avoir affichée pour ne pas que le message réapparaisse à chaque fois que l'utilisateur actualise la page :
+                    unset($_SESSION['signup_success']);
+                    ?>
+                    </p>
+                <?php endif; ?>
+
                 <!-- Paragraphe contact -->
                 <div class="pageParagraphBox">
                     <p class="contactP">Saisissez vos informations d'identification ou <a href="signup.php">créez votre compte</a> pour créer votre liste d'envies et la partager avec vos proches.</p>
