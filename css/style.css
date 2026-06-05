@@ -1,6 +1,7 @@
 /* CSS appliqué à toute la page */
 *{
     /* border: 1px dashed blue; */
+    /* outline: 1px solid red; */
     box-sizing: border-box;
     /* border: 1px dashed white;
     background-color: rgba(0,0,0,0.1); */
@@ -979,6 +980,25 @@ label {
     width: 70%;
 }
 
+.menu {
+    padding: 10px; /* Padding réduit */
+    height: auto; /* height auto pour s'adapter à la hauteur du contenu sur mobile */
+    width: 100%; /* Forcer le menu à occuper toute la largeur dispo pour éviter débordement sur la droite */
+    justify-content: center; /* Centrage du menu */
+}
+
+.menu ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 5px;
+}
+
+/* Réduction de la taille du padding & texte pour s'adapter aux petits écrans */
+.menuLink {
+    padding: 12px 8px;
+    font-size: 16px;
+}
+
     /* Main mobile */
 
 .optionsList {
@@ -1125,6 +1145,20 @@ label {
 .productCardDrag {
     border : 1px solid #1E293B;
     padding : 0px 5px 0px 5px;
+}
+
+/* CSS Page Ajout/Modification de Produit Mobile */
+
+#descriptionAddProduct {
+    width: 100%;
+}
+
+#titleAddProduct, #shopAddProduct, #priceAddProduct, #quantityAddProduct, #imageAddProduct, #linkAddProduct {
+    width: 100%;
+}
+
+#categoryAddProduct, #priorityAddProduct {
+    width: 100%;
 }
 
     /* Mode sombre mobile */

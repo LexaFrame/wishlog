@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['userName'], $_POST['e
     $has_errors = true;
   }
 
-  // 4-2 Contraintes de format ASCII pour le nom d'utilisateur avec preg_match + regex :
+  // 4-2 Contraintes de format ASCII pour le nom d'utilisateur avec preg_match + regex (lettres minuscules forcées par mb_strtolower plus haut):
   if (!preg_match('/^(?=.*[a-z])[a-z0-9_]+$/', $user_name)) {
     $user_name_syntax_format_error_message = "Votre nom d'utilisateur doit contenir au moins une lettre et ne peut contenir que des lettres, chiffres et underscores (_).Veuillez saisir un nom d'utilisateur valide.";
     $has_errors = true;
