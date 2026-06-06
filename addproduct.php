@@ -8,13 +8,14 @@ $product_priority = null; // valeur par défaut
 $product_description = null; // valeur par défaut
 $product_quantity = 1;       // valeur par défaut
 
-// 1- Détection du mode : update ou create ?
+// 1 - Détection du mode : update ou create ?
 // Vérifie si le paramètre 'id' est présent dans l'URL (ex : addproduct.php?id=3), si oui, $product_edit_mode = true.
 $product_edit_mode = isset($_GET['id']);
 
-// 2- Bloc de gestion de l'affichage pour UPDATE :
+// 2 - Bloc de gestion de l'affichage pour UPDATE :
 // 2-1 Initialisation de la variable à null, elle sera remplie par le résultat si on est en mode modification :
 $edit_product_result = null;
+
 // 2-2 Si $product_edit_mode est true, on doit récupérer l'id puis SELECT pour récupérer les données existantes. S'effectue au chargement de la page :
 if ($product_edit_mode) {
     // Récupération de l'id du produit qu'on veut modifier depuis l'URL :
@@ -38,29 +39,35 @@ if ($product_edit_mode) {
     $edit_product_result = $edit_product->fetch();
 }
 
-// 3- Bloc commun à CREATE et UPDATE : vérification que le formulaire a bien été soumis en POST, + vérifications que les champs obligatoires sont bien remplis avant de traiter.
+// 3 - Bloc commun à CREATE et UPDATE : vérification que le formulaire a bien été soumis en POST, + vérifications que les champs obligatoires sont bien remplis avant de traiter.
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['titleAddProduct'], $_POST['priceAddProduct'], $_POST['quantityAddProduct'], $_POST['linkAddProduct'])) {
     // On récupère les valeurs depuis le formulaire et on les nettoie avec trim() :
     $product_name = trim($_POST['titleAddProduct']);
     $shop_name = trim($_POST['shopAddProduct'] ?? '');
     $product_price = trim($_POST['priceAddProduct']);
 
-    // Comme on souhaite retirer pour l'instant la gestion de la quantité, on fixe la valeur à 1 par défaut. Cela servira pour l'insertion dans la table wlwishlist_wlproduct sans dépendre du formulaire :
-    $product_quantity = 1;
-    // Gestion du nom de catégorie reportée pour une fonctionnalité future $category_name = trim($_POST['categoryAddProduct'] ?? '');
+    // 3-1 - Utilisation de $has_errors pour servir d'alerte pour que dès qu'une validation échoue on le passe à true pour empêcher le reste du traitement de s'exécuter : 
+    $has_errors = false;
 
-    // Retiré, à vérifier pourquoi erreur : $product_priority = trim($_POST['priorityAddProduct'] ?? '');
-    // Gestion priorité : vérifie si l'utilisateur a laissé le champ sur l'option par défaut "selection".
-    // Si c'est le cas, on met NULL pour éviter d'envoyer une chaîne non numérique dans la base de données.
-if ($product_priority === "selection") {
-    $product_priority = null; // valeur par défaut acceptable pour la colonne product_priority
-}
+    // 3-2 - Vérification de la saisie utilisateur dans le champ prix à l'aide de is_numeric() :
+    if (!is_numeric($product_price) || $product_price <= 0) {
+        $product_price_format_error_message = "Votre saisie est invalide. Veuillez saisir un prix en chiffres.";
+        $has_errors = true;
+    }
+
+    // 3-3 Comme on souhaite retirer pour l'instant la gestion de la quantité, on fixe la valeur à 1 par défaut. Cela servira pour l'insertion dans la table wlwishlist_wlproduct sans dépendre du formulaire :
+    $product_quantity = 1;
+
+    // TODO : Gestion du nom de catégorie reportée pour une fonctionnalité future $category_name = trim($_POST['categoryAddProduct'] ?? '');
+
+    // 3-4 Récupération de la priorité depuis le formulaire :
     $product_priority = $_POST['priorityAddProduct'] ?? null;
+
+// 3-5 Si l'utilisateur a laissé l'option par défaut "selection" ou n'a rien sélectionné, on stocke NULL pour éviter d'insérer une chaîne non numérique dans la base de données :
 if ($product_priority === "selection") {
     $product_priority = null; // valeur par défaut acceptable
 }
-    // Retiré, à vérifier pourquoi erreur $product_description = trim($_POST['descriptionAddProduct'] ?? '');
-    // Gestion description : Si la description est vide (ou ne contient que des espaces), on la met à NULL pour éviter d'insérer une chaîne vide inutile dans la base. L'opérateur "?? ''" permet de mettre une chaîne vide si le champ n'existe pas dans $_POST.
+    // 3-6 Gestion description : Si la description est vide (ou ne contient que des espaces), on la met à NULL pour éviter d'insérer une chaîne vide inutile dans la base. L'opérateur "?? ''" permet de mettre une chaîne vide si le champ n'existe pas dans $_POST.
     $product_description = trim($_POST['descriptionAddProduct'] ?? '');
     if ($product_description === '') {
         $product_description = null;
@@ -69,88 +76,109 @@ if ($product_priority === "selection") {
     $product_image_url = trim($_POST['imageAddProduct'] ?? '');
     $product_url = trim($_POST['linkAddProduct']); 
 
-    // Valeurs fixes côté serveur (pour l'instant $product_origin est toujours 'manual' et la gestion des catégories est reportée):
+    // 3-7 Valeurs fixes côté serveur (pour l'instant $product_origin est toujours 'manual' et la gestion des catégories est reportée):
     $product_origin = 'manual';
     $category_id = null;
 
-    // 4- Bloc de gestion de la modification effective du produit pour UPDATE :
-    // 4-1 Si mode modification :
-    if ($product_edit_mode) {
-        try {
-            // 4-2 Préparation de la 1ère requête pour modification des informations du produit dans wl_product :
-            $modify_product = $pdo->prepare(
-                "UPDATE `wl_product`
-                SET product_url = :product_url, shop_name = :shop_name, product_name = :product_name, product_image_url = :product_image_url, product_description = :product_description, product_price = :product_price, product_priority = :product_priority, product_origin = :product_origin, category_id = :category_id
-                WHERE product_id = :product_id"
-            );
+    // 4 Une fois toutes les validations effectuées ci-dessus, on vérifie $has_errors. Si une erreur a été détectée : on n'entre pas dans le bloc et le traitement s'arrête. Si aucune erreur n'a été détectée on continue vers les vérifications en base de données et l'insertion :
+    if (!$has_errors) {
 
-            // 4-3 Exécution de la 1ère requête de modification :
-            $modify_product->execute(
-                [':product_url'=>$product_url,':shop_name'=>$shop_name,':product_name'=>$product_name,':product_image_url'=>$product_image_url,':product_description'=>$product_description,':product_price'=>$product_price,':product_priority'=>$product_priority,':product_origin'=>$product_origin,':category_id'=>$category_id,':product_id' => $product_id_edit]
-            );
+        // 5- Bloc de gestion de la modification effective du produit pour UPDATE :
+        // 5-1 Si mode modification :
+        if ($product_edit_mode) {
+            try {
+                // 5-2 Préparation de la 1ère requête pour modification des informations du produit dans wl_product :
+                $modify_product = $pdo->prepare(
+                    "UPDATE `wl_product`
+                    SET product_url = :product_url, shop_name = :shop_name, product_name = :product_name, product_image_url = :product_image_url, product_description = :product_description, product_price = :product_price, product_priority = :product_priority, product_origin = :product_origin, category_id = :category_id
+                    WHERE product_id = :product_id"
+                );
 
-            // 4-4 Préparation de la 2e requête pour modification des informations du produit dans wlwishlist_wlproduct :
-            $modify_product = $pdo->prepare(
-                "UPDATE `wlwishlist_wlproduct`
-                SET product_quantity = :product_quantity
-                WHERE product_id = :product_id"
-            );
+                // 5-3 Exécution de la 1ère requête de modification :
+                $modify_product->execute(
+                    [':product_url'=>$product_url,':shop_name'=>$shop_name,':product_name'=>$product_name,':product_image_url'=>$product_image_url,':product_description'=>$product_description,':product_price'=>$product_price,':product_priority'=>$product_priority,':product_origin'=>$product_origin,':category_id'=>$category_id,':product_id' => $product_id_edit]
+                );
 
-            // 4-5 Exécution de la 2e requête de modification :
-            $modify_product->execute(
-                [':product_quantity'=>$product_quantity,':product_id' => $product_id_edit]
-            );
+                // 5-4 Préparation de la 2e requête pour modification des informations du produit dans wlwishlist_wlproduct :
+                $modify_product = $pdo->prepare(
+                    "UPDATE `wlwishlist_wlproduct`
+                    SET product_quantity = :product_quantity
+                    WHERE product_id = :product_id"
+                );
 
-            // 4-6 Message à destination de l'utilisateur pour l'informer du succès de la modification :
-            $update_success_message = "Le produit a été modifié avec succès.";
-        
-        } catch (PDOException $error) {
-            // 4-7 Gestion des erreurs éventuelles lors de la soumission de la modification :
-            // Utilisation d'error_log() qui est une fonction native PHP qui écrit un message d'erreur dans le fichier de log du serveur. Cela permet d'enregistrer les erreurs techniques sans les afficher à l'utilisateur qui ne voit que le message générique. L'objectif est de ne révéler aucune information sensible sur la base de données. getMessage() est une méthode de la classe Exception qui retourne le message textuel décrivant l'erreur.
-            error_log($error->getMessage());
-            // Message à destination de l'utilisateur pour l'informer de l'échec de la modification :
-            $update_error_message = "La modification du produit a échoué.";
-        }
+                // 5-5 Exécution de la 2e requête de modification :
+                $modify_product->execute(
+                    [':product_quantity'=>$product_quantity,':product_id' => $product_id_edit]
+                );
 
-    } else {
-        // 5- Bloc de gestion du CREATE : 
-        try {
-            // 5-1 Préparation de la requête pour l'insertion des informations du produit dans wl_product :
-            $insert_product = $pdo->prepare(
-                "INSERT INTO `wl_product` (product_url, shop_name, product_name, product_image_url, product_description, product_price, product_priority, product_origin, category_id)
-                VALUES
-                (:product_url, :shop_name, :product_name, :product_image_url, :product_description, :product_price, :product_priority, :product_origin, :category_id)"
-            );
+                // 5-6 Message à destination de l'utilisateur pour l'informer du succès de la modification :
+                $update_success_message = "Le produit a été modifié avec succès.";
+            
+            } catch (PDOException $error) {
+                // 5-7 Gestion des erreurs éventuelles lors de la soumission de la modification :
+                // Utilisation d'error_log() qui est une fonction native PHP qui écrit un message d'erreur dans le fichier de log du serveur. Cela permet d'enregistrer les erreurs techniques sans les afficher à l'utilisateur qui ne voit que le message générique. L'objectif est de ne révéler aucune information sensible sur la base de données. getMessage() est une méthode de la classe Exception qui retourne le message textuel décrivant l'erreur.
+                error_log($error->getMessage());
+                // 5-8 Message à destination de l'utilisateur pour l'informer de l'échec de la modification :
+                $update_error_message = "La modification du produit a échoué.";
+            }
 
-            // 5-2 Exécution de la requête :
-            $insert_product->execute(
-                [':product_url'=>$product_url,':shop_name'=>$shop_name,':product_name'=>$product_name,':product_image_url'=>$product_image_url,':product_description'=>$product_description,':product_price'=>$product_price,':product_priority'=>$product_priority,':product_origin'=>$product_origin,':category_id'=>$category_id]
-            );
+        } else {
+            // 6- Bloc de gestion du CREATE : 
+            try {
 
-            // 5-3 Récupération de l'id généré par l'insertion précédente :
-            $product_id = $pdo->lastInsertId();
+                // 6-1 Vérification du wishlist_id existant avec une requête SQL préparée :
+                $retrieve_wishlist_id = $pdo->prepare(
+                    "SELECT wishlist_id
+                    FROM wluser_wlwishlist
+                    WHERE user_id = :user_id"
+                );
 
-            // 5-4 Seconde requête liée à la table wlwishlist_wlproduct :
-            $insert_wishlist_product = $pdo->prepare(
-                "INSERT INTO `wlwishlist_wlproduct`(wishlist_id, product_id, product_quantity)
-                VALUES
-                (1, :product_id, :product_quantity)"
-            );
+                $retrieve_wishlist_id->execute(
+                    [':user_id'=>$_SESSION['user_id']]
+                );
 
-            // 5-5 Exécution de la seconde requête :
-            $insert_wishlist_product->execute(
-                [':product_quantity'=>$product_quantity, ':product_id'=>$product_id]
-            );
+                // 6-2 Récupération du résultat de la requête :
+                $retrieve_wishlist_id_result = $retrieve_wishlist_id->fetch();
 
-            // 5-6 Message à destination de l'utilisateur pour l'informer du succès de l'insertion : 
-            $product_success_message = "Le produit a été ajouté à votre liste d'envies avec succès !";
+                $current_wishlist_id = $retrieve_wishlist_id_result['wishlist_id'];
+            
+                // 6-3 Préparation de la requête pour l'insertion des informations du produit dans wl_product :
+                $insert_product = $pdo->prepare(
+                    "INSERT INTO `wl_product` (product_url, shop_name, product_name, product_image_url, product_description, product_price, product_priority, product_origin, category_id)
+                    VALUES
+                    (:product_url, :shop_name, :product_name, :product_image_url, :product_description, :product_price, :product_priority, :product_origin, :category_id)"
+                );
 
-        } catch (PDOException $error) {
-            // 5-7 Gestion des erreurs éventuelles lors de la soumission de l'ajout :
-            // Utilisation d'error_log() qui est une fonction native PHP qui écrit un message d'erreur dans le fichier de log du serveur. Cela permet d'enregistrer les erreurs techniques sans les afficher à l'utilisateur qui ne voit que le message générique. L'objectif est de ne révéler aucune information sensible sur la base de données. getMessage() est une méthode de la classe Exception qui retourne le message textuel décrivant l'erreur.
-            error_log($error->getMessage());
-            // Message à destination de l'utilisateur pour l'informer de l'échec de l'insertion : 
-            $product_error_message = "L'ajout du produit a échoué.";
+                // 6-4 Exécution de la requête :
+                $insert_product->execute(
+                    [':product_url'=>$product_url,':shop_name'=>$shop_name,':product_name'=>$product_name,':product_image_url'=>$product_image_url,':product_description'=>$product_description,':product_price'=>$product_price,':product_priority'=>$product_priority,':product_origin'=>$product_origin,':category_id'=>$category_id]
+                );
+
+                // 6-5 Récupération de l'id généré par l'insertion précédente :
+                $product_id = $pdo->lastInsertId();
+
+                // 6-6 Seconde requête liée à la table wlwishlist_wlproduct :
+                $insert_wishlist_product = $pdo->prepare(
+                    "INSERT INTO `wlwishlist_wlproduct`(wishlist_id, product_id, product_quantity)
+                    VALUES
+                    (:wishlist_id, :product_id, :product_quantity)"
+                );
+
+                // 6-7 Exécution de la seconde requête :
+                $insert_wishlist_product->execute(
+                    [':wishlist_id'=>$current_wishlist_id,':product_quantity'=>$product_quantity, ':product_id'=>$product_id]
+                );
+
+                // 6-8 Message à destination de l'utilisateur pour l'informer du succès de l'insertion : 
+                $product_success_message = "Le produit a été ajouté à votre liste d'envies avec succès !";
+
+            } catch (PDOException $error) {
+                // 6-9 Gestion des erreurs éventuelles lors de la soumission de l'ajout :
+                // Utilisation d'error_log() qui est une fonction native PHP qui écrit un message d'erreur dans le fichier de log du serveur. Cela permet d'enregistrer les erreurs techniques sans les afficher à l'utilisateur qui ne voit que le message générique. L'objectif est de ne révéler aucune information sensible sur la base de données. getMessage() est une méthode de la classe Exception qui retourne le message textuel décrivant l'erreur.
+                error_log($error->getMessage());
+                // 6-10 Message à destination de l'utilisateur pour l'informer de l'échec de l'insertion : 
+                $product_error_message = "L'ajout du produit a échoué.";
+            }
         }
     }
 }
@@ -220,7 +248,7 @@ if ($product_priority === "selection") {
 
             <!-- TODO Début formulaire -> à adapter-->           
             <div class="formCard">
-            <form class="form" method="POST" action=""> <!-- TODO saisir lien dans action ="" ? -->
+            <form class="form" method="POST" action="addproduct.php">
 
             <!-- Champs de détail des articles -->
                 <!-- Champ titre -->
@@ -241,6 +269,9 @@ if ($product_priority === "selection") {
                   <label for="priceAddProduct">Prix en €<span class="required"> *</span></label>
                   <input type="text" id="priceAddProduct" class="inputFields" name="priceAddProduct" placeholder="" value="<?php echo $product_edit_mode ? htmlspecialchars($edit_product_result['product_price'] ?? '') : ''; ?>" required>
               </div>
+              <?php if(isset($product_price_format_error_message)) : ?>
+                <p class="productFormError"><?php echo htmlspecialchars($product_price_format_error_message); ?></p>
+              <?php endif; ?>
 
                 <!-- Champ quantité -->
               <div class="quantityAddProductBlock">
