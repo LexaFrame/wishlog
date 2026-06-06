@@ -49,25 +49,31 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['titleAddProduct'], $_
     // 3-1 - Utilisation de $has_errors pour servir d'alerte pour que dès qu'une validation échoue on le passe à true pour empêcher le reste du traitement de s'exécuter : 
     $has_errors = false;
 
-    // 3-2 - Vérification de la saisie utilisateur dans le champ prix à l'aide de is_numeric() :
+    // 3-2 - Utilisation de str_replace() pour supprimer les espaces (ex: 2 304,50) en prévision de l'utilisation de is_numeric qui sinon renverrait false :
+    $product_price = str_replace(' ', '', trim($_POST['priceAddProduct']));
+
+    // 3-3 - Utilisation de str_replace() pour remplacer les virgules par des points en prévision de l'utilisation de is_numeric pour interpréter correctement les nombres décimaux :
+    $product_price = str_replace(',', '.', $product_price);
+
+    // 3-4 - Vérification de la saisie utilisateur dans le champ prix à l'aide de is_numeric() :
     if (!is_numeric($product_price) || $product_price <= 0) {
-        $product_price_format_error_message = "Votre saisie est invalide. Veuillez saisir un prix en chiffres.";
+        $product_price_format_error_message = "Votre saisie est invalide. Veuillez saisir un prix valide supérieur à 0.";
         $has_errors = true;
     }
 
-    // 3-3 Comme on souhaite retirer pour l'instant la gestion de la quantité, on fixe la valeur à 1 par défaut. Cela servira pour l'insertion dans la table wlwishlist_wlproduct sans dépendre du formulaire :
+    // 3-5 Comme on souhaite retirer pour l'instant la gestion de la quantité, on fixe la valeur à 1 par défaut. Cela servira pour l'insertion dans la table wlwishlist_wlproduct sans dépendre du formulaire :
     $product_quantity = 1;
 
     // TODO : Gestion du nom de catégorie reportée pour une fonctionnalité future $category_name = trim($_POST['categoryAddProduct'] ?? '');
 
-    // 3-4 Récupération de la priorité depuis le formulaire :
+    // 3-6 Récupération de la priorité depuis le formulaire :
     $product_priority = $_POST['priorityAddProduct'] ?? null;
 
-// 3-5 Si l'utilisateur a laissé l'option par défaut "selection" ou n'a rien sélectionné, on stocke NULL pour éviter d'insérer une chaîne non numérique dans la base de données :
+// 3-7 Si l'utilisateur a laissé l'option par défaut "selection" ou n'a rien sélectionné, on stocke NULL pour éviter d'insérer une chaîne non numérique dans la base de données :
 if ($product_priority === "selection") {
     $product_priority = null; // valeur par défaut acceptable
 }
-    // 3-6 Gestion description : Si la description est vide (ou ne contient que des espaces), on la met à NULL pour éviter d'insérer une chaîne vide inutile dans la base. L'opérateur "?? ''" permet de mettre une chaîne vide si le champ n'existe pas dans $_POST.
+    // 3-8 Gestion description : Si la description est vide (ou ne contient que des espaces), on la met à NULL pour éviter d'insérer une chaîne vide inutile dans la base. L'opérateur "?? ''" permet de mettre une chaîne vide si le champ n'existe pas dans $_POST.
     $product_description = trim($_POST['descriptionAddProduct'] ?? '');
     if ($product_description === '') {
         $product_description = null;
@@ -76,11 +82,11 @@ if ($product_priority === "selection") {
     $product_image_url = trim($_POST['imageAddProduct'] ?? '');
     $product_url = trim($_POST['linkAddProduct']); 
 
-    // 3-7 Valeurs fixes côté serveur (pour l'instant $product_origin est toujours 'manual' et la gestion des catégories est reportée):
+    // 3-9 Valeurs fixes côté serveur (pour l'instant $product_origin est toujours 'manual' et la gestion des catégories est reportée):
     $product_origin = 'manual';
     $category_id = null;
 
-    // 4 Une fois toutes les validations effectuées ci-dessus, on vérifie $has_errors. Si une erreur a été détectée : on n'entre pas dans le bloc et le traitement s'arrête. Si aucune erreur n'a été détectée on continue vers les vérifications en base de données et l'insertion :
+    // 4- Une fois toutes les validations effectuées ci-dessus, on vérifie $has_errors. Si une erreur a été détectée : on n'entre pas dans le bloc et le traitement s'arrête. Si aucune erreur n'a été détectée on continue vers les vérifications en base de données et l'insertion :
     if (!$has_errors) {
 
         // 5- Bloc de gestion de la modification effective du produit pour UPDATE :
@@ -267,7 +273,7 @@ if ($product_priority === "selection") {
                 <!-- Champ prix -->
               <div class="priceAddProductBlock">
                   <label for="priceAddProduct">Prix en €<span class="required"> *</span></label>
-                  <input type="text" id="priceAddProduct" class="inputFields" name="priceAddProduct" placeholder="" value="<?php echo $product_edit_mode ? htmlspecialchars($edit_product_result['product_price'] ?? '') : ''; ?>" required>
+                  <input type="text" id="priceAddProduct" class="inputFields" name="priceAddProduct" placeholder="" min="0.01" step="0.01" value=" <?php echo $product_edit_mode ? htmlspecialchars($edit_product_result['product_price'] ?? '') : ''; ?>" required>
               </div>
               <?php if(isset($product_price_format_error_message)) : ?>
                 <p class="productFormError"><?php echo htmlspecialchars($product_price_format_error_message); ?></p>
