@@ -941,14 +941,14 @@ label {
 
 /* CSS messages d'erreur ajout produit, wishlist */
 
-.updateProductFormSuccess, .productFormSuccess, .productDeleteSuccess, .signupSuccess {
+.updateProductFormSuccess, .productFormSuccess, .productDeleteSuccess, .signupSuccess, .createWishlistSuccess {
     display: block;
     text-align: center;
     width: 100%;
     color: green !important;
 }
 
-.updateProductFormError, .productFormError, .productDeleteError, .loginError, .signupError {
+.updateProductFormError, .productFormError, .productDeleteError, .loginError, .signupError, .createWishlistError {
     display: block;
     text-align: center;
     width: 100%;

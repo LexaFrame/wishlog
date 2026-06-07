@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['userName'], $_POST['e
   $password1 = trim($_POST['password1']);
   $password2 = trim($_POST['password2']);
 
-  // 2-2 On récupère aussi les valeurs des champs non obligatoires depuis le formulaire et on les nettoie avec trim() :
+  // 2-2 On récupère aussi les valeurs des champs non-obligatoires depuis le formulaire et on les nettoie avec trim() :
   $first_name = trim($_POST['firstName'] ?? '');
   $name = trim($_POST['name'] ?? '');
   $address = trim($_POST['address'] ?? '');

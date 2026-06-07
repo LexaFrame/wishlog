@@ -10,7 +10,7 @@ require_once "config/database.php";
 
 // Vérifie si le bouton de suppression a été cliqué par l'utilisateur (permet de distinguer ce formulaire des autres formulaires de la page). Si oui, PHP reçoit la valeur "delete_action" dans $_POST :
 if (isset($_POST['delete_action'])) {
-  // Récupérer l'id du produit à supprimerqui vient du champ hidden du formulaire, grâce à $_POST :
+  // Récupérer l'id du produit à supprimer qui vient du champ hidden du formulaire, grâce à $_POST :
   $product_id_delete = $_POST['delete_product_id'];
 
   try {
