@@ -1,6 +1,6 @@
 <?php
 session_start();
-// require_once 'includes/auth_check.php';
+require_once 'includes/auth_check.php';
 // ^Créer une session, à écrire en premier avant tout affichage HTML, sur la page de connexion
 
 // Établir la connexion entre la page et le fichier database.php :
@@ -20,26 +20,37 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['titleCreateWishlist']
     $wishlist_date = trim($_POST['dateCreateWishlist'] ?? '');
     $wishlist_description = trim($_POST['descriptionCreateWishlist'] ?? '');
 
-    // 2-3 - Utilisation de $has_errors pour servir d'alerte pour que dès qu'une validation échoue on le passe à true pour empêcher le reste du traitement de s'exécuter :
+    // 3 - Utilisation de $has_errors pour servir d'alerte pour que dès qu'une validation échoue on le passe à true pour empêcher le reste du traitement de s'exécuter :
     $has_errors = false;
-
-    // 2-4 Vérification que l'utilisateur a sélectionné un type de liste autorisé.
     
-    // 2-4-1 On crée un tableau regroupant les valeurs autorisées venant du menu déroulant de type de liste d'envies pour empêcher qu'un utilisateur malveillant remplace la sélection par autre chose : 
+    // 4 - Validation des données :
+    // 4-1 Contrainte de format demandé à l'utilisateur pour la saisie de la date à l'aide de preg_match() :
+    if($wishlist_date !== '' && !preg_match('/^\d{2}\/\d{2}\/\d{4}$/', $wishlist_date)) {
+        $create_wishlist_date_error_message = "Le format de la date doit être JJ/MM/AAAA";
+        $has_errors = true;
+    }
+
+    // 4-2 Conversion de la date dans le format compatible avec SQL (AAA-MM-JJ) à l'aide de explode() qui découpe une chaîne en tableau selon un séparateur (ici "/") : 
+    if($wishlist_date !== '') {
+        $date_parts = explode('/', $wishlist_date);
+        $wishlist_date_sql = $date_parts[2] . '-' . $date_parts[1] . '-' . $date_parts[0];
+    } else {
+        $wishlist_date_sql = null;
+    }
+
+    // 4-3 Vérification que l'utilisateur a sélectionné un type de liste autorisé.
+    
+    // 4-3-1 On crée un tableau regroupant les valeurs autorisées venant du menu déroulant de type de liste d'envies pour empêcher qu'un utilisateur malveillant remplace la sélection par autre chose : 
     $allowed_types = ['birthday', 'gift', 'holidays', 'wedding', 'baby', 'wishlist'];
 
-    // 2-4-2 Vérification que la valeur reçue depuis le formulaire fait bien partie de la liste des valeurs autorisées :
+    // 4-3-2 Vérification que la valeur reçue depuis le formulaire fait bien partie de la liste des valeurs autorisées :
     if (!in_array($wishlist_type, $allowed_types, true)) {
         $create_wishlist_type_error_message = "Veuillez sélectionner un type de liste valide.";
         $has_errors = true;
     }
 
-    // 2-5 Convertir l'état de la case à cocher de $wishlist_surprise en 1 (cochée) ou 0 (non cochée) grâce à un opérateur ternaire :
+    // 4-4 Convertir l'état de la case à cocher de $wishlist_surprise en 1 (cochée) ou 0 (non cochée) grâce à un opérateur ternaire :
     $wishlist_surprise = isset($_POST['keepSurprise']) ? 1 : 0;
-
-    // 4 - Vérification du format pour le champ date de l'évènement :
-
-    // TODO
     
     // 5 - Une fois toutes les validations effectuées ci-dessus, on vérifie $has_errors. Si une erreur a été détectée : on n'entre pas dans le bloc et le traitement s'arrête. Si aucune erreur n'a été détectée on continue vers les vérifications en base de données et l'insertion :
     if (!$has_errors) {
@@ -79,12 +90,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['titleCreateWishlist']
 
                 // 7-2 Exécution de la requête :
                 $insert_new_wishlist->execute(
-                    [':wishlist_name' => $wishlist_title, ':event_type' => $wishlist_type, ':event_date' => $wishlist_date, ':wishlist_description' => $wishlist_description, ':hide_purchases' => $wishlist_surprise]
+                    [':wishlist_name' => $wishlist_title, ':event_type' => $wishlist_type, ':event_date' => $wishlist_date_sql, ':wishlist_description' => $wishlist_description, ':hide_purchases' => $wishlist_surprise]
                 );
 
                 // 7-3 On récupère l'identifiant de la wishlist créé :
                 $new_wishlist_id = $pdo->lastInsertId();
 
+                // 7-4 Requête qui crée le lien dans la table de liaison entre l'utilisateur connecté et la liste d'envie qui vient d'être créée pour indiquer à qui appartient la liste :
                 $insert_created_wishlist_link = $pdo->prepare(
                     "INSERT INTO `wluser_wlwishlist`
                     (user_id, wishlist_id, role_in_wishlist)
@@ -97,7 +109,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['titleCreateWishlist']
 
                 // 7-5 Mise en place d'un message flash : c'est un message de succès qui sera stocké temporairement dans la session, le temps de l'afficher sur la page suivante.
                 
-                // à vérifier : $_SESSION['createWishlistSuccess'] = "Votre liste a été créée avec succès. Vous pouvez maintenant l'utiliser.";
+                $_SESSION['wishlist_created'] = "Votre liste a été créée avec succès. Vous pouvez maintenant l'utiliser.";
 
                 // 8 - Redirection de l'utilisateur vers la page wishlist.php :
                 header('Location: wishlist.php');
@@ -107,10 +119,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['titleCreateWishlist']
 
                 // 10 - Gestion des erreurs avec le type d'erreur PDOException (erreurs liées à la base de données) & $error pour récupérer le message d'erreur technique :
             } catch (PDOException $error) {
-                // 11-1 Gestion des erreurs éventuelles lors de la soumission de l'ajout : utilisation d'error_log() qui est une fonction native PHP qui écrit un message d'erreur dans le fichier de log du serveur. Cela permet d'enregistrer les erreurs techniques sans les afficher à l'utilisateur qui ne voit que le message générique. L'objectif est de ne révéler aucune information sensible sur la base de données. getMessage() est une méthode de la classe Exception qui retourne le message textuel décrivant l'erreur.
+                // 10-1 Gestion des erreurs éventuelles lors de la soumission de l'ajout : utilisation d'error_log() qui est une fonction native PHP qui écrit un message d'erreur dans le fichier de log du serveur. Cela permet d'enregistrer les erreurs techniques sans les afficher à l'utilisateur qui ne voit que le message générique. L'objectif est de ne révéler aucune information sensible sur la base de données. getMessage() est une méthode de la classe Exception qui retourne le message textuel décrivant l'erreur.
                 error_log($error->getMessage());
 
-                // 11-2 Message à destination de l'utilisateur pour l'informer de l'échec de l'insertion :
+                // 10-2 Message à destination de l'utilisateur pour l'informer de l'échec de l'insertion :
                     $create_new_wishlist_final_error_message = "Une erreur est survenue. La liste d'envies n'a pas pu être créée.";
             }
         }
@@ -178,6 +190,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['titleCreateWishlist']
                   <label for="dateCreateWishlist">Date de l'évènement</label>
                   <input type="text" id="dateCreateWishlist" class="inputFields" name="dateCreateWishlist" placeholder="">
               </div>
+              <?php if(isset($create_wishlist_date_error_message)) : ?>
+                <p class="createWishlistError"><?php echo htmlspecialchars ($create_wishlist_date_error_message); ?></p>
+                <?php endif; ?>
 
                 <!-- Sélection type d'évènement -->                          
                 <div class="typeOfWishlistBlock">
@@ -216,7 +231,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['titleCreateWishlist']
             </div>
             <?php if (isset($create_new_wishlist_final_error_message)) : ?>
                 <p class="createWishlistError"><?php echo htmlspecialchars ($create_new_wishlist_final_error_message); ?></p>
-                <?php endif; ?>
+            <?php endif; ?>
+            <?php if (isset($create_wishlist_error_message)) : ?>
+                <p class="createWishlistError"><?php echo htmlspecialchars ($create_wishlist_error_message); ?></p>
+            <?php endif; ?>
+
 
              </form>
 

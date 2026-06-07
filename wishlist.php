@@ -1,12 +1,40 @@
 <?php
 session_start();
-// require_once 'includes/auth_check.php';
+require_once 'includes/auth_check.php';
 // ^Créer une session, à écrire en premier avant tout affichage HTML, sur la page de connexion 
 
 // Intégration de ma requête SQL pour afficher les produits dans la wishlist grâce à PDO :
 
 // Établir la connexion entre la page et le fichier database.php :
 require_once "config/database.php";
+
+// Récupérer l'identifiant de l'utilisateur connecté :
+$user_id = $_SESSION['user_id'];
+
+// Récupérer l'id de la wishlist à l'aide d'une requête avec PDO :
+$get_wishlist_id = $pdo->prepare(
+    "SELECT wishlist_id
+    FROM wluser_wlwishlist
+    WHERE user_id = :user_id"
+);
+
+$get_wishlist_id->execute(
+    [':user_id'=>$user_id]
+);
+
+// Récupérer le résultat de $get_wishlist_id :
+$get_wishlist_id_result = $get_wishlist_id->fetch();
+
+// Gestion des deux cas (redirection si pas de wishlist_id ou extraire le wishlist_id dans une variable) :
+if ($get_wishlist_id_result === false) {
+    // Redirection vers la page de création de liste d'envies :
+    header('Location: createwishlist.php');
+
+    // On arrête l'exécution du reste du code :
+    exit();
+} else {
+    $wishlist_id = $get_wishlist_id_result['wishlist_id'];
+}
 
 // Vérifie si le bouton de suppression a été cliqué par l'utilisateur (permet de distinguer ce formulaire des autres formulaires de la page). Si oui, PHP reçoit la valeur "delete_action" dans $_POST :
 if (isset($_POST['delete_action'])) {
@@ -51,7 +79,7 @@ $display_wishlist = $pdo->prepare(
 );
 
 // Exécution de la requête :
-$display_wishlist->execute([':wishlist_id' => 1]);
+$display_wishlist->execute([':wishlist_id' => $wishlist_id]);
 
 
 // Récupérer le résultat :
@@ -96,6 +124,11 @@ $final_display = $display_wishlist->fetchAll();
          <section class="wishlistDescriptionSection">
             <p class="wishlistDescriptionParagraph">Bienvenue sur cette liste d'envies qui me permet de garder une trace d'objets qui me plaisent pour un futur achat et qui peut aussi aider les proches en mal d'inspiration.</p>
          </section>
+         <?php if (isset($_SESSION['wishlist_created'])) : ?>
+          <p class="createWishlistSuccess"><?php echo htmlspecialchars($_SESSION['wishlist_created']);
+          // Utilisation de unset() qui supprime la clé "wishlist_created" de $_SESSION après l'avoir affichée pour ne pas que le message réapparaisse à chaque fois que l'utilisateur actualise la page :
+          unset($_SESSION['wishlist_created']); ?></p>
+          <?php endif; ?>
 
          <!-- Section rassemblant les données partagées par la personne ayant créé la liste -->
          <section class="personalDataSection">
