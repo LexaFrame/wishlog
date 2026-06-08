@@ -306,14 +306,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['userName'], $_POST['e
             <input type="text" id="address" class="inputFields" name="address" placeholder="Entrez votre adresse">
           </div>
           <div class="cityAndCodeBlock">
-            <div class="addressBlock">
-              <label for="city">Ville</label>
-              <input type="text" id="city" class="inputFields" name="city" placeholder="Entrez votre ville">
-            </div>
-            <div class="addressBlock">
-              <label for="postalCode">Code postal</label>
-              <input type="text" id="postalCode" class="inputFields" name="postalCode" placeholder="Entrez votre code postal">
-            </div>
+            <div class="cityAndCodeRows">
+              <div class="addressBlock">
+                <label for="city">Ville</label>
+                <input type="text" id="city" class="inputFields" name="city" placeholder="Entrez votre ville">
+              </div>
+              <div class="addressBlock">
+                <label for="postalCode">Code postal</label>
+                <input type="text" id="postalCode" class="inputFields" name="postalCode" placeholder="Entrez votre code postal">
+              </div>
+          </div>
             <div class="rowCountry">
               <label for="country">Pays</label>
               <input type="text" id="country" class="inputFields" name="country" placeholder="Entrez votre pays">
