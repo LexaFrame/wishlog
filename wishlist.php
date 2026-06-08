@@ -11,10 +11,11 @@ require_once "config/database.php";
 // Récupérer l'identifiant de l'utilisateur connecté :
 $user_id = $_SESSION['user_id'];
 
-// Récupérer l'id de la wishlist à l'aide d'une requête avec PDO :
+// Récupérer l'id de la wishlist et le nom de la wishlist à l'aide d'une requête avec PDO :
 $get_wishlist_id = $pdo->prepare(
-    "SELECT wishlist_id
+    "SELECT wluser_wlwishlist.wishlist_id, wishlist_name
     FROM wluser_wlwishlist
+    INNER JOIN wl_wishlist ON wluser_wlwishlist.wishlist_id = wl_wishlist.wishlist_id
     WHERE user_id = :user_id"
 );
 
@@ -25,7 +26,7 @@ $get_wishlist_id->execute(
 // Récupérer le résultat de $get_wishlist_id :
 $get_wishlist_id_result = $get_wishlist_id->fetch();
 
-// Gestion des deux cas (redirection si pas de wishlist_id ou extraire le wishlist_id dans une variable) :
+// Gestion des deux cas (redirection si pas de wishlist_id ou extraire le wishlist_id et le nom de la wishlist dans une variable) :
 if ($get_wishlist_id_result === false) {
     // Redirection vers la page de création de liste d'envies :
     header('Location: createwishlist.php');
@@ -34,6 +35,7 @@ if ($get_wishlist_id_result === false) {
     exit();
 } else {
     $wishlist_id = $get_wishlist_id_result['wishlist_id'];
+    $wishlist_name = $get_wishlist_id_result['wishlist_name'];
 }
 
 // Vérifie si le bouton de suppression a été cliqué par l'utilisateur (permet de distinguer ce formulaire des autres formulaires de la page). Si oui, PHP reçoit la valeur "delete_action" dans $_POST :
@@ -112,9 +114,9 @@ $final_display = $display_wishlist->fetchAll();
 
 
     <main>
-        <!-- Titre de la page -->
+        <!-- Titre de la page : affichage de la liste d'envies en vue propriétaire : -->
          <div class="pageTitleBox">
-            <h1 class="h1Wishlist">Liste d'envies de [Prénom Nom]</h1>
+            <h1 class="h1Wishlist">Ma liste : <?php echo htmlspecialchars($wishlist_name); ?></h1>
         </div> 
         
         <!-- Bannière à thème de la liste -->
@@ -247,7 +249,13 @@ $final_display = $display_wishlist->fetchAll();
 
                       <!-- Priorité du produit -->
                       <label for="priority-<?php echo htmlspecialchars($products['product_id']); ?>" class="productCardNumbersPriorityLabel">Priorité</label>
-                      <select class="productCardNumbersPriority" id="priority-<?php echo htmlspecialchars($products['product_id']); ?>" name="priority"><option value="" disabled="">-- Choisir la priorité --</option><option value="very high">Priorité : Très haute</option><option value="high">Priorité : Haute</option><option value="medium">Priorité : Moyenne</option><option value="low">Priorité : Faible</option><option value="very low">Priorité : Très Faible</option>
+                      <select class="productCardNumbersPriority" id="priority-<?php echo htmlspecialchars($products['product_id']); ?>" name="priority">
+                        <option value="" disabled="">-- Choisir la priorité --</option>
+                        <option value="1" <?php echo ($products['product_priority'] == 1) ? 'selected' : ''; ?>>Priorité : Très haute</option>
+                        <option value="2" <?php echo ($products['product_priority'] == 2) ? 'selected' : ''; ?>>Priorité : Haute</option>
+                        <option value="3" <?php echo ($products['product_priority'] == 3) ? 'selected' : ''; ?>>Priorité : Moyenne</option>
+                        <option value="4" <?php echo ($products['product_priority'] == 4) ? 'selected' : ''; ?>>Priorité : Faible</option>
+                        <option value="5" <?php echo ($products['product_priority'] == 5) ? 'selected' : ''; ?>>Priorité : Très Faible</option>
                       </select>
 
                       <!-- Prix du produit -->

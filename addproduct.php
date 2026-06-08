@@ -1,12 +1,13 @@
 <?php
 session_start();
-// require_once 'includes/auth_check.php';
+require_once 'includes/auth_check.php';
 // ^Créer une session, à écrire en premier avant tout affichage HTML, sur la page de connexion 
 
 require_once 'config/database.php';
+
 $product_priority = null; // valeur par défaut
 $product_description = null; // valeur par défaut
-$product_quantity = 1;       // valeur par défaut
+$product_quantity = 1; // valeur par défaut
 
 // 1 - Détection du mode : update ou create ?
 // Vérifie si le paramètre 'id' est présent dans l'URL (ex : addproduct.php?id=3), si oui, $product_edit_mode = true.
@@ -46,6 +47,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['titleAddProduct'], $_
     $shop_name = trim($_POST['shopAddProduct'] ?? '');
     $product_price = trim($_POST['priceAddProduct']);
 
+    // On récupère également les valeurs non obligatoires du formulaire et on les nettoie avec trim() :
+    //max(1,...) garantit que la quantité ne peut jamais être inférieure à 1 quelle que soit la valeur envoyée :
+    $product_quantity = max(1, (int) ($_POST['quantityAddProduct'] ?? 1));
+
     // 3-1 - Utilisation de $has_errors pour servir d'alerte pour que dès qu'une validation échoue on le passe à true pour empêcher le reste du traitement de s'exécuter : 
     $has_errors = false;
 
@@ -60,9 +65,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['titleAddProduct'], $_
         $product_price_format_error_message = "Votre saisie est invalide. Veuillez saisir un prix valide supérieur à 0.";
         $has_errors = true;
     }
-
-    // 3-5 Comme on souhaite retirer pour l'instant la gestion de la quantité, on fixe la valeur à 1 par défaut. Cela servira pour l'insertion dans la table wlwishlist_wlproduct sans dépendre du formulaire :
-    $product_quantity = 1;
 
     // TODO : Gestion du nom de catégorie reportée pour une fonctionnalité future $category_name = trim($_POST['categoryAddProduct'] ?? '');
 
@@ -322,7 +324,7 @@ if ($product_priority === "selection") {
 
                 <!-- Champ lien vers le produit-->
               <div class="linkAddProductBlock">
-                  <label for="linkAddProduct">Lien vers le produit</label>
+                  <label for="linkAddProduct">Lien vers le produit<span class="required"> *</span></label>
                   <input type="text" id="linkAddProduct" class="inputFields" name="linkAddProduct" placeholder="" value="<?php echo $product_edit_mode ? htmlspecialchars($edit_product_result['product_url'] ?? '') : ''; ?>" required>
               </div>
 
