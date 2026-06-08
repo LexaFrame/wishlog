@@ -18,7 +18,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['titleCreateWishlist']
 
     // 2-2 On récupère aussi les valeurs des champs non-obligatoires depuis le formulaire et on les nettoie avec trim() :
     $wishlist_date = trim($_POST['dateCreateWishlist'] ?? '');
-    $wishlist_description = trim($_POST['descriptionCreateWishlist'] ?? '');
 
     // 3 - Utilisation de $has_errors pour servir d'alerte pour que dès qu'une validation échoue on le passe à true pour empêcher le reste du traitement de s'exécuter :
     $has_errors = false;
@@ -84,13 +83,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['titleCreateWishlist']
                 // 7-1 Préparation de la requête pour l'insertion des données de la nouvelle wishlist dans la table wl_wishlist :
                 $insert_new_wishlist = $pdo->prepare(
                     "INSERT INTO `wl_wishlist`
-                    (wishlist_name, event_type, event_date, wishlist_description, hide_purchases)
-                    VALUES (:wishlist_name, :event_type, :event_date, :wishlist_description, :hide_purchases)"
+                    (wishlist_name, event_type, event_date, hide_purchases)
+                    VALUES (:wishlist_name, :event_type, :event_date, :hide_purchases)"
                 );
 
                 // 7-2 Exécution de la requête :
                 $insert_new_wishlist->execute(
-                    [':wishlist_name' => $wishlist_title, ':event_type' => $wishlist_type, ':event_date' => $wishlist_date_sql, ':wishlist_description' => $wishlist_description, ':hide_purchases' => $wishlist_surprise]
+                    [':wishlist_name' => $wishlist_title, ':event_type' => $wishlist_type, ':event_date' => $wishlist_date_sql, ':hide_purchases' => $wishlist_surprise]
                 );
 
                 // 7-3 On récupère l'identifiant de la wishlist créé :
