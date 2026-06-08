@@ -4,6 +4,12 @@ session_start(); // 1- Vérifier que la session n'est pas déjà ouverte
 // 2 - Établir la connexion entre la page et le fichier database.php :
 require_once 'config/database.php';
 
+// 3 - Empêcher l'utilisateur de pouvoir se connecter à login.php s'il est déjà connecté :
+if (isset($_SESSION['user_id'])) {
+    header('Location:wishlist.php');
+    exit();
+}
+
 // 3 - Connexion de l'utilisateur s'il figure bien dans la base de données (vérification email et mot de passe) et lancement de la session : 
 
     // 3-1 - Vérifier que la requête est bien POST et que les champs e-mail et mot de passe sont bien remplis par l'utilisateur, si c'est le cas

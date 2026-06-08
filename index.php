@@ -37,7 +37,7 @@ session_start();
         <p class="slogan"> Créez, choisissez, partagez !</p>
 
         <!-- CTA2 -->
-        <a href="#" class="CTA2">Commencez maintenant</a>
+        <a href="signup.php" class="CTA2">Commencez maintenant</a>
       </section>
 
       <!-- Section descriptive  détaillée de ce que propose le site  -->

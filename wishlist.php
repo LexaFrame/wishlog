@@ -266,7 +266,7 @@ $final_display = $display_wishlist->fetchAll();
                     <div class="productCardNumbersNumberAndBuy">
                       <input type="number" min="1" class="productCardNumbersNumber" id="number-<?php echo htmlspecialchars($products['product_id']); ?>" value="<?php echo htmlspecialchars($products['product_quantity']); ?>">
                       <label class="productCardNumbersNumberLabel" for="number-<?php echo htmlspecialchars($products['product_id']); ?>">Nombre</label>
-                      <button class="productCardNumbersBuy" type="button">Je l'offre !</button>
+                      <!-- <button class="productCardNumbersBuy" type="button">Je l'offre !</button> -->
                     </div>
 
                   </div>

@@ -5,6 +5,12 @@ session_start();
 // Établir la connexion entre la page et le fichier database.php :
 require_once 'config/database.php';
 
+// Empêcher que l'utilisateur puisse s'inscrire à nouveau s'il est connecté :
+if (isset($_SESSION['user_id'])) {
+  header ('Location: wishlist.php');
+  exit();
+}
+
 // 1 - Vérification que le formulaire a bien été soumis en POST, + vérifications que les champs obligatoires sont bien remplis avant de traiter :
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['userName'], $_POST['email'], $_POST['password1'], $_POST['password2'])) {
 

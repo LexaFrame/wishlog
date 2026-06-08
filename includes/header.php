@@ -61,7 +61,11 @@
           </nav>
       </div>
       <!-- BoutonCTA1 -->
-       <!-- TODO : mettre en place une alternative au bouton CTA si utilisateur connecté -->
+       <!--  -->
+      <?php if (isset($_SESSION['user_id'])) : ?>
+      <a href="wishlist.php" class="CTA1">Voir ma liste</a>
+      <?php else : ?>
       <a href="signup.php" class="CTA1">Créer ma liste</a>
+      <?php endif; ?>
     </div>
     </header>
