@@ -219,7 +219,7 @@ header a {
 
 .CTA1:hover {
     text-decoration: underline;
-    background-color: #059364;
+    background-color: #046248;
     color: #F8FAFC;
 }
 
@@ -273,7 +273,7 @@ hr {
 
 .CTA2:hover {
     text-decoration: underline;
-    background-color: #059364;
+    background-color: #046248;
     color: #F8FAFC;
 }
 
@@ -551,7 +551,7 @@ label {
 }
 
 .submitButton:hover {
-    background-color: #059364;
+    background-color: #046248;
     color: #F8FAFC;
     border-color: #475569;
     /* Couleur alternative : 
@@ -902,6 +902,7 @@ label {
 }
 
 .productCardNumbersNumber {
+    height: 40px;
     width: 180px;
     border-radius: 5px;
     border: 1px solid #1E293B;   

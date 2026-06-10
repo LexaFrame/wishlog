@@ -7,6 +7,9 @@
     <meta name="author" content="Sarah Segui Bilger" />
     <meta name="description" content="Créez et partagez vos listes d'envies, de souhaits, d'anniversaire, de mariage ou de naissance avec vos proches !">
 
+    <!-- TODO : Appel de la police, à intégrer plus tard -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;600;800&display=swap" rel="stylesheet"> -->
+
     <!-- Appel du fichier CSS -->
     <link rel="stylesheet" href="css/style.css" />
 
