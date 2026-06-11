@@ -213,7 +213,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['titleCreateWishlist']
 
                 <!-- Zone de saisie de la description de la liste -->
               <div class="descriptionCreateWishlistBlock">
-                <label for="descriptionCreateWishlist" class="descriptionCreateWishlistLabel">Description de la liste d'envies</label><br>
+                <label for="descriptionCreateWishlist" class="descriptionCreateWishlistLabel">Description de la liste d'envies</label>
                 <textarea id="descriptionCreateWishlist" name="descriptionCreateWishlist" class="inputFields" placeholder="Entrez votre message..." rows="5" cols="30">
                 </textarea>
               </div>
@@ -221,7 +221,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['titleCreateWishlist']
                 <!-- Case à cocher "ne pas me gâcher la surprise -->
               <div class="keepSurpriseBlock">
                   <label for="keepSurprise">Ne pas me gâcher la surprise</label>
-                  <input type="checkbox" id="keepSurprise" class="inputFields" name="keepSurprise" placeholder="">
+                  <input type="checkbox" id="keepSurprise" name="keepSurprise" placeholder="">
               </div>
 
             <!-- Bouton d'envoi -->

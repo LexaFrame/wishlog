@@ -48,48 +48,48 @@ session_start();
             <form class="form"method="POST" action=""> <!-- TODO saisir lien dans action ="" -->
 
               <!-- Champs d'identification -->
-              <div class="idBlock">
-                <div class="rowId">
+              <!-- <div class="idBlock"> -->
+                <div class="contactIdBlock">
                     <label for="firstName">Prénom<span class="required"> *</span></label>
-                    <input type="text" id="firstName" class="inputFields" name="firstName" placeholder="Entrez votre prénom" required>
+                    <input type="text" id="firstName" class="inputFields" class="contactInputFields"name="firstName" placeholder="Entrez votre prénom" required>
                 </div>
-                <div class="rowId">
+                <div class="contactIdBlock">
                   <label for="name">Nom<span class="required"> *</span></label>
                   <input type="text" id="name" class="inputFields nameLabel" name="name" placeholder="Entrez votre nom" required>
                 </div>
-              </div>
+              <!-- </div> -->
 
               <!-- Champ e-mail -->
-              <div class="emailBlock">
+              <div class="contactEmailBlock">
                   <label for="email">E-mail<span class="required"> *</span></label>
                   <input type="email" id="email" class="inputFields" name="email" placeholder="votre.email@example.com" required>
               </div>
 
               <!-- Champ n° téléphone -->
-              <div class="phoneBlock">
+              <div class="contactPhoneBlock">
                 <label for="phone">Téléphone</label>
                 <input type="tel" id="phone" class="inputFields" name="phone" placeholder="06 12 34 56 78">
               </div>
 
               <!-- Champs adresse -->
 
-                <div class="rowAddress">
+                <div class="contactAddress">
                   <label for="address">Adresse<span class="required"> *</span></label>
                   <input type="text" id="address" class="inputFields" name="address" required placeholder="Entrez votre adresse">
                 </div>
-                <div class="cityAndCodeBlock">
-                <div class="addressBlock">
+                <!-- <div class="cityAndCodeBlock"> -->
+                <div class="contactAddress">
                   <label for="city">Ville<span class="required"> *</span></label>
                   <input type="text" id="city" class="inputFields" name="city" required placeholder="Entrez votre ville">
                 </div>
-                <div class="addressBlock">
+                <div class="contactAddress">
                 <label for="postalCode">Code postal<span class="required"> *</span></label>
                 <input type="text" id="postalCode" class="inputFields" name="postalCode" placeholder="Entrez votre code postal" required>
                 </div>
-                </div>
+                <!-- </div> -->
 
               <!-- Sélection sujet -->              
-              <div class="subjectBlock">
+              <div class="contactSubjectBlock">
                 <label for="subject">Sujet<span class="required"> *</span></label>
                 <select id="subject" name="subject" required>
                   <option value="selection">-- Sélectionnez un sujet --</option>
@@ -100,7 +100,7 @@ session_start();
               </div>
 
               <!-- Zone de saisie du message -->
-              <div class="messageBlock">
+              <div class="contactMessageBlock">
                 <label for="message" class="messageLabel">Message<span class="required"> *</span></label>
                 <textarea id="message" name="message" class="inputFields" placeholder="Entrez votre message..." rows="5" cols="30" required> Entrez votre message...
                 </textarea>

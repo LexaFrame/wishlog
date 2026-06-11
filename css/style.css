@@ -486,12 +486,31 @@ footer {
     max-width: 770px;
 }
 
+.contactIdBlock, .contactEmailBlock, .contactPhoneBlock, .contactAddress, .addressBlock, .contactSubjectBlock {
+    padding-bottom: 20px;
+}
+
+#subject {
+    width: 100%;
+}
+
+.contactMessageBlock{
+    padding-bottom: 5px;
+}
+
 label {
-    font-size: 18px;
+    font-size: 17px;
+    /* padding-bottom: 5px; */
 }
 
 .inputFields {
     font-size: 17px;
+    width: 100%;
+    color: #1E293B;
+}
+
+.inputFields:focus {
+    border-color: #475569;
 }
 
 .idBlock {
@@ -515,25 +534,34 @@ label {
 
 /* TODO Champs Page Contact & inscription : créer id spécifiques inscription */
 #userName, #firstName, #name, #email, #password1, #password2, #phone, #address, #city, #postalCode, #country, #message {
-    width: 300px;
+    /* width: 300px; */
+    width: 100%;
 }
 
-.addressBlock {
+/* .addressBlock {
     display: inline;
     gap: 20px;
-}
+} */
 
-#subject, #categoryAddProduct, #priorityAddProduct {
+#subject, #categoryAddProduct, #priorityAddProduct, #typeOfWishlist {
     font-size: 17px;
 }
 
-#message, #descriptionAddProduct {
-    width: 770px;
+#categoryAddProduct, #priorityAddProduct {
+    width: 100%;
 }
 
-.emailBlock, .phoneBlock, .rowAddress, .rowCountry, .subjectBlock, .messageBlock, .submitFormButton, .titleAddProductBlock, .shopAddProductBlock, .priceAddProductBlock,  .quantityAddProductBlock, .categoryAddProductBlock, .priorityAddProductBlock, .descriptionAddProductBlock, .imageAddProductBlock, .linkAddProductBlock, .titleCreateWishlistBlock, .dateCreateWishlistBlock, .typeOfWishlistBlock, .descriptionCreateWishlistBlock, .keepSurpriseBlock {
+#message, #descriptionAddProduct {
+    width: 100%;
+}
+
+.emailBlock, .phoneBlock, .rowAddress, .rowCountry, .messageBlock, .submitFormButton, .titleAddProductBlock, .shopAddProductBlock, .priceAddProductBlock,  .quantityAddProductBlock, .categoryAddProductBlock, .priorityAddProductBlock, .descriptionAddProductBlock, .imageAddProductBlock, .linkAddProductBlock, .titleCreateWishlistBlock, .dateCreateWishlistBlock, .typeOfWishlistBlock, .descriptionCreateWishlistBlock, .keepSurpriseBlock {
     padding-top: 10px;
-    padding-bottom: 10px;
+    padding-bottom: 5px;
+}
+
+#typeOfWishlist {
+    width: 100%;
 }
 
 .submitFormButton {
@@ -561,9 +589,9 @@ label {
 
 /* CSS Page Contact */
 
-.rowId {
+/* .rowId {
     display: inline;
-}
+} */
 
 /* CSS Page Inscription */
 
@@ -580,8 +608,28 @@ label {
 
 
 /* CSS Page Création de liste */
+/* .keepSurpriseBlock {
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    gap:8px;    
+} */
+
+/* .keepSurpriseBlock {
+    padding-top: 10px;
+    padding-bottom: 5px;
+} */
 
 
+.keepSurpriseBlock label {
+    display:inline;
+}
+
+#keepSurprise {
+    vertical-align: middle;
+    height: 12px;
+    margin-top: 0.5px;
+}
 
 /* CSS de Page Wishlist */
 
@@ -960,7 +1008,7 @@ label {
 
 
 /* Responsive pour mobile */
-@media screen and (max-width: 645px) {
+@media screen and (max-width: 646px) {
 
     /* Header mobile */
 
@@ -1049,28 +1097,29 @@ label {
 
     /* CSS page contact Mobile */
 
-.idBlock {
+/* .idBlock {
     padding-bottom: 0px;
-}
+} */
 
 
 .rowId {
     display: block;
 }
 
-label {
+/* label {
     display: block;
     padding-top: 10px;
-    padding-bottom: 10px;
-    font-size: 18px;
-}
+    padding-bottom: 5px;
+    font-size: 17px;
+} */
 
 .cityAndCodeBlock {
     padding: 0px;
 }
 
 #message {
-    width: 300px;
+    /* width: 300px; */
+    width: 100%;
 }
 
 .emailBlock, .phoneBlock, .rowAddress, .subjectBlock, .messageBlock, .submitFormButton {
@@ -1163,6 +1212,12 @@ label {
     width: 100%;
 }
 
+/* Page CreateWishlist Mobile */
+
+.titleCreateWishlistBlock, .dateCreateWishlistBlock, .typeOfWishlistBlock, .descriptionCreateWishlistBlock, .keepSurpriseBlock {
+    padding-bottom: 0px;
+}
+
     /* Mode sombre mobile */
 
 .dark .wishlistSeparation {
@@ -1173,6 +1228,14 @@ label {
     border : 1px solid #FFFFFF;
 }
 
+}
+
+/* CSS Page Ajout de produit Mobile */
+
+.formCard {
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 /* Responsive layout intermédiaire */
@@ -1193,23 +1256,22 @@ label {
     display: block;
 }
 
-label {
+/* label {
     display: block;
     padding-top: 10px;
-    padding-bottom: 10px;
-    font-size: 18px;
-}
+    font-size: 17px;
+} */
 
-.inputFields {
+/* .inputFields {
     padding-bottom: 10px;
-}
+} */
 
 .cityAndCodeBlock {
     padding: 0px;
 }
 
 #message {
-    width: 300px;
+    width: 100%;
 }
 
 .emailBlock, .phoneBlock, .rowAddress, .subjectBlock, .messageBlock, .submitFormButton {
