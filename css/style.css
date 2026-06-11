@@ -1244,10 +1244,6 @@ select {
 /* Responsive layout intermédiaire */
 @media (min-width: 646px) and (max-width: 1190px) {
 
-.productCardDetailsName {
-    width: 100%;
-}
-
 .headerBox {
     flex-direction: column;
     align-items: center;
@@ -1290,12 +1286,62 @@ select {
     margin-top: 10px;
 }
 
+/* Version flex de l'organisation de la card 
+ .productCardDetailsName {
+    width: 100%;
+}
+
 .productCardNumbers {
     margin-top: 15px;
 }
 
 .productCardDetailsModifyAndMove {
     padding: 10px 0px 40px 0px;
+} 
+*/
+
+/* Adaptation responsive de la productCard pour l'affichage intermédiaire avec grid : */
+
+/* Conteneur parent en grid : */
+.productCard {
+    display: grid;
+    /* Utilisation de taille en pixel avec fraction disponible pour répartir l'espace :*/
+    grid-template-columns: 125px 1fr 40px;
+    /* Adapter la hauteur au contenu pour les deux lignes :*/
+    grid-template-rows: auto auto;
+    /* Nom des zones et répartition*/
+    grid-template-areas:
+        "image details drag"
+        /* Utilisation de . pour dire à grid de laisser cette cellule vide */
+        "image numbers drag";
+    align-items: start;
+}
+
+/* Indiquer aux enfants du conteneur grid où ils se positionnent : */
+.productCardImage {
+    grid-area: image;
+    align-self: center;
+}
+
+.productCardDetails {
+    grid-area: details;
+    margin-left: 15px;
+    align-items: center;
+}
+
+.productCardDetailsShop {
+    text-align: center;
+}
+
+.productCardNumbers {
+    grid-area: numbers;
+    margin-top: 15px;
+    align-items: center;
+}
+
+.productCardDrag {
+    grid-area: drag;
+    align-self: center;
 }
 
 }
