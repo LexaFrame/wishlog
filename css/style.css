@@ -719,8 +719,9 @@ label {
     color: #334155;
     font-size: 16px;
     border: 1px solid #334155;
-    padding: 20px 60px 20px 60px; 
-    margin-top: 10px;  
+    padding: 20px 10px 20px 10px; 
+    margin-top: 10px;
+    width: 200px;  
 }
 
 #sortItems {
@@ -730,8 +731,9 @@ label {
     color: #334155;
     font-size: 16px;
     border: 1px solid #334155;
-    padding: 20px 60px 20px 60px;
-    margin-top: 10px;     
+    padding: 20px 10px 20px 10px;
+    margin-top: 10px;
+    width: 200px;     
 }
 
 .filterLabel {
@@ -1238,8 +1240,12 @@ label {
     padding-right: 15px;
 }
 
-/* Responsive layout intermédiaire */
+Responsive layout intermédiaire
 @media (min-width: 646px) and (max-width: 1190px) {
+
+.productCardDetailsName {
+    width: 100%;
+}
 
 .headerBox {
     flex-direction: column;
