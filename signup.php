@@ -196,24 +196,22 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['userName'], $_POST['e
 
   <main>
     <!-- Introduction à la page d'Inscription -->
-    <section class="contactSection"> <!--TODO modifier noms de classe-->
-
-      <!-- Div à rétablir si nécessaire <div class="contactPageIntro"> -->
+    <section class="signupSection"> 
 
       <!-- Titre de la page -->
       <div class="pageTitleBox">
         <h1 class="h1FormPages">Enregistrez-vous pour créer votre liste</h1>
       </div>
 
-      <!-- Paragraphe contact -->
+      <!-- Paragraphe inscription -->
       <div class="pageParagraphBox">
-        <p class="contactP">Prenez quelques instants pour saisir vos informations personnelles afin de créer votre liste d'envies et la partager avec vos proches.</p>
+        <p class="signupP">Prenez quelques instants pour saisir vos informations personnelles afin de créer votre liste d'envies et la partager avec vos proches.</p>
       </div>
 
       <!-- </div> -->
     </section>
-    <!-- Formulaire de contact -->
-    <section class="contactFormSection">
+    <!-- Formulaire d'inscription -->
+    <section class="signupFormSection">
 
       <!-- Début formulaire -->
       <div class="formCard">
@@ -221,7 +219,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['userName'], $_POST['e
 
           <!-- Champs d'identification -->
           <!-- Champ pseudo -->
-          <div class="userNameBlock">
+          <div class="emailBlock">
             <label for="userName">Nom d'utilisateur<span class="required"> *</span></label>
             <input type="text" id="userName" class="inputFields" name="userName" placeholder="Entrez votre nom d'utilisateur" required>
           </div>
@@ -247,16 +245,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['userName'], $_POST['e
           <?php endif; ?>
 
           <!-- Champ prénom & nom-->
-          <div class="idBlock">
-            <div class="rowId">
+          <!-- <div class="idBlock"> -->
+            <div class="signupIdBlock">
               <label for="firstName">Prénom</label>
               <input type="text" id="firstName" class="inputFields" name="firstName" placeholder="Entrez votre prénom">
             </div>
-            <div class="rowId">
+            <div class="signupIdBlock">
               <label for="name">Nom</label>
               <input type="text" id="name" class="inputFields nameLabel" name="name" placeholder="Entrez votre nom">
             </div>
-          </div>
+          <!-- </div> -->
 
           <!-- Champ e-mail -->
           <div class="emailBlock">
@@ -305,8 +303,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['userName'], $_POST['e
             <label for="address">Adresse</label>
             <input type="text" id="address" class="inputFields" name="address" placeholder="Entrez votre adresse">
           </div>
-          <div class="cityAndCodeBlock">
-            <div class="cityAndCodeRows">
               <div class="addressBlock">
                 <label for="city">Ville</label>
                 <input type="text" id="city" class="inputFields" name="city" placeholder="Entrez votre ville">
@@ -315,12 +311,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['userName'], $_POST['e
                 <label for="postalCode">Code postal</label>
                 <input type="text" id="postalCode" class="inputFields" name="postalCode" placeholder="Entrez votre code postal">
               </div>
-          </div>
+
             <div class="rowCountry">
               <label for="country">Pays</label>
               <input type="text" id="country" class="inputFields" name="country" placeholder="Entrez votre pays">
             </div>
-          </div>
+
 
           <!-- Bouton d'envoi -->
           <div class="submitFormButton">

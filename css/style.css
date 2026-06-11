@@ -438,10 +438,11 @@ footer {
 
 /* CSS Pages Formulaires */
 
-.contactSection, .addProductSection, .createWishlistSection, .loginIntroSection {
+.contactSection, .addProductSection, .createWishlistSection, .loginIntroSection, .signupSection {
     background-color: #FFFFFF;
     max-width: 1200px;
     margin: auto;
+    padding : 0px 20px 0px 20px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -463,27 +464,32 @@ footer {
 }
 
 .pageParagraphLoginForgotBox {
-    padding-bottom: 20px;
+    padding-bottom: 15px;
 }
-.contactP, .addProductP, .addWishlistP {
+
+.contactP, .addProductP, .addWishlistP, .loginP, .signupP {
     display: block;
     font-size: 18px;
+    text-align: justify;
 }
 
 .loginForgot {
     display: block;
     text-align: center;
-    font-size: 16px;      
+    font-size: 16px;
+    margin: 0;      
 }
 
-.contactFormSection, .addProductFormSection, .createWishlistFormSection, .loginFormSection {
+.contactFormSection, .addProductFormSection, .createWishlistFormSection, .loginFormSection, .signupFormSection {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    background-color: #FFFFFF;
+    padding: 0px 20px 0px 20px;
 }
 
 .formCard {
-    max-width: 770px;
+    max-width: 600px;
 }
 
 .contactIdBlock, .contactEmailBlock, .contactPhoneBlock, .contactAddress, .addressBlock, .contactSubjectBlock {
@@ -538,6 +544,11 @@ label {
     width: 100%;
 }
 
+select {
+    background-color : #FFFFFF;
+    border: 1px solid #1E293B;
+}
+
 /* .addressBlock {
     display: inline;
     gap: 20px;
@@ -555,9 +566,25 @@ label {
     width: 100%;
 }
 
-.emailBlock, .phoneBlock, .rowAddress, .rowCountry, .messageBlock, .submitFormButton, .titleAddProductBlock, .shopAddProductBlock, .priceAddProductBlock,  .quantityAddProductBlock, .categoryAddProductBlock, .priorityAddProductBlock, .descriptionAddProductBlock, .imageAddProductBlock, .linkAddProductBlock, .titleCreateWishlistBlock, .dateCreateWishlistBlock, .typeOfWishlistBlock, .descriptionCreateWishlistBlock, .keepSurpriseBlock {
+.emailBlock, .contactIdBlock, .signupIdBlock, .rowPass, .addressBlock, .phoneBlock, .rowAddress, .rowCountry, .messageBlock, .submitFormButton, .titleAddProductBlock, .shopAddProductBlock, .priceAddProductBlock,  .quantityAddProductBlock, .categoryAddProductBlock, .priorityAddProductBlock, .descriptionAddProductBlock, .imageAddProductBlock, .linkAddProductBlock, .titleCreateWishlistBlock, .dateCreateWishlistBlock, .typeOfWishlistBlock, .descriptionCreateWishlistBlock, .keepSurpriseBlock {
     padding-top: 10px;
     padding-bottom: 5px;
+}
+
+.loginFormCard {
+    max-width: 600px;
+    padding : 0px 15px 0px 15px;
+}
+
+.loginEmailBlock {
+    max-width: 350px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+.loginRowPass {
+    max-width: 350px;
+    padding-bottom: 10px;
 }
 
 #typeOfWishlist {
@@ -587,19 +614,9 @@ label {
     color: #1E293B; */    
 }
 
-/* CSS Page Contact */
-
-/* .rowId {
-    display: inline;
-} */
-
 /* CSS Page Inscription */
 
 .userNameBlock {
-    padding-bottom: 10px;
-}
-
-.rowPass {
     padding-bottom: 10px;
 }
 
@@ -817,7 +834,7 @@ label {
 .productCardDetailsName {
     display: inline-block;
     font-size: 18px;
-    width: 500px;
+    width: 100%;
     text-decoration: underline;
     color: #1E293B;
     /* height: 20px; */
@@ -1099,22 +1116,6 @@ label {
 
     /* CSS page contact Mobile */
 
-/* .idBlock {
-    padding-bottom: 0px;
-} */
-
-
-.rowId {
-    display: block;
-}
-
-/* label {
-    display: block;
-    padding-top: 10px;
-    padding-bottom: 5px;
-    font-size: 17px;
-} */
-
 .cityAndCodeBlock {
     padding: 0px;
 }
@@ -1240,7 +1241,7 @@ label {
     padding-right: 15px;
 }
 
-Responsive layout intermédiaire
+/* Responsive layout intermédiaire */
 @media (min-width: 646px) and (max-width: 1190px) {
 
 .productCardDetailsName {
@@ -1414,12 +1415,12 @@ Responsive layout intermédiaire
     border-top: 1px solid #F1F5F9;
 }
 
-.dark .contactSection {
+.dark .contactSection, .dark .signupSection {
     background-color: #29323f;
     color:#F1F5F9;
 }
 
-.dark .contactFormSection {
+.dark .contactFormSection, .dark .addProductFormSection, .dark .createWishlistFormSection, .dark .loginFormSection, .dark .signupFormSection {
     background-color: #29323f;
     color:#F1F5F9;    
 }

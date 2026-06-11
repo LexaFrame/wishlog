@@ -152,15 +152,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['titleCreateWishlist']
     <main>
         <!-- Introduction à la page de création de liste d'envies -->
         <section class="createWishlistSection">
-
-        <!--TODO modifier noms de classe-->
-
-            <!-- Div à rétablir si nécessaire <div class="contactPageIntro"> -->
                 
                 <!-- Titre de la page -->
-                <!-- TODO décommenter et récupérer dans le CSS les règles correspondantes qui ont disparu <div class="pageTitleBox"> --> 
-                    <h1 class="h1CreateWishlist">Créez une nouvelle liste d'envies</h1> <!-- TODO changer la classe -->
-                <!-- </div> -->
+                <div class="pageTitleBox">
+                    <h1 class="h1CreateWishlist">Créez une nouvelle liste d'envies</h1>
+                </div>
 
                 <!-- Paragraphe création d'une nouvelle liste d'envies -->
                 <div class="pageParagraphBox">

@@ -222,9 +222,9 @@ if ($product_priority === "selection") {
                 
                 <!-- Titre de la page -->
                  <!-- Adaptation du titre de la page grâce à l'opérateur ternaire ?: pour if/else -->
-                <!-- TODO décommenter et récupérer dans le CSS les règles correspondantes qui ont disparu <div class="pageTitleBox"> --> 
+                <div class="pageTitleBox">
                     <h1 class="h1AddProduct"><?php echo $product_edit_mode ? 'Modifiez un produit' : 'Ajoutez un produit'; ?></h1>
-                <!-- </div> -->
+                </div>
 
                 <!-- Paragraphe ajout d'articles -->
                 <div class="pageParagraphBox">

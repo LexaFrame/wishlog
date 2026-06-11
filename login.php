@@ -91,7 +91,7 @@ if (isset($_SESSION['user_id'])) {
 
                 <!-- Paragraphe connexion -->
                 <div class="pageParagraphBox">
-                    <p class="contactP">Saisissez vos informations d'identification ou <a href="signup.php">créez votre compte</a> pour créer votre liste d'envies et la partager avec vos proches.</p>
+                    <p class="loginP">Saisissez vos informations d'identification ou <a href="signup.php">créez votre compte</a> pour créer votre liste d'envies et la partager avec vos proches.</p>
                 </div>
 
             <!-- </div> -->
@@ -100,7 +100,7 @@ if (isset($_SESSION['user_id'])) {
         <section class="loginFormSection">
 
             <!-- Début formulaire -->           
-            <div class="formCard">
+            <div class="loginFormCard">
             <form class="form" method="POST" action="login.php">
 
             <!-- Champs d'identification -->
@@ -111,14 +111,14 @@ if (isset($_SESSION['user_id'])) {
               </div> -->
               
               <!-- Champ email -->
-              <div class="emailBlock">
+              <div class="loginEmailBlock">
                   <label for="email">E-mail :<span class="required"> *</span></label>
                   <input type="email" id="email" class="inputFields" name="email" placeholder="Entrez votre adresse e-mail" required>
               </div>
 
 
               <!-- Champs mot de passe -->
-                <div class="rowPass">
+                <div class="loginRowPass">
                     <label for="password1">Mot de passe<span class="required"> *</span></label>
                     <input type="password" id="password1" class="inputFields" name="password1" placeholder="Entrez votre mot de passe" required>
                 </div>
