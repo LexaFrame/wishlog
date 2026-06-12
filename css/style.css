@@ -1169,13 +1169,24 @@ select {
 }
 
 .productCard {
-    padding: 25px 10px 25px 10px;;
+    padding: 25px 10px 25px 10px;
+    flex-direction: row; /* annuler jusqu'ici si nécessaire */
+    flex-wrap: wrap;
+    align-items: center;
 }
 
 .productCardImage {
     width:100% ;
+    order: 1;
+    display: flex;
     justify-content: center;
     /* margin-top: 10px; */
+}
+
+.productCardDetails {
+    width: 100%;
+    order: 2;
+    align-items: center;
 }
 
 .productCardDetailsName {
@@ -1196,7 +1207,14 @@ select {
     padding: 10px 0px 40px 0px;
 }
 
+.productCardNumbers {
+    flex: 1;
+    order: 3;
+    align-items: center;
+}
+
 .productCardDrag {
+    order:3;
     border : 1px solid #1E293B;
     padding : 0px 5px 0px 5px;
 }

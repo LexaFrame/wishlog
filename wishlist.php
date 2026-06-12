@@ -198,8 +198,8 @@ $final_display = $display_wishlist->fetchAll();
                   <!-- Image du produit -->
                   <div class="productCardImage">
 
-                    <!-- Récupération de src et alt depuis la base de données -->
-                    <img src="<?php echo htmlspecialchars($products['product_image_url'] ?? ''); ?>" alt="<?php echo htmlspecialchars($products['product_name']); ?>">
+                    <!-- Récupération de src et alt de l'image depuis la base de données, mise en place d'une image fallback si aucun lien vers une image n'est fourni, et si la cible du lien ne peut pas être atteinte, on montre le placeholder -->
+                    <img src="<?php echo htmlspecialchars($products['product_image_url'] ?: 'images/placeholder.jpg'); ?>" alt="<?php echo htmlspecialchars($products['product_name']); ?>" onerror="this.src='images/placeholder.jpg'">
                   </div>
 
                   <!-- Détails du produit -->
@@ -228,7 +228,7 @@ $final_display = $display_wishlist->fetchAll();
                     </div>
 
                   </div>
-
+                  
                   <!-- Gestion du produit : Données chiffrées et priorités du produit -->
                   <div class="productCardNumbers">
 
