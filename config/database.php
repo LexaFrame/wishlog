@@ -5,6 +5,7 @@
 
 // Début de la gestion des erreurs avec try/catch : avec try on tente la connexion, si elle échoue on bascule sur le catch : 
 try {
+    error_log("DB_DATABASE = " . $_ENV['DB_DATABASE']);
 
     // Création de l'objet PDO à partir de la classe PDO. La variable $pdo créée ici sert à stocker le nouvel objet PDO et sera disponible dans toute page qui inclut ce fichier via require_once. "new" ordonne de construire un nouvel objet. "PDO" est la classe PHP à partir de laquelle on veut construire le nouvel objet. "new PDO" est l'instanciation de la classe, c'est-à-dire la création de l'objet PDO :
     $pdo = new PDO(

@@ -132,6 +132,11 @@ $final_display = $display_wishlist->fetchAll();
           unset($_SESSION['wishlist_created']); ?></p>
           <?php endif; ?>
 
+          <?php if (isset($_SESSION['update_success_message'])) : ?>
+            <p class="updateProductFormSuccess"><?php echo htmlspecialchars($_SESSION['update_success_message']); ?></p>
+            <?php unset($_SESSION['update_success_message']); ?>
+          <?php endif; ?>
+
          <!-- Section rassemblant les données partagées par la personne ayant créé la liste -->
          <section class="personalDataSection">
 

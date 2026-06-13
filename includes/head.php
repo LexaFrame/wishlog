@@ -9,6 +9,9 @@
 
     <!-- Appel du fichier CSS -->
     <link rel="stylesheet" href="css/style.css" />
+    
+    <!-- Indication au navigateur qu'il n'y a pas de favicon (data:, signifie une ressource vide, sans type MIME spécifié, sans contenu) -->
+    <link rel="icon" href="data:,">
 
     <!-- Titre de la page -->
     <title>WishLog - La liste d'envies universelle et gratuite</title>

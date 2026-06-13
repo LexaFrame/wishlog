@@ -43,7 +43,6 @@ session_start();
         <section class="contactFormSection">
 
             <!-- Début formulaire -->
-            
             <div class="formCard">
             <form class="form"method="POST" action=""> <!-- TODO saisir lien dans action ="" -->
 

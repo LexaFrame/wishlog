@@ -119,8 +119,11 @@ if ($product_priority === "selection") {
                     [':product_quantity'=>$product_quantity,':product_id' => $product_id_edit]
                 );
 
-                // 5-6 Message à destination de l'utilisateur pour l'informer du succès de la modification :
-                $update_success_message = "Le produit a été modifié avec succès.";
+                // 5-6 Message à destination de l'utilisateur pour l'informer du succès de la modification et redirection vers wishlist.php :
+                // $update_success_message = "Le produit a été modifié avec succès.";
+                $_SESSION['update_success_message'] = "Le produit a été modifié avec succès.";
+                header('Location: wishlist.php');
+                exit;
             
             } catch (PDOException $error) {
                 // 5-7 Gestion des erreurs éventuelles lors de la soumission de la modification :
@@ -256,7 +259,7 @@ if ($product_priority === "selection") {
 
             <!-- TODO Début formulaire -> à adapter-->           
             <div class="formCard">
-            <form class="form" method="POST" action="addproduct.php">
+            <form class="form" method="POST" action="addproduct.php<?php echo $product_edit_mode ? '?id=' . htmlspecialchars($product_id_edit) : ''; ?>">
 
             <!-- Champs de détail des articles -->
                 <!-- Champ titre -->
