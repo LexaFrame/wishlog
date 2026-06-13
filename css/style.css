@@ -91,7 +91,7 @@ header a {
     height: 18px;
     color: #F8FAFC;
     font-size: 18px;
-    font-weight: 100;
+    font-weight: 400;
 }
 
 .triangle {
@@ -163,7 +163,7 @@ header a {
     text-align: center;
     order: 4;
     font-size: 18px;
-    font-weight: 100;
+    font-weight: 400;
     background-color: #334155;
     color: #F8FAFC;
     text-decoration: none;
@@ -176,6 +176,7 @@ header a {
     align-content: center;
     order: 4;
     font-size: 18px;
+    font-weight: 400;
     background-color: #F8FAFC;
     color: #334155;
 }
@@ -205,7 +206,7 @@ header a {
   text-decoration: none;
   padding: 15px;
   font-size: 18px;
-  font-weight: 100;
+  font-weight: 400;
 }
 
 .menuLink:hover {
@@ -391,7 +392,7 @@ footer {
   text-decoration: none;
   color: #F8FAFC;
   font-size: 16px;
-  font-weight: 100;
+  font-weight: 300;
 }
 
 .aboutLink:hover {
@@ -430,7 +431,7 @@ footer {
     text-decoration: none;
     color: #F8FAFC;
     font-size: 16px;
-    font-weight: 100;
+    font-weight: 300;
 }
 
 .infoBoxLink:hover {
@@ -542,7 +543,7 @@ label {
 
 .messageLabel, .descriptionAddProductLabel {
     display: block;
-    padding-bottom: 10px;
+    /* padding-bottom: 10px; */
 }
 
 .required {
@@ -1441,7 +1442,7 @@ select {
 }
 
 .dark .slogan {
-    color: #94A3B8;
+    color: #F1F5F9;
 }
 
 .dark .CTA2 {
@@ -1492,7 +1493,7 @@ select {
     border-top: 1px solid #F1F5F9;
 }
 
-.dark .contactSection, .dark .signupSection, .dark .createWishlistSection {
+.dark .contactSection, .dark .signupSection, .dark .createWishlistSection, .dark .addProductSection, .dark .loginIntroSection {
     background-color: #29323f;
     color:#F1F5F9;
 }
@@ -1503,27 +1504,27 @@ select {
 }
 
 .dark .h1Contact {
-    color: #94A3B8;
+    color: #F1F5F9;
 }
 
 .dark .submitButton {
-    background-color: #F1F5F9;
-    color: #29323f;
-    border-color: #29323f;
+    background-color: #29323f;
+    color: #F1F5F9;
+    border-color: #F1F5F9;
 }
 
 .dark .submitButton:hover {
-    background-color: #10B981;
+    background-color: #046248 ;
     color:#F1F5F9;
     border-color: #29323f;
 }
 
-.dark .h1Wishlist {
-    color: #94A3B8;
+.dark .h1Wishlist, .dark .h1FormPages {
+    color: #F1F5F9;
 }
 
-.dark .wishlistDescriptionParagraph {
-    color: #94A3B8;
+.dark .wishlistDescriptionParagraph, .dark .eventDataParagraph, .dark .idDataParagraph  {
+    color: #F1F5F9;
 }
 
 .dark .personalDataSection{
@@ -1532,32 +1533,17 @@ select {
     border: 1px solid #F1F5F9;
 }
 
-.dark .eventDataParagraph {
-    color: #94A3B8;
-}
-
-.dark .wishlistSeparation {
-    color: #CBD5E1;
-}
-
-.dark .idDataSection {
-    color: #94A3B8;
+.dark .wishlistSeparation, .dark .idDataSection {
+    color: #F1F5F9;
 }
 
 .dark .wishlistProductsSection {
     background-color: #0B0F1A;
 }
 
-.dark #filterCategory{
+.dark #filterCategory, .dark #sortItems {
     background-color: #0B0F1A;
-    color: #CBD5E1;
-    /* border: 1px solid #29323f; */
-    border: 1px solid #F1F5F9;
-}
-
-.dark #sortItems{
-    background-color: #0B0F1A;
-    color: #CBD5E1;
+    color: #F1F5F9;
     /* border: 1px solid #29323f; */
     border: 1px solid #F1F5F9;
 }
@@ -1574,62 +1560,64 @@ select {
     background-color: #29323f;
 }
 
-.dark .productCardDetailsName {
+.dark .productCardDetailsName, .dark .productCardDetailsShop, .dark .productCardDetailsDescription {
     color: #F1F5F9;
 }
 
 .dark .productCardDetailsCategory {
     background-color: #29323f;
-    border: 1px solid #FFFFFF;
+    border: 1px solid #F1F5F9;
 }
 
-.dark .productCardDetailsShop {
-    color: #CBD5E1;
-}
-
-.dark .productCardDetailsDescription {
-    color: #94A3B8;
-}
-
-.dark .productCardDetailsModifyAndMove button {
+.dark .productCardDetailsModifyAndMove button, .dark .productCardNumbersDeleteButton, .dark .productCardNumbersPriority, .dark .productCardNumbersPrice {
     background-color: #29323f;
-    color: #FFFFFF;
-    border: 1px solid #FFFFFF;
+    color: #F1F5F9;
+    border: 1px solid #F1F5F9;
 }
 
-.dark .productCardNumbersDeleteButton {
+.dark .productCardNumbersNumberAndBuy input{
     background-color: #29323f;
-    color: #FFFFFF;
-    border: 1px solid #FFFFFF;
-}
-
-.dark .productCardNumbersPriority {
-    background-color: #29323f;
-    color: #FFFFFF;
-    border: 1px solid #FFFFFF;
-}
-
-.dark .productCardNumbersPrice {
-    background-color: #29323f;
-    border: 1px solid #FFFFFF;    
+    color: #F1F5F9;    
 }
 
 .dark .productCardNumbersNumber {
-    border: 1px solid #FFFFFF;     
+    border: 1px solid #F1F5F9;     
 }
 
 .dark .productCardNumbersBuy {
     background-color: #10B981;
     color: #F1F5F9;
-    border: 1px solid #FFFFFF;
-}
-
-.dark .productCardDrag {
-    /* border : 1px solid #FFFFFF; */
+    border: 1px solid #F1F5F9;
 }
 
 .dark .dragIcons {
-    fill: #FFFFFF;
+    fill: #F1F5F9;
+}
+
+.dark input {
+    background-color: #29323f;
+    color: #F1F5F9;
+    border: 1px solid #F1F5F9;
+}
+
+.dark select {
+    background-color: #29323f;
+    color: #F1F5F9;
+    border: 1px solid #F1F5F9;
+}
+
+.dark textarea {
+    background-color: #29323f;
+    color: #F1F5F9;
+    border: 1px solid #F1F5F9;
+}
+
+.dark .inputFields::placeholder {
+    color: #CBD5E1;
+}
+
+.dark .loginLinks {
+    color: #CBD5E1;    
 }
 
 

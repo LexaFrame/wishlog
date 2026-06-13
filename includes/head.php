@@ -14,8 +14,8 @@
     <title>WishLog - La liste d'envies universelle et gratuite</title>
 
     <!-- Pour le script JS ci-dessous, defer est nécessaire pour que le script soit téléchargé pendant le chargement html et exécuté une fois que mon DOM est prêt : évite des bugs (par exemple si pas d'accès au DOM => null) -->
-    <script src="js/darkmode.js"defer> 
+    <!-- <script src="js/darkmode.js"defer> 
 
-    </script>
+    </script> -->
 
   </head>

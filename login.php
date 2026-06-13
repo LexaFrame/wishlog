@@ -91,7 +91,7 @@ if (isset($_SESSION['user_id'])) {
 
                 <!-- Paragraphe connexion -->
                 <div class="pageParagraphBox">
-                    <p class="loginP">Saisissez vos informations d'identification ou <a href="signup.php">créez votre compte</a> pour créer votre liste d'envies et la partager avec vos proches.</p>
+                    <p class="loginP">Saisissez vos informations d'identification ou <a href="signup.php" class="loginLinks">créez votre compte</a> pour créer votre liste d'envies et la partager avec vos proches.</p>
                 </div>
 
             <!-- </div> -->
@@ -124,7 +124,7 @@ if (isset($_SESSION['user_id'])) {
                 </div>
 
                 <div class="pageParagraphLoginForgotBox">
-                    <p class="loginForgot">Identifiant ou mot de passe oublié ? <a href="">cliquez-ici</a>.</p>
+                    <p class="loginForgot">Identifiant ou mot de passe oublié ? <a href="#" class="loginLinks">cliquez ici</a>.</p>
                 </div>
 
             <!-- Affichage du message d'erreur en cas de mauvaise adresse e-mail ou mauvais mot de passe -->
