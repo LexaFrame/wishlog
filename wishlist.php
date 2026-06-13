@@ -288,9 +288,9 @@ $final_display = $display_wishlist->fetchAll();
     <!-- Utilisation de require_once pour inclure le footer (de façon centralisée et modifiable) une seule et unique fois : permet d'éviter des bugs, les doublons -->
     <?php require_once 'includes/footer.php';?>
 
-  <!-- <script src="js/wishlist.js">
+  <script src="js/wishlist.js">
 
-  </script> -->
+  </script>
 
   </body>
 </html>

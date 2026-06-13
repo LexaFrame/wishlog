@@ -1,3 +1,17 @@
+@font-face {
+    font-family: 'Inter';
+    src: url('../fonts/Inter-VariableFont_opsz,wght.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('../fonts/Inter-Italic-VariableFont_opsz,wght.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: italic;
+}
+
 /* CSS appliqué à toute la page */
 *{
     /* border: 1px dashed blue; */
@@ -489,7 +503,10 @@ footer {
 }
 
 .formCard {
+    width: 100%;
     max-width: 600px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 .contactIdBlock, .contactEmailBlock, .contactPhoneBlock, .contactAddress, .addressBlock, .contactSubjectBlock {
@@ -1198,6 +1215,10 @@ select {
     height: 19px;
 }
 
+.productCardDetailsShop {
+    text-align: center;
+}
+
 .productCardDetailsDescription {
     width : 100%;
 }
@@ -1215,7 +1236,7 @@ select {
 
 .productCardDrag {
     order:3;
-    border : 1px solid #1E293B;
+    /* border : 1px solid #1E293B; */
     padding : 0px 5px 0px 5px;
 }
 
@@ -1246,17 +1267,9 @@ select {
 }
 
 .dark .productCardDrag {
-    border : 1px solid #FFFFFF;
+    /* border : 1px solid #FFFFFF; */
 }
 
-}
-
-/* CSS Page Ajout de produit Mobile */
-
-.formCard {
-    width: 100%;
-    padding-left: 15px;
-    padding-right: 15px;
 }
 
 /* Responsive layout intermédiaire */
@@ -1479,7 +1492,7 @@ select {
     border-top: 1px solid #F1F5F9;
 }
 
-.dark .contactSection, .dark .signupSection {
+.dark .contactSection, .dark .signupSection, .dark .createWishlistSection {
     background-color: #29323f;
     color:#F1F5F9;
 }
@@ -1612,7 +1625,7 @@ select {
 }
 
 .dark .productCardDrag {
-    border : 1px solid #FFFFFF;
+    /* border : 1px solid #FFFFFF; */
 }
 
 .dark .dragIcons {
