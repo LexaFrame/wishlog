@@ -1394,6 +1394,10 @@ select {
     /* border-color: #F8FAFC; */
 }
 
+.dark .tagLanguage {
+    color: #F1F5F9;    
+}
+
 .dark header a {
     color: #F1F5F9;
 }
@@ -1493,10 +1497,6 @@ select {
     border-top: 1px solid #F1F5F9;
 }
 
-.main {
-    background-color: #111827;
-}
-
 .dark .contactSection, .dark .signupSection, .dark .createWishlistSection, .dark .addProductSection, .dark .loginIntroSection {
     background-color: #29323f;
     color:#F1F5F9;
@@ -1505,6 +1505,14 @@ select {
 .dark .contactFormSection, .dark .addProductFormSection, .dark .createWishlistFormSection, .dark .loginFormSection, .dark .signupFormSection {
     background-color: #29323f;
     color:#F1F5F9;    
+}
+
+.dark .loginFormSection {
+    padding-bottom: 320px;
+}
+
+.dark .createWishlistFormSection {
+    padding-bottom: 130px;
 }
 
 .dark .h1Contact {
