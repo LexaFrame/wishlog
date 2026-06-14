@@ -1390,7 +1390,7 @@ select {
     background-color:#475569;
     background-color:#334155; */
     background-color: #1f273a;
-    border : 1px solid #F8FAFC;
+    border : 1px solid #F1F5F9;
     /* border-color: #F8FAFC; */
 }
 
@@ -1430,7 +1430,7 @@ select {
 .dark main {
     /* background-color: #0B0F1A; */
     background-color: #111827;
-    border : 1px solid #F8FAFC;
+    border : 1px solid #F1F5F9;
 }
 
 .dark h1 {
@@ -1493,6 +1493,10 @@ select {
     border-top: 1px solid #F1F5F9;
 }
 
+.main {
+    background-color: #111827;
+}
+
 .dark .contactSection, .dark .signupSection, .dark .createWishlistSection, .dark .addProductSection, .dark .loginIntroSection {
     background-color: #29323f;
     color:#F1F5F9;
@@ -1541,11 +1545,19 @@ select {
     background-color: #0B0F1A;
 }
 
+.dark .filterBox {
+    background-color: #111827;
+}
+
 .dark #filterCategory, .dark #sortItems {
-    background-color: #0B0F1A;
+    background-color: #111827;
     color: #F1F5F9;
     /* border: 1px solid #29323f; */
     border: 1px solid #F1F5F9;
+}
+
+.dark .wishlistProductsSectionCardBox {
+    background-color: #111827;
 }
 
 .dark .productCard {

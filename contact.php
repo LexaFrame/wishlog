@@ -44,13 +44,13 @@ session_start();
 
             <!-- Début formulaire -->
             <div class="formCard">
-            <form class="form"method="POST" action=""> <!-- TODO saisir lien dans action ="" -->
+            <form class="form"method="POST" action="#"> <!-- TODO saisir lien dans action ="" -->
 
               <!-- Champs d'identification -->
               <!-- <div class="idBlock"> -->
                 <div class="contactIdBlock">
                     <label for="firstName">Prénom<span class="required"> *</span></label>
-                    <input type="text" id="firstName" class="inputFields" class="contactInputFields"name="firstName" placeholder="Entrez votre prénom" required>
+                    <input type="text" id="firstName" class="inputFields" name="firstName" placeholder="Entrez votre prénom" required>
                 </div>
                 <div class="contactIdBlock">
                   <label for="name">Nom<span class="required"> *</span></label>
