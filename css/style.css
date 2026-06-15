@@ -1398,6 +1398,10 @@ select {
     color: #F1F5F9;    
 }
 
+.dark .searchBar::placeholder {
+    color: #CBD5E1;
+}
+
 .dark header a {
     color: #F1F5F9;
 }
@@ -1442,7 +1446,7 @@ select {
 }
 
 .dark hr {
-    color: #334155;
+    color: #F1F5F9;
 }
 
 .dark .slogan {
@@ -1478,11 +1482,11 @@ select {
     background-color: #0B0F1A;
     color: #F1F5F9;
     box-shadow: #0B0F1A;
-    border-color: #29323f
+    border-color: #29323f;
 }
 
 .dark .cardsOptions::before {
-    border: 1px solid #29323f;
+    border: 1px solid #FFFFFF;
 }
 
 .dark footer {
