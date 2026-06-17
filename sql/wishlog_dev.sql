@@ -88,10 +88,10 @@ CREATE TABLE `wl_category` (
 
 CREATE TABLE `wl_product` (
   `product_id` int NOT NULL,
-  `product_url` varchar(255) DEFAULT NULL,
+  `product_url` varchar(2048) DEFAULT NULL,
   `shop_name` varchar(50) DEFAULT NULL,
   `product_name` varchar(255) NOT NULL,
-  `product_image_url` varchar(255) DEFAULT NULL,
+  `product_image_url` varchar(2048) DEFAULT NULL,
   `product_description` text,
   `product_price` decimal(10,2) NOT NULL,
   `product_priority` int DEFAULT NULL,
