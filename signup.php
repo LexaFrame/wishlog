@@ -77,9 +77,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['userName'], $_POST['e
     $has_errors = true;
   }
 
-  // 4-6 Contrainte de format de mot de passe (1 minuscule, 1 majuscule, 1 caractère spécial) :
+  // 4-6 Contrainte de format de mot de passe (1 minuscule, 1 majuscule, 1 chiffre, 1 caractère spécial) :
   if (!preg_match('/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^a-zA-Z0-9])/', $password1)) {
-    $password_format_error_message = "Votre mot de passe doit comporter au moins une minuscule, une majuscule et un caractère spécial. Veuillez saisir un mot de passe valide.";
+    $password_format_error_message = "Votre mot de passe doit comporter au moins une minuscule, une majuscule, un chiffre et un caractère spécial. Veuillez saisir un mot de passe valide.";
     $has_errors = true;
   }
 
