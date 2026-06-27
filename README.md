@@ -98,7 +98,7 @@ lamp-server/                        # Environnement Docker
 - JavaScript (vanilla)
 - Looping
 - MySQL 8.4.8
-- PHP 8.2.29
+- PHP 8.4.22
 - Docker (environnement de développement)
 - Apache 2.4.65
 - PHPMyAdmin
@@ -118,6 +118,7 @@ lamp-server/                        # Environnement Docker
 ### Environnement utilisateur
 - Créer une page de profil / tableau de bord (MVP)
 - Créer une liste (MVP)
+- Afficher les listes
 - Modifier une liste (MVP)
 - Supprimer une liste (MVP)
 - Organiser les listes
@@ -125,7 +126,7 @@ lamp-server/                        # Environnement Docker
 - Modifier un article (MVP)
 - Supprimer un article (MVP)
 - Créer manuellement un article si import impossible (MVP)
-- Afficher les articles
+- Afficher les articles (MVP)
 - Partager la liste : URL / mail / RS (MVP)
 - Créer une fonction "ne pas me gâcher la surprise"
 
@@ -173,7 +174,8 @@ Ouvrir le navigateur à l'adresse `http://localhost`
 
 ## Lien vers le site déployé
 J’ai utilisé GitHub Pages pour héberger un site statique. Mon code est versionné avec Git, poussé sur GitHub, et GitHub Pages publie automatiquement la branche main.
-Adresse du site hébergé via GitHub Pages : https://lexaframe.github.io/wishlog/
+Adresse du site statique hébergé via GitHub Pages : https://lexaframe.github.io/wishlog/
+Adresse du site déployé sur alwaysdata : https://wishlog.alwaysdata.net/index.php
 
 ## Choix de conception et notes explicatives
 Le site a été développé pour être responsive.
@@ -293,7 +295,7 @@ lamp-server/                        # Docker environment
 - JavaScript (vanilla)
 - Looping
 - MySQL 8.4.8
-- PHP 8.2.29
+- PHP 8.4.22
 - Docker (development environment)
 - Apache 2.4.65
 - phpMyAdmin
@@ -375,6 +377,7 @@ Open your browser at `http://localhost`
 I used GitHub Pages to host a static website. My code is versioned with Git, pushed to GitHub, and GitHub Pages automatically publishes the main branch.
 
 Website hosted via GitHub Pages: [URL](https://lexaframe.github.io/wishlog/)
+Website : Adresse du site déployé sur alwaysdata : https://wishlog.alwaysdata.net/index.php
 
 ## Design choices and explanatory notes
 

@@ -61,7 +61,7 @@ session_start();
               <!-- Champ e-mail -->
               <div class="contactEmailBlock">
                   <label for="email">E-mail<span class="required"> *</span></label>
-                  <input type="email" id="email" class="inputFields" name="email" placeholder="votre.email@example.com" required>
+                  <input type="email" id="email" class="inputFields" name="email" placeholder="votre.email@exemple.com" required>
               </div>
 
               <!-- Champ n° téléphone -->
