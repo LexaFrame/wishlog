@@ -24,8 +24,6 @@ session_start();
     <main>
         <!-- Introduction à la page Contact -->
         <section class="contactSection">
-
-            <!-- Div à rétablir si nécessaire <div class="contactPageIntro"> -->
                 
                 <!-- Titre de la page -->
                 <div class="pageTitleBox">
@@ -37,7 +35,6 @@ session_start();
                     <p class="contactP">Créer et partager ses envies doit rester simple et agréable. Pour toute question, souci technique ou idée d'amélioration, écrivez-nous.</p>
                 </div>
 
-            <!-- </div> -->
         </section>
         <!-- Formulaire de contact -->
         <section class="contactFormSection">
@@ -47,7 +44,6 @@ session_start();
             <form class="form"method="POST" action="#"> <!-- TODO saisir lien dans action ="" -->
 
               <!-- Champs d'identification -->
-              <!-- <div class="idBlock"> -->
                 <div class="contactIdBlock">
                     <label for="firstName">Prénom<span class="required"> *</span></label>
                     <input type="text" id="firstName" class="inputFields" name="firstName" placeholder="Entrez votre prénom" required>
@@ -56,7 +52,6 @@ session_start();
                   <label for="name">Nom<span class="required"> *</span></label>
                   <input type="text" id="name" class="inputFields nameLabel" name="name" placeholder="Entrez votre nom" required>
                 </div>
-              <!-- </div> -->
 
               <!-- Champ e-mail -->
               <div class="contactEmailBlock">
@@ -76,7 +71,6 @@ session_start();
                   <label for="address">Adresse<span class="required"> *</span></label>
                   <input type="text" id="address" class="inputFields" name="address" required placeholder="Entrez votre adresse">
                 </div>
-                <!-- <div class="cityAndCodeBlock"> -->
                 <div class="contactAddress">
                   <label for="city">Ville<span class="required"> *</span></label>
                   <input type="text" id="city" class="inputFields" name="city" required placeholder="Entrez votre ville">
@@ -85,7 +79,6 @@ session_start();
                 <label for="postalCode">Code postal<span class="required"> *</span></label>
                 <input type="text" id="postalCode" class="inputFields" name="postalCode" placeholder="Entrez votre code postal" required>
                 </div>
-                <!-- </div> -->
 
               <!-- Sélection sujet -->              
               <div class="contactSubjectBlock">

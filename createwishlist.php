@@ -163,13 +163,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['titleCreateWishlist']
                     <p class="addWishlistP">Saisissez les informations nécessaires afin de créer votre nouvelle liste.</p>
                 </div>
 
-            <!-- </div> -->
-
         </section>
         <!-- Formulaire de création de liste -->
         <section class="createWishlistFormSection">
 
-            <!-- TODO Début formulaire -> à adapter-->           
+            <!-- Début formulaire -->           
             <div class="formCard">
             <form class="form" method="POST" action="createwishlist.php">
 

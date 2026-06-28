@@ -26,8 +26,4 @@ try {
     error_log($error->getMessage()); // Appel de la méthode getMessage() (héritée de la classe Exception) sur l'objet exception $error. Cela retourne la description textuelle de l'erreur.
     // die est une fonction native de PHP qui stoppe immédiatement l'exécution du script. Le message passé en argument est affiché à l'utilisateur. 
     die("Erreur de connexion.");
-
-/* Alternative mais moins sécure car affiche le message d'erreur technique à l'utilisateur :
-  die("La connexion a échoué : " . $error->getMessage());
-  */
 }

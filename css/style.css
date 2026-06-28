@@ -14,11 +14,7 @@
 
 /* CSS appliqué à toute la page */
 *{
-    /* border: 1px dashed blue; */
-    /* outline: 1px solid red; */
     box-sizing: border-box;
-    /* border: 1px dashed white;
-    background-color: rgba(0,0,0,0.1); */
 }
 
 /* CSS appliqué au body */
@@ -137,7 +133,6 @@ header a {
     flex: 1;
     border-radius : 40px;
     border: none;
-    /* padding-left: 12px; : a pour effet de coller le bouton connexion */
     height: 30px;
     width: 100%;
 }
@@ -197,10 +192,6 @@ header a {
   margin: 0;
   padding: 10px;
 }
-
-/* .menu li {
-
-} */
 
 .menuLink {
   text-decoration: none;
@@ -403,7 +394,6 @@ footer {
 .logoFooter {
     height: 100px;
     width: 100px;
-    /* padding-top: 10px; */
     margin-top: 10px;
     border-radius: 5px;
 }
@@ -524,7 +514,6 @@ footer {
 
 label {
     font-size: 17px;
-    /* padding-bottom: 5px; */
 }
 
 .inputFields {
@@ -543,7 +532,6 @@ label {
 
 .messageLabel, .descriptionAddProductLabel {
     display: block;
-    /* padding-bottom: 10px; */
 }
 
 .required {
@@ -556,9 +544,7 @@ label {
     padding-bottom: 10px;
 }
 
-/* TODO Champs Page Contact & inscription : créer id spécifiques inscription */
 #userName, #firstName, #name, #email, #password1, #password2, #phone, #address, #city, #postalCode, #country, #message {
-    /* width: 300px; */
     width: 100%;
 }
 
@@ -566,11 +552,6 @@ select {
     background-color : #FFFFFF;
     border: 1px solid #1E293B;
 }
-
-/* .addressBlock {
-    display: inline;
-    gap: 20px;
-} */
 
 #subject, #categoryAddProduct, #priorityAddProduct, #typeOfWishlist {
     font-size: 17px;
@@ -626,10 +607,7 @@ select {
 .submitButton:hover {
     background-color: #046248;
     color: #F8FAFC;
-    border-color: #475569;
-    /* Couleur alternative : 
-    background-color: #F1F5F9;
-    color: #1E293B; */    
+    border-color: #475569;   
 }
 
 /* CSS Page Inscription */
@@ -639,8 +617,6 @@ select {
 }
 
 /* CSS Page Ajout article */
-
-
 
 /* CSS Page Création de liste */
 /* .keepSurpriseBlock {
@@ -706,9 +682,6 @@ select {
     color: #1E293B;
     border: 1px solid #1E293B;
     margin: 0px 10px 0px 10px;
-    /* margin-top: 20px;
-    padding-top: 20px;
-    padding-bottom: 20px; */
 }
 
 .eventDataParagraph {
@@ -738,13 +711,6 @@ select {
     padding-right: 10px;
     gap: 20px;
 }
-
-/* .filterParagraph {
-    display: inline;
-    color: #334155;
-    border: 1px solid #334155;
-    padding: 20px 60px 20px 60px;
-} */
 
 #filterCategory {
     display: inline;
@@ -795,7 +761,6 @@ select {
     border: 0;        
 }
 
-/* TODO Régler le problème de style d'alignement de la box */
 .wishlistProductsSectionCardBox {
     display: flex;
     flex-direction: column;
@@ -846,7 +811,6 @@ select {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    /* padding: 10px 0px 0px 0px; */
 }
 
 .productCardDetailsName {
@@ -855,8 +819,6 @@ select {
     width: 100%;
     text-decoration: underline;
     color: #1E293B;
-    /* height: 20px; */
-
 }
 
 .productCardDetailsCategory {
@@ -868,7 +830,6 @@ select {
     border: 1px solid #1E293B;
     padding: 10px 10px 10px 10px;
     margin-left: 5px;
-    /* height: 20px; */
 }
 
 .productCardDetailsShopAndDetails {
@@ -907,10 +868,6 @@ select {
 .productCardDetailsModifyAndMove button:hover {
     text-decoration: underline;
 }
-/*
-.productCardDetailsMoveButton {
-
-} */
 
 .productCardNumbers {
     display: flex;
@@ -1139,7 +1096,6 @@ select {
 }
 
 #message {
-    /* width: 300px; */
     width: 100%;
 }
 
@@ -1198,7 +1154,6 @@ select {
     order: 1;
     display: flex;
     justify-content: center;
-    /* margin-top: 10px; */
 }
 
 .productCardDetails {
@@ -1237,7 +1192,6 @@ select {
 
 .productCardDrag {
     order:3;
-    /* border : 1px solid #1E293B; */
     padding : 0px 5px 0px 5px;
 }
 
@@ -1267,10 +1221,6 @@ select {
     color: #29323f;
 }
 
-/* .dark .productCardDrag {
-    border : 1px solid #FFFFFF;
-} */
-
 }
 
 /* Responsive layout intermédiaire */
@@ -1291,16 +1241,6 @@ select {
     display: block;
 }
 
-/* label {
-    display: block;
-    padding-top: 10px;
-    font-size: 17px;
-} */
-
-/* .inputFields {
-    padding-bottom: 10px;
-} */
-
 .cityAndCodeBlock {
     padding: 0px;
 }
@@ -1317,20 +1257,6 @@ select {
 .submitButton {
     margin-top: 10px;
 }
-
-/* Version flex de l'organisation de la card 
- .productCardDetailsName {
-    width: 100%;
-}
-
-.productCardNumbers {
-    margin-top: 15px;
-}
-
-.productCardDetailsModifyAndMove {
-    padding: 10px 0px 40px 0px;
-} 
-*/
 
 /* Adaptation responsive de la productCard pour l'affichage intermédiaire avec grid : */
 
@@ -1385,13 +1311,8 @@ select {
 }
 
 .dark header {
-    /* background-color: #111827; */
-    /* background-color:#283144;
-    background-color:#475569;
-    background-color:#334155; */
     background-color: #1f273a;
     border : 1px solid #F1F5F9;
-    /* border-color: #F8FAFC; */
 }
 
 .dark .tagLanguage {
@@ -1436,7 +1357,6 @@ select {
 }
 
 .dark main {
-    /* background-color: #0B0F1A; */
     background-color: #111827;
     border : 1px solid #F1F5F9;
 }
@@ -1465,7 +1385,6 @@ select {
 }
 
 .dark .descriptionSection {
-    /* background-color: #1E293B; */
     background-color: #29323f;
     color: #29323b;
 }
@@ -1564,7 +1483,6 @@ select {
 .dark #filterCategory, .dark #sortItems {
     background-color: #111827;
     color: #F1F5F9;
-    /* border: 1px solid #29323f; */
     border: 1px solid #F1F5F9;
 }
 
@@ -1576,7 +1494,7 @@ select {
     background-color: #29323f;
     color: #F1F5F9;
     border: 1px solid #F1F5F9;
-    /* border: 1px solid #1E293B; */
+
 }
 
 .dark .productCardImage img {
@@ -1643,283 +1561,3 @@ select {
 .dark .loginLinks {
     color: #CBD5E1;    
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Proposition palette 2
-
-Fond principal        #F8FAFC   (gris très clair)
-Fond section secondaire #F1F5F9
-Fond cartes           #FFFFFF
-Bordures              #E2E8F0
-
-Texte principal       #1E293B
-Texte secondaire      #475569
-Texte section 2ndaire   #1E293B
-
-Fond header           #334155   (gris bleuté foncé)
-Texte header          #F8FAFC
-
-Fond bouton           #475569   (gris bleuté)
-Texte                 #F8FAFC
-Contraste             7.4:1 ✅ WCAG AAA
-
-Fond bouton           #64748B   (gris bleuté moyen)
-Texte                 #FFFFFF
-Contraste             4.9:1 ✅ WCAG AA
-
-Header CTA hover : #334155
-Body CTA hover   : #475569
-
-Header CTA alternatif : #D1FAE5
-Texte : #334155
-
-*/
-
-/* Propositions couleurs 1 */
-/* Bleu principal        #2563EB
-Bleu clair (hover)    #3B82F6
-Gris très clair (fond)#F9FAFB
-Gris clair (cartes)   #E5E7EB
-Gris foncé (texte)    #1F2937
-Vert action (succès)  #22C55E */
-
-/* Bouton hover CTA :
-    background-color: #04724D;
-    background-color: #3A846B;
-    background-color: #508976;
-    background-color: #72BBA3; */
-
-/* Fond général        → Gris très clair
-Header / navbar     → Bleu principal
-Cartes produits     → Blanc
-Texte principal     → Gris foncé
-Boutons principaux  → Bleu principal
-Boutons secondaires → Gris clair
-Actions positives   → Vert */
-
-/* Palettes complètes */
-
-/* --Palette mode clair-- 
-
-- Fonds : 7 couleurs différentes
-Fond body : #F8FAFC
-Fond main : #FFFFFF
-Fond header : #334155
-Fond footer : #334155
-Fond contactSection : #FFFFFF
-Fond descriptionSection : #F1F5F9
-Fond productCard : #F1F5F9
-Fond menuLink:hover #F8FAFC : 
-Fond bouton 1 :
-Fond bouton 2 :
-Fond bouton hover :
-Fond bouton CTA : #D1FAE5
-Fond bouton CTA hover : #059364
-Fond bouton createAccount : #334155
-Fond bouton createAccound:hover : #F8FAFC
-Fond cardsOptions : #FFFFFF
-Fond contactSection : #FFFFFF
-Fond submitButton : #475569
-Fond submitButton:hover : #059364
-Fond personalDataSection : #F1F5F9
-Fond wishlitProductsSection : #FFFFFF
-Fond filterCategory : #FFFFFF
-Fond sortItems : #FFFFFF
-Fond productCardImage img : #FFFFFF
-Fond productCardsCategory : #FFFFFF
-Fond productCardDetailsModifyAndMove button : #FFFFFF
-Fond productCardNumbersDeleteButton : #FFFFFF
-Fond productCardNumbersPriority : #FFFFFF
-Fond productCardNumbersPrice : #FFFFFF
-Fond productCardNumbersBuy : #059364
-Fond personalDataSection : #F1F5F9
-
-
-- Textes : 5 couleurs différentes
-Texte principal :
-Texte secondaire :
-Texte tertiaire :
-Texte header : #F8FAFC
-Texte header a : white
-Texte languageBox : #F8FAFC
-Texte tagLanguage : #F8FAFC
-Triangle : #F8FAFC
-Texte menu:hover : #334155
-Texte bouton createAccount : #F8FAFC
-Texte bouton createAccount:hover : #334155
-Texte bouton CTA : #334155
-Texte bouton CTA:hover : #F8FAFC
-Texte footer : #F8FAFC
-Texte h1 : #1E293B
-Texte slogan :#475569
-Texte descriptionSection : #1E293B
-Texte descriptionParagraph : #334155
-Texte descriptionParagraph2 : #334155
-Texte cardsOptions : #334155
-Texte aboutLink & aboutLink:hover : #F8FAFC
-Texte infoBoxLink& infoBoxLink:hover #F8FAFC
-Texte h1Contact : #475569
-Texte required : crimson
-Texte submitButton : #F8FAFC
-Texte submitButton:hover : #F8FAFC
-Texte h1Wishlist : #475569
-Texte wishlistDescriptionParagraph : #475569
-Texte personalDataSection : #1E293B
-Texte eventDataParagraph : #475569
-Texte wishlistSeparation : #1E293B
-Texte idDataSection : #475569
-Texte filterCategory : #334155
-Texte sortItems : #334155
-Texte productCard : #1E293B
-Texte productCardDetailsName : #1E293B
-Texte productCardDetailsShop : #1E293B
-Texte productCardDetailsDescription : #1E293B
-Texte productCardNumbersBuy : #F8FAFC
-Texte personalDataSection : #1E293B
- 
-
-- Bordures et éléments : 8 couleurs différentes
-Bordure menu : #F8FAFC
-Bordure CTA : #000000
-Border aboutBox #F8FAFC : 
-Bordure CTA2 : #334155
-Bordure cardsOptions : #334155
-Hr : #334155
-Box-shadow cardsOptions : #E2E8F0
-Bordure cardsOptions::before : #334155
-Bordure copyrightBox : white
-Bordure submitButton : #475569
-Bordure submitButton:hover : #475569
-Bordure personalDataSection : #1E293B
-Bordure filterCategory : #334155
-Bordure sortItems : #334155
-Bordure productCard : #1E293B
-Box-shadow productCardImage img : #1E293B
-Bordure productCardDetailsCategory : #1E293B
-Bordure productCardDetailsModifyAndMove button : #1E293B
-Bordure productCardNumbersDeleteButton : #1E293B
-Bordure productCardNumbersPriority : #1E293B
-Bordure productCardNumbersPrice : #1E293B
-Bordure productCardNumbersNumber : #1E293B
-Bordure productCardNumbersBuy : #1E293B
-wishlistSeparation : #F1F5F9
-Bordure productCardDrag : #1E293B
-
-
---Palette mode sombre--
-
-- Fonds : 7 couleurs différentes
-Body : #020617
-Main : #0B0F1A
-Header : #111827
-Footer : #111827
-ContactSection : #0B0F1A
-DescriptionSection : #29323f
-ProductCard : #29323f
-Menu:hover #F8FAFC → #29323f
-Bouton 1 : #111827
-Bouton 2 : #1E293B
-Bouton hover : #334155
-Bouton CTA : #064E3B
-Bouton CTA hover : #10B981
-Bouton createAccount : #111827
-Bouton createAccount:hover : #F1F5F9
-CardsOptions : #0B0F1A
-SubmitButton : #29323f
-SubmitButton:hover : #10B981
-PersonalDataSection : #29323f
-WishlistProductsSection : #0B0F1A
-FilterCategory : #0B0F1A
-SortItems : #0B0F1A
-ProductCardImage img : #29323f
-ProductCardsCategory : #29323f
-productCardDetailsModifyAndMove button : #29323f
-productCardNumbersDeleteButton : #29323f
-productCardNumbersPriority : #29323f
-productCardNumbersPrice : #F1F5F9
-productCardNumbersBuy : #10B981
-PersonalDataSection : #29323f
-
-
--Textes 5 couleurs différentes
-
-Texte principal : #F1F5F9
-Texte secondaire : #CBD5E1
-Texte tertiaire / descriptions : #94A3B8
-Texte header : #F8FAFC
-Texte header a : #F1F5F9
-Texte languageBox : #F8FAFC
-Texte tagLanguage : #F8FAFC
-Triangle : #F8FAFC
-Texte menu:hover : #F1F5F9
-Texte bouton createAccount : #F8FAFC
-Texte bouton createAccount:hover : #111827
-Texte bouton CTA : #F1F5F9
-Texte bouton CTA:hover : #111827
-Texte footer : #F8FAFC
-Texte h1 : #CBD5E1
-Texte slogan : #94A3B8
-Texte descriptionSection : #F1F5F9
-Texte descriptionParagraph : #CBD5E1
-Texte descriptionParagraph2 : #CBD5E1
-Texte cardsOptions : #F1F5F9
-Texte aboutLink & aboutLink:hover : #F8FAFC
-Texte infoBoxLink & infoBoxLink:hover : #F8FAFC
-Texte h1Contact : #94A3B8
-Texte required : #EF4444
-Texte submitButton : #F1F5F9
-Texte submitButton:hover : #F1F5F9
-Texte h1Wishlist : #94A3B8
-Texte wishlistDescriptionParagraph : #94A3B8
-Texte personalDataSection : #F1F5F9
-Texte eventDataParagraph : #94A3B8
-Texte wishlistSeparation : #CBD5E1
-Texte idDataSection : #94A3B8
-Texte filterCategory : #CBD5E1
-Texte sortItems : #CBD5E1
-Texte productCard : #F1F5F9
-Texte productCardDetailsName : #F1F5F9
-Texte productCardDetailsShop : #CBD5E1
-Texte productCardDetailsDescription : #94A3B8
-Texte productCardNumbersBuy : #F1F5F9
-Texte personalDataSection : #F1F5F9
-
-- Bordures et éléments : 8 couleurs
-
-Bordure menu : #CBD5E1
-Bordure CTA : #111827
-Border aboutBox : #CBD5E1
-Bordure CTA2 : #111827
-Bordure cardsOptions : #29323f
-Hr : #334155
-Box-shadow cardsOptions : #0B0F1A
-Bordure cardsOptions::before : #29323f
-Bordure copyrightBox : #F1F5F9
-Bordure submitButton : #29323f
-Bordure submitButton:hover : #29323f
-Bordure personalDataSection : #29323f
-Bordure filterCategory : #29323f
-Bordure sortItems : #29323f
-Bordure productCard : #29323f
-Box-shadow productCardImage img : #0B0F1A
-Bordure productCardDetailsCategory : #29323f
-Bordure productCardDetailsModifyAndMove button : #29323f
-Bordure productCardNumbersDeleteButton : #29323f
-Bordure productCardNumbersPriority : #29323f
-Bordure productCardNumbersPrice : #29323f
-Bordure productCardNumbersNumber : #29323f
-Bordure productCardNumbersBuy : #29323f
-WishlistSeparation : #29323f
-Bordure productCardDrag : #29323f
-*/

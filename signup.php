@@ -55,15 +55,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['userName'], $_POST['e
     $has_errors = true;
   }
 
-  // TODO : Finir de mettre en place une limitation de choix de nom d'utilisateur en cumulant cette fois in_array ET ensuite en ajoutant la limitation de choix à l'aide de préfixes et d'un foreach et de str_starts_with():
-  // $reserved_user_names = ['null', 'undefined'];
-
-  // if (in_array($user_name, $reserved_user_names, true)) {
-  //     $user_name_reserved_error_message = "Ce nom d'utilisateur est réservé. Veuillez choisir un autre nom d'utilisateur";
-  // }
-  //   $reserved_prefixes_user_names = ['admin', '_admin', 'administrator', '_administrator', 'moderator', '_moderator', 'root', '_root', 'system', '_system', 'support', '_support', 'staff', '_staff', 'helpdesk', '_helpdesk','superuser', '_superuser', 'operator', '_operator'];
-  // TODO : écrire ici le foreach
-
   // 4-4 Vérification que l'e-mail saisi est valide avec filter_var() : 
   if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     $email_syntax_error_message = "L'adresse e-mail saisie est invalide. Veuillez saisir une adresse e-mail valide.";
@@ -173,7 +164,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['userName'], $_POST['e
   }
 }
 
-// TODO : mettre en place une confirmation d'inscription par mail.
 ?>
 <!--
   Author: Sarah Segui Bilger
@@ -208,7 +198,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['userName'], $_POST['e
         <p class="signupP">Prenez quelques instants pour saisir vos informations personnelles afin de créer votre liste d'envies et la partager avec vos proches.</p>
       </div>
 
-      <!-- </div> -->
     </section>
     <!-- Formulaire d'inscription -->
     <section class="signupFormSection">
@@ -245,7 +234,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['userName'], $_POST['e
           <?php endif; ?>
 
           <!-- Champ prénom & nom-->
-          <!-- <div class="idBlock"> -->
             <div class="signupIdBlock">
               <label for="firstName">Prénom</label>
               <input type="text" id="firstName" class="inputFields" name="firstName" placeholder="Entrez votre prénom">
@@ -254,7 +242,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['userName'], $_POST['e
               <label for="name">Nom</label>
               <input type="text" id="name" class="inputFields nameLabel" name="name" placeholder="Entrez votre nom">
             </div>
-          <!-- </div> -->
 
           <!-- Champ e-mail -->
           <div class="emailBlock">

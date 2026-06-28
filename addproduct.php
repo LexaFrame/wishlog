@@ -218,10 +218,6 @@ if ($product_priority === "selection") {
     <main>
         <!-- Introduction à la page Ajout Article -->
         <section class="addProductSection">
-
-        <!--TODO modifier noms de classe-->
-
-            <!-- Div à rétablir si nécessaire <div class="contactPageIntro"> -->
                 
                 <!-- Titre de la page -->
                  <!-- Adaptation du titre de la page grâce à l'opérateur ternaire ?: pour if/else -->
@@ -233,8 +229,6 @@ if ($product_priority === "selection") {
                 <div class="pageParagraphBox">
                     <p class="addProductP"><?php echo $product_edit_mode ? 'Modifiez les informations du produit.' : 'Saisissez les informations du produit que vous souhaitez ajouter à votre liste.'; ?></p>
                 </div>
-
-            <!-- </div> -->
 
         </section>
         <!-- Formulaire d'ajout d'articles' -->
@@ -257,7 +251,7 @@ if ($product_priority === "selection") {
             <p class="productFormError"><?php echo htmlspecialchars($product_error_message); ?></p>
         <?php endif; ?>
 
-            <!-- TODO Début formulaire -> à adapter-->           
+            <!-- Début formulaire -->           
             <div class="formCard">
             <form class="form" method="POST" action="addproduct.php<?php echo $product_edit_mode ? '?id=' . htmlspecialchars($product_id_edit) : ''; ?>">
 

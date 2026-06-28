@@ -10,31 +10,31 @@ if (isset($_SESSION['user_id'])) {
     exit();
 }
 
-// 3 - Connexion de l'utilisateur s'il figure bien dans la base de données (vérification email et mot de passe) et lancement de la session : 
+// 4 - Connexion de l'utilisateur s'il figure bien dans la base de données (vérification email et mot de passe) et lancement de la session : 
 
-    // 3-1 - Vérifier que la requête est bien POST et que les champs e-mail et mot de passe sont bien remplis par l'utilisateur, si c'est le cas
+    // 4-1 - Vérifier que la requête est bien POST et que les champs e-mail et mot de passe sont bien remplis par l'utilisateur, si c'est le cas
     if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['email'], $_POST['password1'])) {
 
-        //3-2 Nettoyer et récupérer la saisie utilisateur dans des variables :
+        //4-2 Nettoyer et récupérer la saisie utilisateur dans des variables :
         $email = trim($_POST['email']);
         $password = trim($_POST['password1']);
 
-        // 3-3 Requête pour comparer les informations de l'utilisateur afin de vérifier qu'elles correspondent à ce qui figure déjà dans la base de données :
+        // 4-3 Requête pour comparer les informations de l'utilisateur afin de vérifier qu'elles correspondent à ce qui figure déjà dans la base de données :
         $login_attempt = $pdo->prepare(
             "SELECT user_id, user_email, user_password_hash
             FROM wl_user
             WHERE user_email = :email"
         );
 
-        // 3-4 Exécution de la requête de vérification :
+        // 4-4 Exécution de la requête de vérification :
         $login_attempt->execute(
             [':email'=>$email]
         );
 
-        // 3-5 Récupérer le résultat de $login_attempt :
+        // 4-5 Récupérer le résultat de $login_attempt :
         $login_result = $login_attempt->fetch();
 
-        // 3-6 Indiquer à l'utilisateur si sa saisie comporte une erreur :
+        // 4-6 Indiquer à l'utilisateur si sa saisie comporte une erreur :
         if($login_result === false) {
             $login_error_message = "L'e-mail ou le mot de passe est incorrect";
         } else {
@@ -94,7 +94,6 @@ if (isset($_SESSION['user_id'])) {
                     <p class="loginP">Saisissez vos informations d'identification ou <a href="signup.php" class="loginLinks">créez votre compte</a> pour créer votre liste d'envies et la partager avec vos proches.</p>
                 </div>
 
-            <!-- </div> -->
         </section>
         <!-- Formulaire de connexion -->
         <section class="loginFormSection">
@@ -102,13 +101,6 @@ if (isset($_SESSION['user_id'])) {
             <!-- Début formulaire -->           
             <div class="loginFormCard">
             <form class="form" method="POST" action="login.php">
-
-            <!-- Champs d'identification -->
-              <!-- Champ pseudo
-              <div class="userNameBlock">
-                  <label for="userName">Pseudo<span class="required"> *</span></label>
-                  <input type="text" id="userName" class="inputFields" name="userName" placeholder="Entrez votre nom d'utilisateur" required>
-              </div> -->
               
               <!-- Champ email -->
               <div class="loginEmailBlock">

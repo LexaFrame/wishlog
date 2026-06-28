@@ -87,11 +87,6 @@ $display_wishlist->execute([':wishlist_id' => $wishlist_id]);
 // Récupérer le résultat :
 $final_display = $display_wishlist->fetchAll();
 
-//Structure utilisée plus bas pour l'affichage des cartes, à supprimer dès que devenu inutile : 
-/*foreach ($affichage_final as $products) {
-  
-}*/
-
 ?>
 
 <!--

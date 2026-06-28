@@ -1,6 +1,4 @@
     <header>
-      <!-- TODO menu burger : <a href="#"></a> Penser à mettre le mot Menu, une personne handicapée ne verra pas le caractère spécial pour indiquer la présence du menu. Si ce n'est pas possible, mettre un aria-label (aria-label="Menu") -->
-
       <!-- Conteneur du header -->
       <div class="headerBox">
 
@@ -13,7 +11,7 @@
 
           <!-- Choix de la langue -->
           <div class="languageBox">
-            <!--  TODO : modifier en aria-haspopup en listbox ? / aria-haspopup pour indiquer aux lecteurs d'écran l'ouverture d'un menu interactif et aria-expanded pour indiquer l'état actuel (fermé) du menu, qui passera à true avec JS lorsqu'il sera ouvert -->
+            <!-- aria-haspopup pour indiquer aux lecteurs d'écran l'ouverture d'un menu interactif et aria-expanded pour indiquer l'état actuel (fermé) du menu, qui passera à true avec JS lorsqu'il sera ouvert -->
             <button class="buttonLanguage" aria-haspopup="true" aria-expanded="false">
               <span class="tagLanguage">FR</span>
               <!-- aria-hidden pour cacher l'élément décoratif aux lecteurs d'écran pour ne pas annoncer l'icône inutilement -->
@@ -61,7 +59,7 @@
           </nav>
       </div>
       <!-- BoutonCTA1 -->
-       <!--  -->
+       <!-- Si user_id existe dans $_SESSION affiche Voir ma liste, sinon affiche Créer ma liste -->
       <?php if (isset($_SESSION['user_id'])) : ?>
       <a href="wishlist.php" class="CTA1">Voir ma liste</a>
       <?php else : ?>

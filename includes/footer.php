@@ -22,7 +22,7 @@
           </a>
 
           <!-- Réseaux sociaux -->
-            <!-- Insérer boutons icônes liens RS ci-dessous -->
+            <!-- Insértion boutons icônes liens RS ci-dessous -->
             <div class="socialMedia">
               <a href="https://www.facebook.com/">
                 <img src="images/facebook.png" class="buttonSocialMedia" title="Facebook" alt="Logo de Facebook"/>
